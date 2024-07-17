@@ -540,40 +540,49 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           ),
                         ),
                       ),
-                      Container(
-                        width: MediaQuery.sizeOf(context).width * 0.4,
-                        height: 40.0,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              FlutterFlowTheme.of(context).secondary,
-                              FlutterFlowTheme.of(context).primary
-                            ],
-                            stops: const [0.1, 1.0],
-                            begin: const AlignmentDirectional(1.0, -1.0),
-                            end: const AlignmentDirectional(-1.0, 1.0),
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('Login');
+                        },
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 0.4,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                FlutterFlowTheme.of(context).secondary,
+                                FlutterFlowTheme.of(context).primary
+                              ],
+                              stops: const [0.1, 1.0],
+                              begin: const AlignmentDirectional(1.0, -1.0),
+                              end: const AlignmentDirectional(-1.0, 1.0),
+                            ),
+                            borderRadius: BorderRadius.circular(24.0),
                           ),
-                          borderRadius: BorderRadius.circular(24.0),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Icon(
-                              Icons.person,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 24.0,
-                            ),
-                            Text(
-                              'Registrarse',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                          ],
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(
+                                Icons.person,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                size: 24.0,
+                              ),
+                              Text(
+                                'Registrarse',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ]

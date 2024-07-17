@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "576704877106",
+    "project_id": "ikikravmaga-37686",
+    "storage_bucket": "ikikravmaga-37686.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576704877106:android:62ef7f845364c63f49e22b",
+        "android_client_info": {
+          "package_name": "com.mycompany.ikicrkravmaga"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1gluYHTP1g3jlgi-VBUxyyAG8nyhKiGg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

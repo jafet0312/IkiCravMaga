@@ -282,25 +282,34 @@ class _LoginWidgetState extends State<LoginWidget> {
                           ),
                           borderRadius: BorderRadius.circular(24.0),
                         ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Icon(
-                              Icons.person,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 24.0,
-                            ),
-                            Text(
-                              'Iniciar Sesión',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                          ],
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('HomePage');
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(
+                                Icons.person,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                size: 24.0,
+                              ),
+                              Text(
+                                'Iniciar Sesión',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ]
@@ -326,13 +335,24 @@ class _LoginWidgetState extends State<LoginWidget> {
                               letterSpacing: 0.0,
                             ),
                       ),
-                      Text(
-                        'Registrese aquí',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context).secondary,
-                              letterSpacing: 0.0,
-                            ),
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('Registro');
+                        },
+                        child: Text(
+                          'Registrese aquí',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).secondary,
+                                letterSpacing: 0.0,
+                              ),
+                        ),
                       ),
                     ],
                   ),
