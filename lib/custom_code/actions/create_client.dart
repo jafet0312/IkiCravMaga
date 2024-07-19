@@ -14,8 +14,10 @@ import 'package:firebase_core/firebase_core.dart';
 Future createClient(String emailAddress, String password, String role,
     String userName, String phone, String randomApp) async {
   DateTime createdTime = DateTime.now();
+
   FirebaseApp app = await Firebase.initializeApp(
       name: randomApp, options: Firebase.app().options);
+
   UserCredential userCredential = await FirebaseAuth.instanceFor(app: app)
       .createUserWithEmailAndPassword(email: emailAddress, password: password);
   String? userID = userCredential.user?.uid;
