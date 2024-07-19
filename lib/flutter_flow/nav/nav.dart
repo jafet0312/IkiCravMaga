@@ -96,7 +96,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Registro',
           path: '/registro',
-          builder: (context, params) => const RegistroWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Registro')
+              : const RegistroWidget(),
         ),
         FFRoute(
           name: 'PerfilUsuario',
@@ -133,6 +135,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'DetallesCurso',
           path: '/detallesCurso',
           builder: (context, params) => const DetallesCursoWidget(),
+        ),
+        FFRoute(
+          name: 'Preferencias',
+          path: '/preferencias',
+          builder: (context, params) => const PreferenciasWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

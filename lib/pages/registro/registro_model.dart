@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'registro_widget.dart' show RegistroWidget;
 import 'package:flutter/material.dart';
 
@@ -18,19 +19,20 @@ class RegistroModel extends FlutterFlowModel<RegistroWidget> {
   FocusNode? txtfTelefonoFocusNode;
   TextEditingController? txtfTelefonoTextController;
   String? Function(BuildContext, String?)? txtfTelefonoTextControllerValidator;
-  // State field(s) for txtfContrasenia widget.
-  FocusNode? txtfContraseniaFocusNode;
-  TextEditingController? txtfContraseniaTextController;
+  // State field(s) for txtfContrasena widget.
+  FocusNode? txtfContrasenaFocusNode;
+  TextEditingController? txtfContrasenaTextController;
+  late bool txtfContrasenaVisibility;
   String? Function(BuildContext, String?)?
-      txtfContraseniaTextControllerValidator;
-  // State field(s) for txtfConfirmacionContrasenia widget.
-  FocusNode? txtfConfirmacionContraseniaFocusNode;
-  TextEditingController? txtfConfirmacionContraseniaTextController;
-  String? Function(BuildContext, String?)?
-      txtfConfirmacionContraseniaTextControllerValidator;
+      txtfContrasenaTextControllerValidator;
+  // State field(s) for ddRole widget.
+  String? ddRoleValue;
+  FormFieldController<String>? ddRoleValueController;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    txtfContrasenaVisibility = false;
+  }
 
   @override
   void dispose() {
@@ -44,10 +46,7 @@ class RegistroModel extends FlutterFlowModel<RegistroWidget> {
     txtfTelefonoFocusNode?.dispose();
     txtfTelefonoTextController?.dispose();
 
-    txtfContraseniaFocusNode?.dispose();
-    txtfContraseniaTextController?.dispose();
-
-    txtfConfirmacionContraseniaFocusNode?.dispose();
-    txtfConfirmacionContraseniaTextController?.dispose();
+    txtfContrasenaFocusNode?.dispose();
+    txtfContrasenaTextController?.dispose();
   }
 }

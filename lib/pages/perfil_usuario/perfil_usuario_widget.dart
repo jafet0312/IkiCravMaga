@@ -373,49 +373,63 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                         .around(const SizedBox(height: 20.0)),
                   ),
                 ),
-                InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    context.pushNamed('Login');
-                  },
-                  child: Container(
-                    width: MediaQuery.sizeOf(context).width * 0.4,
-                    height: 40.0,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          FlutterFlowTheme.of(context).secondary,
-                          FlutterFlowTheme.of(context).primary
-                        ],
-                        stops: const [0.1, 1.0],
-                        begin: const AlignmentDirectional(1.0, -1.0),
-                        end: const AlignmentDirectional(-1.0, 1.0),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    FFButtonWidget(
+                      onPressed: () async {
+                        context.pushNamed('Login');
+                      },
+                      text: 'Cerrar Sesión',
+                      options: FFButtonOptions(
+                        height: 40.0,
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Inter',
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                ),
+                        elevation: 3.0,
+                        borderSide: const BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
-                      borderRadius: BorderRadius.circular(24.0),
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Icon(
-                          Icons.person_off,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 24.0,
+                    FFButtonWidget(
+                      onPressed: () async {
+                        context.pushNamed('Preferencias');
+                      },
+                      text: 'Preferencias',
+                      options: FFButtonOptions(
+                        height: 40.0,
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Inter',
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                ),
+                        elevation: 3.0,
+                        borderSide: const BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
                         ),
-                        Text(
-                          'Cerrar sesión',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
-                        ),
-                      ],
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ].divide(const SizedBox(height: 20.0)).around(const SizedBox(height: 20.0)),
             ),

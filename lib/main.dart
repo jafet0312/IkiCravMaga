@@ -123,6 +123,7 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'HomePage': const HomePageWidget(),
+      'Registro': const RegistroWidget(),
       'PerfilUsuario': const PerfilUsuarioWidget(),
       'Matricula': const MatriculaWidget(),
       'Sugerencias': const SugerenciasWidget(),
@@ -184,14 +185,14 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.person,
+                  Icons.home_outlined,
                   color: currentIndex == 1
                       ? FlutterFlowTheme.of(context).secondary
                       : FlutterFlowTheme.of(context).secondaryText,
                   size: 24.0,
                 ),
                 Text(
-                  'Perfil',
+                  'Home',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 1
@@ -208,14 +209,14 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.fitness_center_rounded,
+                  Icons.person,
                   color: currentIndex == 2
                       ? FlutterFlowTheme.of(context).secondary
                       : FlutterFlowTheme.of(context).secondaryText,
                   size: 24.0,
                 ),
                 Text(
-                  'Matricula',
+                  'Perfil',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 2
@@ -232,8 +233,32 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.star,
+                  Icons.fitness_center_rounded,
                   color: currentIndex == 3
+                      ? FlutterFlowTheme.of(context).secondary
+                      : FlutterFlowTheme.of(context).secondaryText,
+                  size: 24.0,
+                ),
+                Text(
+                  'Matricula',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 3
+                        ? FlutterFlowTheme.of(context).secondary
+                        : FlutterFlowTheme.of(context).secondaryText,
+                    fontSize: 11.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.star,
+                  color: currentIndex == 4
                       ? FlutterFlowTheme.of(context).secondary
                       : FlutterFlowTheme.of(context).secondaryText,
                   size: 24.0,
@@ -242,7 +267,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   'Sugerencias',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    color: currentIndex == 3
+                    color: currentIndex == 4
                         ? FlutterFlowTheme.of(context).secondary
                         : FlutterFlowTheme.of(context).secondaryText,
                     fontSize: 11.0,
