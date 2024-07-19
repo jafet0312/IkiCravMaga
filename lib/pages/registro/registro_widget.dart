@@ -72,10 +72,14 @@ class _RegistroWidgetState extends State<RegistroWidget> {
             ),
             onPressed: () async {
               context.pop();
+
+              context.pushNamed('Login');
             },
           ),
           title: Text(
-            'IKI CR Krav Maga',
+            FFLocalizations.of(context).getText(
+              'r0lsvox2' /* IKI CR Krav Maga */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Sora',
                   color: Colors.white,
@@ -110,7 +114,9 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Crear una cuenta',
+                            FFLocalizations.of(context).getText(
+                              '9lrabwix' /* Crear una cuenta */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
@@ -134,7 +140,10 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                 autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Correo electrónico',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    'rmkfyyc1' /* Correo electrónico */,
+                                  ),
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
@@ -223,7 +232,10 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                 autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Nombre',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    'luhiu5sq' /* Nombre */,
+                                  ),
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
@@ -312,7 +324,10 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                 autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Teléfono',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    'h84eyf93' /* Teléfono */,
+                                  ),
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
@@ -401,7 +416,10 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                 autofocus: true,
                                 obscureText: !_model.txtfContrasenaVisibility,
                                 decoration: InputDecoration(
-                                  labelText: 'Contraseña',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    'qga7hheh' /* Contraseña */,
+                                  ),
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
@@ -482,7 +500,14 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                 FlutterFlowDropDown<String>(
                                   controller: _model.ddRoleValueController ??=
                                       FormFieldController<String>(null),
-                                  options: const ['Usuario', 'Administrador'],
+                                  options: [
+                                    FFLocalizations.of(context).getText(
+                                      'hc141o6b' /* Usuario */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      'qrmk7q44' /* Administrador */,
+                                    )
+                                  ],
                                   onChanged: (val) =>
                                       setState(() => _model.ddRoleValue = val),
                                   width: 300.0,
@@ -493,7 +518,9 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                         fontFamily: 'Inter',
                                         letterSpacing: 0.0,
                                       ),
-                                  hintText: 'Seleccione el rol',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    '1fbz476o' /* Seleccione el rol */,
+                                  ),
                                   icon: Icon(
                                     Icons.keyboard_arrow_down_rounded,
                                     color: FlutterFlowTheme.of(context)
@@ -538,7 +565,9 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                     ),
                                   );
                                 },
-                                text: 'Registar',
+                                text: FFLocalizations.of(context).getText(
+                                  '0t4jclv0' /* Registar */,
+                                ),
                                 options: FFButtonOptions(
                                   height: 40.0,
                                   padding: const EdgeInsetsDirectional.fromSTEB(

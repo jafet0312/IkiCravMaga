@@ -8,8 +8,8 @@ import 'auth/firebase_auth/auth_util.dart';
 import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
+import 'flutter_flow/internationalization.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
-import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
 void main() async {
@@ -18,7 +18,7 @@ void main() async {
   usePathUrlStrategy();
   await initFirebase();
 
-  await FlutterFlowTheme.initialize();
+  await FFLocalizations.initialize();
 
   runApp(const MyApp());
 }
@@ -35,7 +35,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  ThemeMode _themeMode = FlutterFlowTheme.themeMode;
+  Locale? _locale = FFLocalizations.getStoredLocale();
+
+  ThemeMode _themeMode = ThemeMode.system;
 
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
@@ -68,9 +70,13 @@ class _MyAppState extends State<MyApp> {
     super.dispose();
   }
 
+  void setLocale(String language) {
+    setState(() => _locale = createLocale(language));
+    FFLocalizations.storeLocale(language);
+  }
+
   void setThemeMode(ThemeMode mode) => setState(() {
         _themeMode = mode;
-        FlutterFlowTheme.saveThemeMode(mode);
       });
 
   @override
@@ -78,17 +84,18 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp.router(
       title: 'IKI CR Krav Maga',
       localizationsDelegates: const [
+        FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [Locale('en', '')],
+      locale: _locale,
+      supportedLocales: const [
+        Locale('es'),
+        Locale('en'),
+      ],
       theme: ThemeData(
         brightness: Brightness.light,
-        useMaterial3: false,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
         useMaterial3: false,
       ),
       themeMode: _themeMode,
@@ -168,7 +175,9 @@ class _NavBarPageState extends State<NavBarPage> {
                   size: 24.0,
                 ),
                 Text(
-                  'Inicio',
+                  FFLocalizations.of(context).getText(
+                    '0y6kkoe3' /* Inicio */,
+                  ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 0
@@ -192,7 +201,9 @@ class _NavBarPageState extends State<NavBarPage> {
                   size: 24.0,
                 ),
                 Text(
-                  'Home',
+                  FFLocalizations.of(context).getText(
+                    '8s3gndbm' /* Inicio */,
+                  ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 1
@@ -216,7 +227,9 @@ class _NavBarPageState extends State<NavBarPage> {
                   size: 24.0,
                 ),
                 Text(
-                  'Perfil',
+                  FFLocalizations.of(context).getText(
+                    'wsrdpx4a' /* Perfil */,
+                  ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 2
@@ -240,7 +253,9 @@ class _NavBarPageState extends State<NavBarPage> {
                   size: 24.0,
                 ),
                 Text(
-                  'Matricula',
+                  FFLocalizations.of(context).getText(
+                    'vd9xp61r' /* Matricula */,
+                  ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 3
@@ -264,7 +279,9 @@ class _NavBarPageState extends State<NavBarPage> {
                   size: 24.0,
                 ),
                 Text(
-                  'Sugerencias',
+                  FFLocalizations.of(context).getText(
+                    'o742p6sh' /* Sugerencias */,
+                  ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 4

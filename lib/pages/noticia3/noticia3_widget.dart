@@ -1,25 +1,25 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'noticia1_model.dart';
-export 'noticia1_model.dart';
+import 'noticia3_model.dart';
+export 'noticia3_model.dart';
 
-class Noticia1Widget extends StatefulWidget {
-  const Noticia1Widget({super.key});
+class Noticia3Widget extends StatefulWidget {
+  const Noticia3Widget({super.key});
 
   @override
-  State<Noticia1Widget> createState() => _Noticia1WidgetState();
+  State<Noticia3Widget> createState() => _Noticia3WidgetState();
 }
 
-class _Noticia1WidgetState extends State<Noticia1Widget> {
-  late Noticia1Model _model;
+class _Noticia3WidgetState extends State<Noticia3Widget> {
+  late Noticia3Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Noticia1Model());
+    _model = createModel(context, () => Noticia3Model());
   }
 
   @override
@@ -57,9 +57,7 @@ class _Noticia1WidgetState extends State<Noticia1Widget> {
           ),
           title: Text(
             FFLocalizations.of(context).getText(
-              'gjngctx0' /* Mitos y realidades 
-del Krav M... */
-              ,
+              'egshggb7' /* Alerta */,
             ),
             textAlign: TextAlign.center,
             style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -87,10 +85,10 @@ del Krav M... */
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/mitos_de_KM.webp',
+                      'assets/images/ARTES_PARA_PORTADAS_DE_BLOG_IKICR_(1).webp',
                       width: 393.0,
                       height: 200.0,
-                      fit: BoxFit.contain,
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ),
@@ -99,7 +97,7 @@ del Krav M... */
                       const EdgeInsetsDirectional.fromSTEB(40.0, 0.0, 40.0, 30.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'yelkhmaa' /* El Krav Maga es un método efic... */,
+                      'wgz4gfu2' /* ¡Hola, querido lector! Hoy qui... */,
                     ),
                     textAlign: TextAlign.justify,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(

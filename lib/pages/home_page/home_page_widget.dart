@@ -44,7 +44,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Text(
-            'IKI CR Crav Maga',
+            FFLocalizations.of(context).getText(
+              'w4jw16rn' /* IKI CR Crav Maga */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Sora',
                   color: Colors.white,
@@ -106,7 +108,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 30.0, 12.0, 0.0),
                                       child: Text(
-                                        'IKI CR Krav Maga fue fundado en el año 2014 por el instructor Erick Araya Hernández, se creó con la intención de preparar y capacitar a cada persona de la mejor manera, tanto la población civil como todas aquellas personas que dedican su vida a proteger y servir.',
+                                        FFLocalizations.of(context).getText(
+                                          'ulqhiprq' /* IKI CR Krav Maga fue fundado e... */,
+                                        ),
                                         textAlign: TextAlign.justify,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -139,7 +143,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 30.0, 12.0, 0.0),
                                       child: Text(
-                                        'Basamos nuestra técnica en la filosofía de IKI (Israelí Krav International), debemos ser rápidos y eficientes al defendernos, con esto disminuimos el riesgo que podamos correr al defendernos, logrando llevar a más personas sanas y salvas a sus hogares.\n',
+                                        FFLocalizations.of(context).getText(
+                                          'h2s3dnnz' /* Basamos nuestra técnica en la ... */,
+                                        ),
                                         textAlign: TextAlign.justify,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -172,7 +178,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 30.0, 12.0, 0.0),
                                       child: Text(
-                                        'Costa Rica Krav Maga pertenece actualmente a la Federación Mundial de Krav Maga IKI (Israelí Krav International) al igual que cuenta con el respaldo de la Asociación Krav Maga Panamá para todos estos fines, al igual que en nuestro país contamos con el respaldo de la empresa de seguridad K9 G & S.',
+                                        FFLocalizations.of(context).getText(
+                                          'nfbhhqwh' /* Costa Rica Krav Maga pertenece... */,
+                                        ),
                                         textAlign: TextAlign.justify,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -269,7 +277,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       size: 24.0,
                                     ),
                                     Text(
-                                      'Ultimas noticias',
+                                      FFLocalizations.of(context).getText(
+                                        'wb7830nw' /* Ultimas noticias */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(

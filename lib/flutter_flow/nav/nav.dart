@@ -139,12 +139,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Preferencias',
           path: '/preferencias',
-          builder: (context, params) => const PreferenciasWidget(),
+          builder: (context, params) => const NavBarPage(
+            initialPage: '',
+            page: PreferenciasWidget(),
+          ),
         ),
         FFRoute(
           name: 'Noticia1',
           path: '/noticia1',
           builder: (context, params) => const Noticia1Widget(),
+        ),
+        FFRoute(
+          name: 'Noticia2',
+          path: '/noticia2',
+          builder: (context, params) => const Noticia2Widget(),
+        ),
+        FFRoute(
+          name: 'Noticia3',
+          path: '/noticia3',
+          builder: (context, params) => const Noticia3Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

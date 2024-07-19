@@ -1,5 +1,6 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -61,7 +62,9 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
             },
           ),
           title: Text(
-            'Preferencias',
+            FFLocalizations.of(context).getText(
+              '14xe6d15' /* Preferencias */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Sora',
                   color: Colors.white,
@@ -75,137 +78,215 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Column(
+          child: Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                  child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Text(
-                        'Titulos',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Inter',
-                              letterSpacing: 0.0,
-                            ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      StreamBuilder<List<SettingsRecord>>(
-                        stream: querySettingsRecord(
-                          queryBuilder: (settingsRecord) =>
-                              settingsRecord.where(
-                            'name',
-                            isEqualTo: 'Textos',
-                          ),
-                          singleRecord: true,
-                        ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).primary,
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'eojmeql2' /* Titulos */,
                                   ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
-                            );
-                          }
-                          List<SettingsRecord> sliderSettingsRecordList =
-                              snapshot.data!;
+                            ],
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                StreamBuilder<List<SettingsRecord>>(
+                                  stream: querySettingsRecord(
+                                    queryBuilder: (settingsRecord) =>
+                                        settingsRecord.where(
+                                      'name',
+                                      isEqualTo: 'Textos',
+                                    ),
+                                    singleRecord: true,
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    List<SettingsRecord>
+                                        sliderSettingsRecordList =
+                                        snapshot.data!;
 
-                          // Return an empty Container when the item does not exist.
-                          if (snapshot.data!.isEmpty) {
-                            return Container();
-                          }
-                          final sliderSettingsRecord =
-                              sliderSettingsRecordList.isNotEmpty
-                                  ? sliderSettingsRecordList.first
-                                  : null;
-                          return Slider(
-                            activeColor: FlutterFlowTheme.of(context).primary,
-                            inactiveColor:
-                                FlutterFlowTheme.of(context).alternate,
-                            min: 10.0,
-                            max: 90.0,
-                            value: _model.sliderValue ??= 12.0,
-                            onChanged: (newValue) async {
-                              newValue =
-                                  double.parse(newValue.toStringAsFixed(2));
-                              setState(() => _model.sliderValue = newValue);
+                                    // Return an empty Container when the item does not exist.
+                                    if (snapshot.data!.isEmpty) {
+                                      return Container();
+                                    }
+                                    final sliderSettingsRecord =
+                                        sliderSettingsRecordList.isNotEmpty
+                                            ? sliderSettingsRecordList.first
+                                            : null;
+                                    return Slider(
+                                      activeColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      inactiveColor:
+                                          FlutterFlowTheme.of(context)
+                                              .alternate,
+                                      min: 10.0,
+                                      max: 90.0,
+                                      value: _model.sliderValue ??= 12.0,
+                                      divisions: 80,
+                                      onChanged: (newValue) async {
+                                        newValue = double.parse(
+                                            newValue.toStringAsFixed(2));
+                                        setState(() =>
+                                            _model.sliderValue = newValue);
 
-                              await sliderSettingsRecord!.reference
-                                  .update(createSettingsRecordData(
-                                title:
-                                    functions.pasarEntero(_model.sliderValue!),
-                              ));
-                            },
-                          );
-                        },
+                                        await sliderSettingsRecord!.reference
+                                            .update(createSettingsRecordData(
+                                          title: functions
+                                              .pasarEntero(_model.sliderValue!),
+                                        ));
+                                      },
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  StreamBuilder<List<SettingsRecord>>(
-                    stream: querySettingsRecord(
-                      queryBuilder: (settingsRecord) => settingsRecord.where(
-                        'name',
-                        isEqualTo: 'Textos',
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    StreamBuilder<List<SettingsRecord>>(
+                      stream: querySettingsRecord(
+                        queryBuilder: (settingsRecord) => settingsRecord.where(
+                          'name',
+                          isEqualTo: 'Textos',
+                        ),
+                        singleRecord: true,
                       ),
-                      singleRecord: true,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      }
-                      List<SettingsRecord> textSettingsRecordList =
-                          snapshot.data!;
+                          );
+                        }
+                        List<SettingsRecord> textSettingsRecordList =
+                            snapshot.data!;
 
-                      // Return an empty Container when the item does not exist.
-                      if (snapshot.data!.isEmpty) {
-                        return Container();
-                      }
-                      final textSettingsRecord =
-                          textSettingsRecordList.isNotEmpty
-                              ? textSettingsRecordList.first
-                              : null;
-                      return Text(
-                        'Letras',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Inter',
-                              letterSpacing: 0.0,
+                        // Return an empty Container when the item does not exist.
+                        if (snapshot.data!.isEmpty) {
+                          return Container();
+                        }
+                        final textSettingsRecord =
+                            textSettingsRecordList.isNotEmpty
+                                ? textSettingsRecordList.first
+                                : null;
+                        return Text(
+                          FFLocalizations.of(context).getText(
+                            'xeihlkod' /* Letras */,
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodySmall
+                              .override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: valueOrDefault<double>(
+                                  textSettingsRecord?.title.toDouble(),
+                                  12.0,
+                                ),
+                                letterSpacing: 0.0,
+                              ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 50.0, 0.0, 0.0),
+                          child: FlutterFlowLanguageSelector(
+                            width: 200.0,
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).tertiary,
+                            borderColor: Colors.transparent,
+                            dropdownIconColor: Colors.white,
+                            borderRadius: 8.0,
+                            textStyle: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 13.0,
                             ),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            ],
+                            hideFlags: true,
+                            flagSize: 24.0,
+                            flagTextGap: 8.0,
+                            currentLanguage:
+                                FFLocalizations.of(context).languageCode,
+                            languages: FFLocalizations.languages(),
+                            onChanged: (lang) => setAppLanguage(context, lang),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

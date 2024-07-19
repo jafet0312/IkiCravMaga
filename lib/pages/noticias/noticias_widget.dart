@@ -56,7 +56,9 @@ class _NoticiasWidgetState extends State<NoticiasWidget> {
             ),
           ),
           title: Text(
-            'Notícias',
+            FFLocalizations.of(context).getText(
+              'te7uwi3w' /* Notícias */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Sora',
                   color: Colors.white,
@@ -117,7 +119,7 @@ class _NoticiasWidgetState extends State<NoticiasWidget> {
                                       'assets/images/mitos_de_KM.webp',
                                       width: 300.0,
                                       height: 200.0,
-                                      fit: BoxFit.contain,
+                                      fit: BoxFit.fill,
                                     ),
                                   ),
                                 ),
@@ -126,7 +128,9 @@ class _NoticiasWidgetState extends State<NoticiasWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Mitos y realidades del Krav Magá',
+                                      FFLocalizations.of(context).getText(
+                                        '7zqy8213' /* Mitos y realidades del Krav Ma... */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
@@ -144,7 +148,9 @@ class _NoticiasWidgetState extends State<NoticiasWidget> {
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 5.0, 0.0, 0.0),
                                         child: Text(
-                                          'Conocé acerca de los mitos más comunes y sus realidades a la hora de practicar Krav Magá',
+                                          FFLocalizations.of(context).getText(
+                                            'tdforno9' /* Conocé acerca de los mitos más... */,
+                                          ),
                                           textAlign: TextAlign.justify,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -181,11 +187,11 @@ class _NoticiasWidgetState extends State<NoticiasWidget> {
                               ),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/186/600',
+                                child: Image.asset(
+                                  'assets/images/Taller_GRATUITO.webp',
                                   width: 300.0,
                                   height: 200.0,
-                                  fit: BoxFit.cover,
+                                  fit: BoxFit.fill,
                                 ),
                               ),
                             ),
@@ -194,11 +200,14 @@ class _NoticiasWidgetState extends State<NoticiasWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Noticia 2',
+                                  FFLocalizations.of(context).getText(
+                                    'zwsmvxdw' /* Beneficios del Krav Maga */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
                                         fontFamily: 'Inter',
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -208,11 +217,14 @@ class _NoticiasWidgetState extends State<NoticiasWidget> {
                                   height: 80.0,
                                   decoration: const BoxDecoration(),
                                   child: Text(
-                                    'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.',
+                                    FFLocalizations.of(context).getText(
+                                      'za97zf3l' /* El Krav Maga no es solo una fo... */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
+                                          fontSize: 12.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -240,11 +252,11 @@ class _NoticiasWidgetState extends State<NoticiasWidget> {
                               ),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/186/600',
+                                child: Image.asset(
+                                  'assets/images/ARTES_PARA_PORTADAS_DE_BLOG_IKICR_(1).webp',
                                   width: 300.0,
                                   height: 200.0,
-                                  fit: BoxFit.cover,
+                                  fit: BoxFit.fill,
                                 ),
                               ),
                             ),
@@ -253,11 +265,14 @@ class _NoticiasWidgetState extends State<NoticiasWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Noticia 3',
+                                  FFLocalizations.of(context).getText(
+                                    'n8s36irc' /* Alerta */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
                                         fontFamily: 'Inter',
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -267,11 +282,14 @@ class _NoticiasWidgetState extends State<NoticiasWidget> {
                                   height: 80.0,
                                   decoration: const BoxDecoration(),
                                   child: Text(
-                                    'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.',
+                                    FFLocalizations.of(context).getText(
+                                      'qznzfqo8' /* ¡Hola, querido lector! Hoy qui... */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
+                                          fontSize: 12.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ),

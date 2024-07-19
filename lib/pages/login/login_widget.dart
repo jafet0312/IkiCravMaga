@@ -53,7 +53,9 @@ class _LoginWidgetState extends State<LoginWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'IKI CR Krav Maga',
+                FFLocalizations.of(context).getText(
+                  'bak7v4r0' /* IKI CR Krav Maga */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Sora',
                       color: Colors.white,
@@ -110,7 +112,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                             autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
-                              labelText: 'Correo electrónico',
+                              labelText: FFLocalizations.of(context).getText(
+                                'zz5htu1c' /* Correo electrónico */,
+                              ),
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
@@ -196,7 +200,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                             autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
-                              labelText: 'Contraseña',
+                              labelText: FFLocalizations.of(context).getText(
+                                'bbdqpbcq' /* Contraseña */,
+                              ),
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
@@ -300,7 +306,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 size: 24.0,
                               ),
                               Text(
-                                'Iniciar Sesión',
+                                FFLocalizations.of(context).getText(
+                                  '4m3vtoik' /* Iniciar Sesión */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -329,7 +337,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'No tienes cuenta? ',
+                        FFLocalizations.of(context).getText(
+                          '2yxij0b1' /* No tienes cuenta?  */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
                               letterSpacing: 0.0,
@@ -344,7 +354,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                           context.pushNamed('Registro');
                         },
                         child: Text(
-                          'Registrese aquí',
+                          FFLocalizations.of(context).getText(
+                            'cyghwrhk' /* Registrese aquí */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(

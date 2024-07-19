@@ -1,25 +1,25 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'noticia1_model.dart';
-export 'noticia1_model.dart';
+import 'noticia2_model.dart';
+export 'noticia2_model.dart';
 
-class Noticia1Widget extends StatefulWidget {
-  const Noticia1Widget({super.key});
+class Noticia2Widget extends StatefulWidget {
+  const Noticia2Widget({super.key});
 
   @override
-  State<Noticia1Widget> createState() => _Noticia1WidgetState();
+  State<Noticia2Widget> createState() => _Noticia2WidgetState();
 }
 
-class _Noticia1WidgetState extends State<Noticia1Widget> {
-  late Noticia1Model _model;
+class _Noticia2WidgetState extends State<Noticia2Widget> {
+  late Noticia2Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Noticia1Model());
+    _model = createModel(context, () => Noticia2Model());
   }
 
   @override
@@ -57,8 +57,8 @@ class _Noticia1WidgetState extends State<Noticia1Widget> {
           ),
           title: Text(
             FFLocalizations.of(context).getText(
-              'gjngctx0' /* Mitos y realidades 
-del Krav M... */
+              'ujgkgzod' /* Beneficios
+del Krav Maga */
               ,
             ),
             textAlign: TextAlign.center,
@@ -87,10 +87,10 @@ del Krav M... */
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/mitos_de_KM.webp',
+                      'assets/images/Taller_GRATUITO.webp',
                       width: 393.0,
                       height: 200.0,
-                      fit: BoxFit.contain,
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ),
@@ -99,7 +99,9 @@ del Krav M... */
                       const EdgeInsetsDirectional.fromSTEB(40.0, 0.0, 40.0, 30.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'yelkhmaa' /* El Krav Maga es un método efic... */,
+                      'njkm0kyi' /* Salud Física
+1. Mejora la Cond... */
+                      ,
                     ),
                     textAlign: TextAlign.justify,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(

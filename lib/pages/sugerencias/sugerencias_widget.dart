@@ -46,7 +46,9 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Text(
-            'Formulario',
+            FFLocalizations.of(context).getText(
+              'dxfrozqv' /* Formulario */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Sora',
                   color: Colors.white,
@@ -77,14 +79,18 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Encuesta de satisfacción',
+                        FFLocalizations.of(context).getText(
+                          'c9ctsi2f' /* Encuesta de satisfacción */,
+                        ),
                         style: FlutterFlowTheme.of(context).titleLarge.override(
                               fontFamily: 'Sora',
                               letterSpacing: 0.0,
                             ),
                       ),
                       Text(
-                        'Su opinión nos ayuda a mejorar continuamente',
+                        FFLocalizations.of(context).getText(
+                          'k9cnfi2j' /* Su opinión nos ayuda a mejorar... */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
                               letterSpacing: 0.0,
@@ -109,7 +115,9 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
                             autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
-                              labelText: 'Escriba su comentario aquí',
+                              labelText: FFLocalizations.of(context).getText(
+                                'co96979g' /* Escriba su comentario aquí */,
+                              ),
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
@@ -182,7 +190,9 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
                               size: 24.0,
                             ),
                             Text(
-                              'Enviar',
+                              FFLocalizations.of(context).getText(
+                                'wsvtrkpe' /* Enviar */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(

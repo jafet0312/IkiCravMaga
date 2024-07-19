@@ -56,7 +56,9 @@ class _DetallesCursoWidgetState extends State<DetallesCursoWidget> {
             ),
           ),
           title: Text(
-            'Detalle de curso',
+            FFLocalizations.of(context).getText(
+              'to7bdpjg' /* Detalle de curso */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Sora',
                   color: Colors.white,
@@ -90,7 +92,9 @@ class _DetallesCursoWidgetState extends State<DetallesCursoWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Nombre del Curso',
+                          FFLocalizations.of(context).getText(
+                            '829j7twl' /* CURSO MANEJO DE ARMAS */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).titleMedium.override(
                                     fontFamily: 'Inter',
@@ -101,7 +105,9 @@ class _DetallesCursoWidgetState extends State<DetallesCursoWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Horario: ',
+                              FFLocalizations.of(context).getText(
+                                '0u70qmgb' /* Horario:  */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -111,7 +117,9 @@ class _DetallesCursoWidgetState extends State<DetallesCursoWidget> {
                                   ),
                             ),
                             Text(
-                              'dd/MM/aaaa - hh:mm am/pm',
+                              FFLocalizations.of(context).getText(
+                                'jzc9fhou' /* dd/MM/aaaa - hh:mm am/pm */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -122,7 +130,9 @@ class _DetallesCursoWidgetState extends State<DetallesCursoWidget> {
                           ],
                         ),
                         Text(
-                          'Descripción',
+                          FFLocalizations.of(context).getText(
+                            'isr4khxx' /* Descripción */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
@@ -138,7 +148,9 @@ class _DetallesCursoWidgetState extends State<DetallesCursoWidget> {
                                 .secondaryBackground,
                           ),
                           child: Text(
-                            'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+                            FFLocalizations.of(context).getText(
+                              'elkr4hzw' /* Debemos saber como movernos y ... */,
+                            ),
                             textAlign: TextAlign.justify,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium

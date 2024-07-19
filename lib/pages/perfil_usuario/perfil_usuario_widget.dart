@@ -23,9 +23,15 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
     super.initState();
     _model = createModel(context, () => PerfilUsuarioModel());
 
-    _model.txtfCorreoTextController ??=
-        TextEditingController(text: '0000-0000');
+    _model.txtfCorreoTextController ??= TextEditingController();
     _model.txtfCorreoFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.txtfCorreoTextController?.text =
+              FFLocalizations.of(context).getText(
+            'm7g85kvb' /* 0000-0000 */,
+          );
+        }));
   }
 
   @override
@@ -48,7 +54,9 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Text(
-            'Perfil de Usuario',
+            FFLocalizations.of(context).getText(
+              'fkun5m14' /* Perfil de Usuario */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Sora',
                   color: Colors.white,
@@ -81,7 +89,9 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Información Personal',
+                          FFLocalizations.of(context).getText(
+                            'bjddtd3u' /* Información Personal */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).titleLarge.override(
                                     fontFamily: 'Sora',
@@ -95,7 +105,9 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Nombre: ',
+                                FFLocalizations.of(context).getText(
+                                  'vhltpbr4' /* Nombre:  */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -105,7 +117,9 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                     ),
                               ),
                               Text(
-                                'Nombre Usuario',
+                                FFLocalizations.of(context).getText(
+                                  '9i4mhyzi' /* Nombre Usuario */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -123,7 +137,9 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Correo: ',
+                                FFLocalizations.of(context).getText(
+                                  'tag5s145' /* Correo:  */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -133,7 +149,9 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                     ),
                               ),
                               Text(
-                                'correo@usuario.com',
+                                FFLocalizations.of(context).getText(
+                                  '1hdiqm51' /* correo@usuario.com */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -167,7 +185,10 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                     autofocus: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      labelText: 'Teléfono',
+                                      labelText:
+                                          FFLocalizations.of(context).getText(
+                                        'coqm8xrp' /* Teléfono */,
+                                      ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -254,7 +275,9 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                               onPressed: () {
                                 print('Button pressed ...');
                               },
-                              text: 'Editar',
+                              text: FFLocalizations.of(context).getText(
+                                'xz1rh3dn' /* Editar */,
+                              ),
                               icon: const Icon(
                                 Icons.edit,
                                 size: 15.0,
@@ -301,7 +324,9 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'Logros',
+                        FFLocalizations.of(context).getText(
+                          'ofrq7u02' /* Logros */,
+                        ),
                         style: FlutterFlowTheme.of(context).titleLarge.override(
                               fontFamily: 'Sora',
                               letterSpacing: 0.0,
@@ -314,7 +339,9 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                         children: [
                           ListTile(
                             title: Text(
-                              'Manejo de cuchillo',
+                              FFLocalizations.of(context).getText(
+                                'fe56h84b' /* Manejo de cuchillo */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
@@ -323,7 +350,9 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                   ),
                             ),
                             subtitle: Text(
-                              'Felicitaciones, has completado con exito el curso de manejo de cuchillo',
+                              FFLocalizations.of(context).getText(
+                                'etsqrazx' /* Felicitaciones, has completado... */,
+                              ),
                               textAlign: TextAlign.justify,
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
@@ -341,7 +370,9 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                           ),
                           ListTile(
                             title: Text(
-                              'Control de agreciones',
+                              FFLocalizations.of(context).getText(
+                                'iqi2nfjx' /* Control de agreciones */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
@@ -350,7 +381,9 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                   ),
                             ),
                             subtitle: Text(
-                              'Felicitaciones, has completado con exito el curso de control de agreciones',
+                              FFLocalizations.of(context).getText(
+                                '8o0zp16s' /* Felicitaciones, has completado... */,
+                              ),
                               textAlign: TextAlign.justify,
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
@@ -381,7 +414,9 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                       onPressed: () async {
                         context.pushNamed('Login');
                       },
-                      text: 'Cerrar Sesión',
+                      text: FFLocalizations.of(context).getText(
+                        '4cty0uqe' /* Cerrar Sesión */,
+                      ),
                       options: FFButtonOptions(
                         height: 40.0,
                         padding: const EdgeInsetsDirectional.fromSTEB(
@@ -407,7 +442,9 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                       onPressed: () async {
                         context.pushNamed('Preferencias');
                       },
-                      text: 'Preferencias',
+                      text: FFLocalizations.of(context).getText(
+                        'xnwizlt0' /* Preferencias */,
+                      ),
                       options: FFButtonOptions(
                         height: 40.0,
                         padding: const EdgeInsetsDirectional.fromSTEB(

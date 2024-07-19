@@ -46,7 +46,9 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Text(
-            'Matrícula de cursos',
+            FFLocalizations.of(context).getText(
+              'ufg3xmix' /* Matrícula de cursos */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Sora',
                   color: Colors.white,
@@ -150,6 +152,8 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                     fontFamily: 'Inter',
                                                     letterSpacing: 0.0,
                                                   ),
+                                          locale: FFLocalizations.of(context)
+                                              .languageCode,
                                         ),
                                       ),
                                       Container(
@@ -190,7 +194,12 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                     extentRatio: 0.25,
                                                     children: [
                                                       SlidableAction(
-                                                        label: 'Matricular',
+                                                        label:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          '3mav50p2' /* Matricular */,
+                                                        ),
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -206,7 +215,11 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                   ),
                                                   child: ListTile(
                                                     title: Text(
-                                                      'Manejo de cuchillo',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'f50w72xs' /* Manejo de cuchillo */,
+                                                      ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .titleLarge
@@ -216,7 +229,11 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                           ),
                                                     ),
                                                     subtitle: Text(
-                                                      'Horario: 6:00pm',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '2yifbmnm' /* Horario: 6:00pm */,
+                                                      ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .labelMedium
@@ -269,7 +286,12 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                     extentRatio: 0.25,
                                                     children: [
                                                       SlidableAction(
-                                                        label: 'Matricular',
+                                                        label:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'h8qhsakn' /* Matricular */,
+                                                        ),
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -285,7 +307,11 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                   ),
                                                   child: ListTile(
                                                     title: Text(
-                                                      'Salidas rápidas de ataques directos',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '60rxq5kt' /* Salidas rápidas de ataques dir... */,
+                                                      ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .titleLarge
@@ -295,7 +321,11 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                           ),
                                                     ),
                                                     subtitle: Text(
-                                                      'Horario: 8:00pm',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'gfcwt514' /* Horario: 8:00pm */,
+                                                      ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .labelMedium
@@ -352,7 +382,10 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Text(
-                                              'Cursos Matriculados',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '21oe5yh3' /* Cursos Matriculados */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .titleMedium
@@ -386,7 +419,11 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                       extentRatio: 0.25,
                                                       children: [
                                                         SlidableAction(
-                                                          label: 'Eliminar',
+                                                          label: FFLocalizations
+                                                                  .of(context)
+                                                              .getText(
+                                                            'l23v3pmp' /* Eliminar */,
+                                                          ),
                                                           backgroundColor:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -401,7 +438,11 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                     ),
                                                     child: ListTile(
                                                       title: Text(
-                                                        'Defensa con cuchillo',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'fkasvbv4' /* Defensa con cuchillo */,
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -414,7 +455,11 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                                 ),
                                                       ),
                                                       subtitle: Text(
-                                                        'Fecha: 27/06/2024 - Horario: 8:00pm',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'h40ub2tg' /* Fecha: 27/06/2024 - Horario: 8... */,
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -530,7 +575,9 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                               size: 24.0,
                             ),
                             Text(
-                              'Guias de Uso',
+                              FFLocalizations.of(context).getText(
+                                'dilcyqwy' /* Guias de Uso */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(

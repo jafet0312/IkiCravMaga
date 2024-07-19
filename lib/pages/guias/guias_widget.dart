@@ -58,7 +58,9 @@ class _GuiasWidgetState extends State<GuiasWidget> {
               ),
             ),
             title: Text(
-              'Guias de uso',
+              FFLocalizations.of(context).getText(
+                'eygujvao' /* Guias de uso */,
+              ),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Sora',
                     color: Colors.white,
@@ -89,7 +91,9 @@ class _GuiasWidgetState extends State<GuiasWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Como visualizar y matricular cursos',
+                          FFLocalizations.of(context).getText(
+                            'mikm6b35' /* Entrevista */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
@@ -100,7 +104,7 @@ class _GuiasWidgetState extends State<GuiasWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               5.0, 0.0, 5.0, 0.0),
                           child: FlutterFlowYoutubePlayer(
-                            url: 'https://www.youtube.com/watch?v=C30hQ0ZSFoM',
+                            url: 'https://youtu.be/eXACRn8HIiY',
                             autoPlay: false,
                             looping: true,
                             mute: false,
@@ -125,7 +129,9 @@ class _GuiasWidgetState extends State<GuiasWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Como visualizar y cancelar cursos matriculados',
+                          FFLocalizations.of(context).getText(
+                            'ywwgf69o' /* Entrevista */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
@@ -136,7 +142,7 @@ class _GuiasWidgetState extends State<GuiasWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               5.0, 0.0, 5.0, 0.0),
                           child: FlutterFlowYoutubePlayer(
-                            url: 'https://www.youtube.com/watch?v=C30hQ0ZSFoM',
+                            url: 'https://youtu.be/zWtWzx6HSwM',
                             autoPlay: false,
                             looping: true,
                             mute: false,
