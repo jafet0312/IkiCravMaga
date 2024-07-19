@@ -23,11 +23,11 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
     super.initState();
     _model = createModel(context, () => PerfilUsuarioModel());
 
-    _model.txtfCorreoTextController ??= TextEditingController();
-    _model.txtfCorreoFocusNode ??= FocusNode();
+    _model.txtNumeroTTextController ??= TextEditingController();
+    _model.txtNumeroTFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
-          _model.txtfCorreoTextController?.text =
+          _model.txtNumeroTTextController?.text =
               FFLocalizations.of(context).getText(
             'm7g85kvb' /* 0000-0000 */,
           );
@@ -175,10 +175,10 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                 child: SizedBox(
                                   width: MediaQuery.sizeOf(context).width * 0.8,
                                   child: TextFormField(
-                                    controller: _model.txtfCorreoTextController,
-                                    focusNode: _model.txtfCorreoFocusNode,
+                                    controller: _model.txtNumeroTTextController,
+                                    focusNode: _model.txtNumeroTFocusNode,
                                     onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.txtfCorreoTextController',
+                                      '_model.txtNumeroTTextController',
                                       const Duration(milliseconds: 200),
                                       () => setState(() {}),
                                     ),
@@ -238,12 +238,12 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                       suffixIcon: _model
-                                              .txtfCorreoTextController!
+                                              .txtNumeroTTextController!
                                               .text
                                               .isNotEmpty
                                           ? InkWell(
                                               onTap: () async {
-                                                _model.txtfCorreoTextController
+                                                _model.txtNumeroTTextController
                                                     ?.clear();
                                                 setState(() {});
                                               },
@@ -265,7 +265,7 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                         ),
                                     keyboardType: TextInputType.emailAddress,
                                     validator: _model
-                                        .txtfCorreoTextControllerValidator
+                                        .txtNumeroTTextControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -273,7 +273,7 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                             ),
                             FFButtonWidget(
                               onPressed: () {
-                                print('Button pressed ...');
+                                print('btnEditar pressed ...');
                               },
                               text: FFLocalizations.of(context).getText(
                                 'xz1rh3dn' /* Editar */,

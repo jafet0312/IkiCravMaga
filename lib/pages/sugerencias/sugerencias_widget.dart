@@ -22,8 +22,8 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
     super.initState();
     _model = createModel(context, () => SugerenciasModel());
 
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
+    _model.txtfResenaTextController ??= TextEditingController();
+    _model.txtfResenaFocusNode ??= FocusNode();
   }
 
   @override
@@ -110,8 +110,8 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 8.0, 0.0),
                           child: TextFormField(
-                            controller: _model.textController,
-                            focusNode: _model.textFieldFocusNode,
+                            controller: _model.txtfResenaTextController,
+                            focusNode: _model.txtfResenaFocusNode,
                             autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
@@ -141,7 +141,7 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
                                   fontFamily: 'Inter',
                                   letterSpacing: 0.0,
                                 ),
-                            validator: _model.textControllerValidator
+                            validator: _model.txtfResenaTextControllerValidator
                                 .asValidator(context),
                           ),
                         ),
@@ -151,13 +151,13 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
                         children: [
                           RatingBar.builder(
                             onRatingUpdate: (newValue) => setState(
-                                () => _model.ratingBarValue = newValue),
+                                () => _model.rbEstrellasValue = newValue),
                             itemBuilder: (context, index) => Icon(
                               Icons.star_rounded,
                               color: FlutterFlowTheme.of(context).tertiary,
                             ),
                             direction: Axis.horizontal,
-                            initialRating: _model.ratingBarValue ??= 3.0,
+                            initialRating: _model.rbEstrellasValue ??= 3.0,
                             unratedColor: FlutterFlowTheme.of(context).accent3,
                             itemCount: 5,
                             itemSize: 40.0,

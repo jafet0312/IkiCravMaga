@@ -193,63 +193,68 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
                     ],
                   ),
                 ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    StreamBuilder<List<SettingsRecord>>(
-                      stream: querySettingsRecord(
-                        queryBuilder: (settingsRecord) => settingsRecord.where(
-                          'name',
-                          isEqualTo: 'Textos',
-                        ),
-                        singleRecord: true,
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  FlutterFlowTheme.of(context).primary,
-                                ),
-                              ),
-                            ),
-                          );
-                        }
-                        List<SettingsRecord> textSettingsRecordList =
-                            snapshot.data!;
-
-                        // Return an empty Container when the item does not exist.
-                        if (snapshot.data!.isEmpty) {
-                          return Container();
-                        }
-                        final textSettingsRecord =
-                            textSettingsRecordList.isNotEmpty
-                                ? textSettingsRecordList.first
-                                : null;
-                        return Text(
-                          FFLocalizations.of(context).getText(
-                            'xeihlkod' /* Letras */,
+                Align(
+                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      StreamBuilder<List<SettingsRecord>>(
+                        stream: querySettingsRecord(
+                          queryBuilder: (settingsRecord) =>
+                              settingsRecord.where(
+                            'name',
+                            isEqualTo: 'Textos',
                           ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodySmall
-                              .override(
-                                fontFamily: 'Inter',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: valueOrDefault<double>(
-                                  textSettingsRecord?.title.toDouble(),
-                                  12.0,
+                          singleRecord: true,
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
                                 ),
-                                letterSpacing: 0.0,
                               ),
-                        );
-                      },
-                    ),
-                  ],
+                            );
+                          }
+                          List<SettingsRecord> textSettingsRecordList =
+                              snapshot.data!;
+
+                          // Return an empty Container when the item does not exist.
+                          if (snapshot.data!.isEmpty) {
+                            return Container();
+                          }
+                          final textSettingsRecord =
+                              textSettingsRecordList.isNotEmpty
+                                  ? textSettingsRecordList.first
+                                  : null;
+                          return Text(
+                            FFLocalizations.of(context).getText(
+                              'xeihlkod' /* Letras */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  fontSize: valueOrDefault<double>(
+                                    textSettingsRecord?.title.toDouble(),
+                                    12.0,
+                                  ),
+                                  letterSpacing: 0.0,
+                                ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,

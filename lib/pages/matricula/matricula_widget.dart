@@ -47,7 +47,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
           automaticallyImplyLeading: false,
           title: Text(
             FFLocalizations.of(context).getText(
-              'ufg3xmix' /* Matrícula de cursos */,
+              'ha5pfizv' /* Matrícula de cursos */,
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Sora',
@@ -114,7 +114,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                           onChange:
                                               (DateTimeRange? newSelectedDate) {
                                             setState(() =>
-                                                _model.calendarSelectedDay =
+                                                _model.calendarioSelectedDay =
                                                     newSelectedDate);
                                           },
                                           titleStyle:
@@ -198,7 +198,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          '3mav50p2' /* Matricular */,
+                                                          'x8vx5mrq' /* Matricular */,
                                                         ),
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(
@@ -232,7 +232,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '2yifbmnm' /* Horario: 6:00pm */,
+                                                        'vta1h13c' /* Horario: 6:00pm */,
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -290,7 +290,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'h8qhsakn' /* Matricular */,
+                                                          'ycgfwn05' /* Matricular */,
                                                         ),
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(
@@ -310,7 +310,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '60rxq5kt' /* Salidas rápidas de ataques dir... */,
+                                                        'ngwtcwp7' /* Salidas rápidas de ataques dir... */,
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -324,7 +324,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'gfcwt514' /* Horario: 8:00pm */,
+                                                        '50vc0ras' /* Horario: 8:00pm */,
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -384,7 +384,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                '21oe5yh3' /* Cursos Matriculados */,
+                                                'w1vwtf3a' /* Cursos Matriculados */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -422,7 +422,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                           label: FFLocalizations
                                                                   .of(context)
                                                               .getText(
-                                                            'l23v3pmp' /* Eliminar */,
+                                                            'qz0wh0uh' /* Eliminar */,
                                                           ),
                                                           backgroundColor:
                                                               FlutterFlowTheme.of(
@@ -441,7 +441,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'fkasvbv4' /* Defensa con cuchillo */,
+                                                          '1avc2tkg' /* Defensa con cuchillo */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -458,7 +458,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'h40ub2tg' /* Fecha: 27/06/2024 - Horario: 8... */,
+                                                          '7xjxj1uf' /* Fecha: 27/06/2024 - Horario: 8... */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -576,7 +576,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                             ),
                             Text(
                               FFLocalizations.of(context).getText(
-                                'dilcyqwy' /* Guias de Uso */,
+                                'ihnbg6im' /* Guias de Uso */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium

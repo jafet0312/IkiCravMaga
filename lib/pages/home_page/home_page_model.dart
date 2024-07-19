@@ -6,13 +6,13 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for PageView widget.
-  PageController? pageViewController;
+  // State field(s) for pvInicio widget.
+  PageController? pvInicioController;
 
-  int get pageViewCurrentIndex => pageViewController != null &&
-          pageViewController!.hasClients &&
-          pageViewController!.page != null
-      ? pageViewController!.page!.round()
+  int get pvInicioCurrentIndex => pvInicioController != null &&
+          pvInicioController!.hasClients &&
+          pvInicioController!.page != null
+      ? pvInicioController!.page!.round()
       : 0;
 
   @override

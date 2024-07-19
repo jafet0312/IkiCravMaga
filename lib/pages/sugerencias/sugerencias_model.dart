@@ -6,12 +6,12 @@ class SugerenciasModel extends FlutterFlowModel<SugerenciasWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
-  // State field(s) for RatingBar widget.
-  double? ratingBarValue;
+  // State field(s) for txtfResena widget.
+  FocusNode? txtfResenaFocusNode;
+  TextEditingController? txtfResenaTextController;
+  String? Function(BuildContext, String?)? txtfResenaTextControllerValidator;
+  // State field(s) for rbEstrellas widget.
+  double? rbEstrellasValue;
 
   @override
   void initState(BuildContext context) {}
@@ -19,7 +19,7 @@ class SugerenciasModel extends FlutterFlowModel<SugerenciasWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
+    txtfResenaFocusNode?.dispose();
+    txtfResenaTextController?.dispose();
   }
 }

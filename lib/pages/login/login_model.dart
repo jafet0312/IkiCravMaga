@@ -6,15 +6,14 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for txtfCorreo widget.
-  FocusNode? txtfCorreoFocusNode;
-  TextEditingController? txtfCorreoTextController;
-  String? Function(BuildContext, String?)? txtfCorreoTextControllerValidator;
-  // State field(s) for txtfContrasenia widget.
-  FocusNode? txtfContraseniaFocusNode;
-  TextEditingController? txtfContraseniaTextController;
-  String? Function(BuildContext, String?)?
-      txtfContraseniaTextControllerValidator;
+  // State field(s) for txtCorreo widget.
+  FocusNode? txtCorreoFocusNode;
+  TextEditingController? txtCorreoTextController;
+  String? Function(BuildContext, String?)? txtCorreoTextControllerValidator;
+  // State field(s) for txtcontrasena widget.
+  FocusNode? txtcontrasenaFocusNode;
+  TextEditingController? txtcontrasenaTextController;
+  String? Function(BuildContext, String?)? txtcontrasenaTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -22,10 +21,10 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    txtfCorreoFocusNode?.dispose();
-    txtfCorreoTextController?.dispose();
+    txtCorreoFocusNode?.dispose();
+    txtCorreoTextController?.dispose();
 
-    txtfContraseniaFocusNode?.dispose();
-    txtfContraseniaTextController?.dispose();
+    txtcontrasenaFocusNode?.dispose();
+    txtcontrasenaTextController?.dispose();
   }
 }

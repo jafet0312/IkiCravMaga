@@ -6,10 +6,10 @@ class PerfilUsuarioModel extends FlutterFlowModel<PerfilUsuarioWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for txtfCorreo widget.
-  FocusNode? txtfCorreoFocusNode;
-  TextEditingController? txtfCorreoTextController;
-  String? Function(BuildContext, String?)? txtfCorreoTextControllerValidator;
+  // State field(s) for txtNumeroT widget.
+  FocusNode? txtNumeroTFocusNode;
+  TextEditingController? txtNumeroTTextController;
+  String? Function(BuildContext, String?)? txtNumeroTTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -17,7 +17,7 @@ class PerfilUsuarioModel extends FlutterFlowModel<PerfilUsuarioWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    txtfCorreoFocusNode?.dispose();
-    txtfCorreoTextController?.dispose();
+    txtNumeroTFocusNode?.dispose();
+    txtNumeroTTextController?.dispose();
   }
 }

@@ -83,7 +83,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 40.0),
                             child: PageView(
-                              controller: _model.pageViewController ??=
+                              controller: _model.pvInicioController ??=
                                   PageController(initialPage: 0),
                               scrollDirection: Axis.horizontal,
                               children: [
@@ -201,12 +201,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 0.0, 16.0),
                               child: smooth_page_indicator.SmoothPageIndicator(
-                                controller: _model.pageViewController ??=
+                                controller: _model.pvInicioController ??=
                                     PageController(initialPage: 0),
                                 count: 3,
                                 axisDirection: Axis.horizontal,
                                 onDotClicked: (i) async {
-                                  await _model.pageViewController!
+                                  await _model.pvInicioController!
                                       .animateToPage(
                                     i,
                                     duration: const Duration(milliseconds: 500),

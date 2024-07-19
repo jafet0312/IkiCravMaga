@@ -22,11 +22,11 @@ class _LoginWidgetState extends State<LoginWidget> {
     super.initState();
     _model = createModel(context, () => LoginModel());
 
-    _model.txtfCorreoTextController ??= TextEditingController();
-    _model.txtfCorreoFocusNode ??= FocusNode();
+    _model.txtCorreoTextController ??= TextEditingController();
+    _model.txtCorreoFocusNode ??= FocusNode();
 
-    _model.txtfContraseniaTextController ??= TextEditingController();
-    _model.txtfContraseniaFocusNode ??= FocusNode();
+    _model.txtcontrasenaTextController ??= TextEditingController();
+    _model.txtcontrasenaFocusNode ??= FocusNode();
   }
 
   @override
@@ -102,10 +102,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                         child: SizedBox(
                           width: MediaQuery.sizeOf(context).width * 0.8,
                           child: TextFormField(
-                            controller: _model.txtfCorreoTextController,
-                            focusNode: _model.txtfCorreoFocusNode,
+                            controller: _model.txtCorreoTextController,
+                            focusNode: _model.txtCorreoFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
-                              '_model.txtfCorreoTextController',
+                              '_model.txtCorreoTextController',
                               const Duration(milliseconds: 200),
                               () => setState(() {}),
                             ),
@@ -156,11 +156,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               suffixIcon: _model
-                                      .txtfCorreoTextController!.text.isNotEmpty
+                                      .txtCorreoTextController!.text.isNotEmpty
                                   ? InkWell(
                                       onTap: () async {
-                                        _model.txtfCorreoTextController
-                                            ?.clear();
+                                        _model.txtCorreoTextController?.clear();
                                         setState(() {});
                                       },
                                       child: Icon(
@@ -179,7 +178,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   letterSpacing: 0.0,
                                 ),
                             keyboardType: TextInputType.emailAddress,
-                            validator: _model.txtfCorreoTextControllerValidator
+                            validator: _model.txtCorreoTextControllerValidator
                                 .asValidator(context),
                           ),
                         ),
@@ -190,10 +189,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                         child: SizedBox(
                           width: MediaQuery.sizeOf(context).width * 0.8,
                           child: TextFormField(
-                            controller: _model.txtfContraseniaTextController,
-                            focusNode: _model.txtfContraseniaFocusNode,
+                            controller: _model.txtcontrasenaTextController,
+                            focusNode: _model.txtcontrasenaFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
-                              '_model.txtfContraseniaTextController',
+                              '_model.txtcontrasenaTextController',
                               const Duration(milliseconds: 200),
                               () => setState(() {}),
                             ),
@@ -243,11 +242,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
-                              suffixIcon: _model.txtfContraseniaTextController!
+                              suffixIcon: _model.txtcontrasenaTextController!
                                       .text.isNotEmpty
                                   ? InkWell(
                                       onTap: () async {
-                                        _model.txtfContraseniaTextController
+                                        _model.txtcontrasenaTextController
                                             ?.clear();
                                         setState(() {});
                                       },
@@ -268,7 +267,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 ),
                             keyboardType: TextInputType.emailAddress,
                             validator: _model
-                                .txtfContraseniaTextControllerValidator
+                                .txtcontrasenaTextControllerValidator
                                 .asValidator(context),
                           ),
                         ),

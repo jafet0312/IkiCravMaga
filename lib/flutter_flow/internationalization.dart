@@ -284,7 +284,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'xnwizlt0': {
       'es': 'Preferencias',
-      'en': 'preferences',
+      'en': 'Preferences',
     },
     'fkun5m14': {
       'es': 'Perfil de Usuario',
@@ -297,57 +297,57 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Matricula
   {
-    '3mav50p2': {
+    'x8vx5mrq': {
       'es': 'Matricular',
-      'en': 'Enroll',
+      'en': '',
     },
     'f50w72xs': {
       'es': 'Manejo de cuchillo',
       'en': 'Knife handling',
     },
-    '2yifbmnm': {
+    'vta1h13c': {
       'es': 'Horario: 6:00pm',
-      'en': 'Time: 6:00pm',
+      'en': '',
     },
-    'h8qhsakn': {
+    'ycgfwn05': {
       'es': 'Matricular',
-      'en': 'Enroll',
+      'en': '',
     },
-    '60rxq5kt': {
+    'ngwtcwp7': {
       'es': 'Salidas rápidas de ataques directos',
-      'en': 'Quick exits from direct attacks',
+      'en': '',
     },
-    'gfcwt514': {
+    '50vc0ras': {
       'es': 'Horario: 8:00pm',
-      'en': 'Time: 8:00pm',
+      'en': '',
     },
-    '21oe5yh3': {
+    'w1vwtf3a': {
       'es': 'Cursos Matriculados',
-      'en': 'Enrolled Courses',
+      'en': '',
     },
-    'l23v3pmp': {
+    'qz0wh0uh': {
       'es': 'Eliminar',
-      'en': 'Eliminate',
+      'en': '',
     },
-    'fkasvbv4': {
+    '1avc2tkg': {
       'es': 'Defensa con cuchillo',
-      'en': 'Knife defense',
+      'en': '',
     },
-    'h40ub2tg': {
+    '7xjxj1uf': {
       'es': 'Fecha: 27/06/2024 - Horario: 8:00pm',
-      'en': 'Date: 06/27/2024 - Time: 8:00pm',
+      'en': '',
     },
-    'dilcyqwy': {
+    'ihnbg6im': {
       'es': 'Guias de Uso',
-      'en': 'Use Guides',
+      'en': '',
     },
-    'ufg3xmix': {
+    'ha5pfizv': {
       'es': 'Matrícula de cursos',
-      'en': 'Course registration',
+      'en': '',
     },
-    'vd9xp61r': {
+    'hvcyvcbh': {
       'es': 'Matricula',
-      'en': 'Tuition',
+      'en': '',
     },
   },
   // Sugerencias
