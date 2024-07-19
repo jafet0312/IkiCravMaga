@@ -140,6 +140,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Preferencias',
           path: '/preferencias',
           builder: (context, params) => const PreferenciasWidget(),
+        ),
+        FFRoute(
+          name: 'Noticia1',
+          path: '/noticia1',
+          builder: (context, params) => const Noticia1Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

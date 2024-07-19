@@ -11,3 +11,4 @@ export '/pages/noticias/noticias_widget.dart' show NoticiasWidget;
 export '/pages/detalles_curso/detalles_curso_widget.dart'
     show DetallesCursoWidget;
 export '/preferencias/preferencias_widget.dart' show PreferenciasWidget;
+export '/pages/noticia1/noticia1_widget.dart' show Noticia1Widget;
