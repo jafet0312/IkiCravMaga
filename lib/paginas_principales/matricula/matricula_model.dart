@@ -15,12 +15,12 @@ class MatriculaModel extends FlutterFlowModel<MatriculaWidget> {
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
-  // State field(s) for Calendario widget.
-  DateTimeRange? calendarioSelectedDay;
+  // State field(s) for contCalendario widget.
+  DateTimeRange? contCalendarioSelectedDay;
 
   @override
   void initState(BuildContext context) {
-    calendarioSelectedDay = DateTimeRange(
+    contCalendarioSelectedDay = DateTimeRange(
       start: DateTime.now().startOfDay,
       end: DateTime.now().endOfDay,
     );

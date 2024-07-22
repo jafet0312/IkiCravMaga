@@ -130,10 +130,9 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'HomePage': const HomePageWidget(),
-      'Registro': const RegistroWidget(),
-      'PerfilUsuario': const PerfilUsuarioWidget(),
       'Matricula': const MatriculaWidget(),
-      'Sugerencias': const SugerenciasWidget(),
+      'PerfilUsuario': const PerfilUsuarioWidget(),
+      'Preferencias': const PreferenciasWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -194,7 +193,7 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.home_outlined,
+                  Icons.fitness_center_rounded,
                   color: currentIndex == 1
                       ? FlutterFlowTheme.of(context).secondary
                       : FlutterFlowTheme.of(context).secondaryText,
@@ -202,7 +201,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 ),
                 Text(
                   FFLocalizations.of(context).getText(
-                    '8s3gndbm' /* Inicio */,
+                    'hvcyvcbh' /* Matricula */,
                   ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -246,7 +245,7 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.fitness_center_rounded,
+                  Icons.settings_sharp,
                   color: currentIndex == 3
                       ? FlutterFlowTheme.of(context).secondary
                       : FlutterFlowTheme.of(context).secondaryText,
@@ -254,37 +253,11 @@ class _NavBarPageState extends State<NavBarPage> {
                 ),
                 Text(
                   FFLocalizations.of(context).getText(
-                    'hvcyvcbh' /* Matricula */,
+                    '80xv863x' /* Preferencias */,
                   ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 3
-                        ? FlutterFlowTheme.of(context).secondary
-                        : FlutterFlowTheme.of(context).secondaryText,
-                    fontSize: 11.0,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          FloatingNavbarItem(
-            customWidget: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.star,
-                  color: currentIndex == 4
-                      ? FlutterFlowTheme.of(context).secondary
-                      : FlutterFlowTheme.of(context).secondaryText,
-                  size: 24.0,
-                ),
-                Text(
-                  FFLocalizations.of(context).getText(
-                    'o742p6sh' /* Sugerencias */,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: currentIndex == 4
                         ? FlutterFlowTheme.of(context).secondary
                         : FlutterFlowTheme.of(context).secondaryText,
                     fontSize: 11.0,

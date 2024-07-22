@@ -11,27 +11,32 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-Future createClient(String emailAddress, String password, String role,
+Future<bool> createClient(String emailAddress, String password, String role,
     String userName, String phone, String randomApp) async {
   DateTime createdTime = DateTime.now();
+  try {
+    FirebaseApp app = await Firebase.initializeApp(
+        name: randomApp, options: Firebase.app().options);
 
-  FirebaseApp app = await Firebase.initializeApp(
-      name: randomApp, options: Firebase.app().options);
+    UserCredential userCredential = await FirebaseAuth.instanceFor(app: app)
+        .createUserWithEmailAndPassword(
+            email: emailAddress, password: password);
+    String? userID = userCredential.user?.uid;
 
-  UserCredential userCredential = await FirebaseAuth.instanceFor(app: app)
-      .createUserWithEmailAndPassword(email: emailAddress, password: password);
-  String? userID = userCredential.user?.uid;
-
-  final CollectionReference<Map<String, dynamic>> collection =
-      FirebaseFirestore.instance.collection('users');
-  collection.doc(userID).set({
-    'uid': userID,
-    'display_name': userName,
-    'email': emailAddress,
-    'created_time': createdTime,
-    'phone_number': phone,
-    'role': role,
-  });
+    final CollectionReference<Map<String, dynamic>> collection =
+        FirebaseFirestore.instance.collection('users');
+    collection.doc(userID).set({
+      'uid': userID,
+      'display_name': userName,
+      'email': emailAddress,
+      'created_time': createdTime,
+      'phone_number': phone,
+      'role': role,
+    });
+  } catch (e) {
+    return false;
+  }
+  return true;
 }
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!

@@ -144,13 +144,37 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Correo electrónico',
       'en': 'Email',
     },
-    'bbdqpbcq': {
+    '3f4fu0v1': {
       'es': 'Contraseña',
       'en': 'Password',
     },
-    '4m3vtoik': {
+    'ykypsjnt': {
       'es': 'Iniciar Sesión',
       'en': 'Log in',
+    },
+    'px48eeg1': {
+      'es': 'Ingrese un correo electrónico',
+      'en': 'Enter an email',
+    },
+    'okl1ueu2': {
+      'es': 'Ingrese un correo válido',
+      'en': 'Enter a valid email',
+    },
+    '6lqwkoik': {
+      'es': 'Por favor elija una opción del menú desplegable',
+      'en': 'Please choose an option from the drop down menu',
+    },
+    '1bqwgloh': {
+      'es': 'Ingrese una contraseña',
+      'en': 'Enter a password',
+    },
+    'n2rw40i3': {
+      'es': 'Mínimo 6 caracteres',
+      'en': 'Min 6 characters',
+    },
+    'iyd7o1l0': {
+      'es': 'Por favor elija una opción del menú desplegable',
+      'en': 'Please choose an option from the drop down menu',
     },
     '2yxij0b1': {
       'es': 'No tienes cuenta? ',
@@ -191,25 +215,57 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Contraseña',
       'en': 'Password',
     },
-    'hc141o6b': {
-      'es': 'Usuario',
-      'en': 'User',
+    '6pqmivzg': {
+      'es': 'El correo electrónico ya está registrado',
+      'en': 'Email is already registered',
     },
-    'qrmk7q44': {
-      'es': 'Administrador',
-      'en': 'Administrator',
+    's3wukcow': {
+      'es': 'Registrar',
+      'en': 'to register',
     },
-    '1fbz476o': {
-      'es': 'Seleccione el rol',
-      'en': 'Select the role',
+    'nkjm0di9': {
+      'es': 'Ingrese un correo válido',
+      'en': 'Enter a valid email',
     },
-    'op0wwwue': {
-      'es': 'Buscar un artículo...',
-      'en': 'Search for an item...',
+    'd3lzeimp': {
+      'es': 'Ingrese un correo válido',
+      'en': 'Enter a valid email',
     },
-    '0t4jclv0': {
-      'es': 'Registar',
-      'en': 'Register',
+    'xk7p99qc': {
+      'es': 'Por favor elija una opción del menú desplegable',
+      'en': 'Please choose an option from the drop down menu',
+    },
+    'eoui1dlg': {
+      'es': 'Ingrese su nombre',
+      'en': 'Enter your name',
+    },
+    'rj3uchz7': {
+      'es': 'Por favor elija una opción del menú desplegable',
+      'en': 'Please choose an option from the drop down menu',
+    },
+    '4cu2uwsd': {
+      'es': 'Ingrese su número de teléfono',
+      'en': 'Enter your phone number',
+    },
+    'mr1b6b5o': {
+      'es': 'Ingrese un teléfono válido',
+      'en': 'Please enter a valid phone number',
+    },
+    'kth5r2z8': {
+      'es': 'Por favor elija una opción del menú desplegable',
+      'en': 'Please choose an option from the drop down menu',
+    },
+    'buoz0p8s': {
+      'es': 'Ingrese una contraseña',
+      'en': 'Enter a password',
+    },
+    '41gd9scj': {
+      'es': 'Contraseña con mínimo 6 caracteres',
+      'en': 'Password with at least 6 characters',
+    },
+    'fxqy0dxb': {
+      'es': 'Por favor elija una opción del menú desplegable',
+      'en': 'Please choose an option from the drop down menu',
     },
     'r0lsvox2': {
       'es': 'IKI CR Krav Maga',
@@ -299,7 +355,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'x8vx5mrq': {
       'es': 'Matricular',
-      'en': '',
+      'en': 'Enroll',
     },
     'f50w72xs': {
       'es': 'Manejo de cuchillo',
@@ -307,47 +363,47 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'vta1h13c': {
       'es': 'Horario: 6:00pm',
-      'en': '',
+      'en': 'Time: 6:00pm',
     },
     'ycgfwn05': {
       'es': 'Matricular',
-      'en': '',
+      'en': 'Enroll',
     },
     'ngwtcwp7': {
       'es': 'Salidas rápidas de ataques directos',
-      'en': '',
+      'en': 'Quick exits from direct attacks',
     },
     '50vc0ras': {
       'es': 'Horario: 8:00pm',
-      'en': '',
+      'en': 'Time: 8:00pm',
     },
     'w1vwtf3a': {
       'es': 'Cursos Matriculados',
-      'en': '',
+      'en': 'Enrolled Courses',
     },
     'qz0wh0uh': {
       'es': 'Eliminar',
-      'en': '',
+      'en': 'Delete',
     },
     '1avc2tkg': {
       'es': 'Defensa con cuchillo',
-      'en': '',
+      'en': 'Knife defense',
     },
     '7xjxj1uf': {
       'es': 'Fecha: 27/06/2024 - Horario: 8:00pm',
-      'en': '',
+      'en': 'Date: 06/27/2024 - Time: 8:00pm',
     },
     'ihnbg6im': {
       'es': 'Guias de Uso',
-      'en': '',
+      'en': 'Use Guides',
     },
     'ha5pfizv': {
       'es': 'Matrícula de cursos',
-      'en': '',
+      'en': 'Course registration',
     },
     'hvcyvcbh': {
       'es': 'Matricula',
-      'en': '',
+      'en': 'Tuition',
     },
   },
   // Sugerencias
@@ -368,9 +424,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Enviar',
       'en': 'Send',
     },
-    'dxfrozqv': {
-      'es': 'Formulario',
-      'en': 'Form',
+    'gjngctx0': {
+      'es': 'Sugerencias',
+      'en': 'Myths and realities \nof Krav Maga',
     },
     'o742p6sh': {
       'es': 'Sugerencias',
@@ -472,38 +528,33 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Preferencias
   {
-    'eojmeql2': {
-      'es': 'Titulos',
+    'qy5j79r4': {
+      'es': 'Títulos',
       'en': 'Titles',
     },
     'xeihlkod': {
       'es': 'Letras',
       'en': 'Letters',
     },
+    'x1tehc50': {
+      'es': 'Seleccionar idioma',
+      'en': 'Email is already registered',
+    },
+    '4pwilv5y': {
+      'es': 'Su opinión es importante para nosotros',
+      'en': 'Your opinion is important for us',
+    },
+    '49ek4dst': {
+      'es': 'Sugerencias',
+      'en': 'Suggestions',
+    },
     '14xe6d15': {
       'es': 'Preferencias',
-      'en': 'preferences',
+      'en': 'Preferences',
     },
     '80xv863x': {
-      'es': 'Inicio',
-      'en': 'Home',
-    },
-  },
-  // Noticia1
-  {
-    'gjngctx0': {
-      'es': 'Mitos y realidades \ndel Krav Maga',
-      'en': 'Myths and realities \nof Krav Maga',
-    },
-    'yelkhmaa': {
-      'es':
-          'El Krav Maga es un método eficaz y realista de defensa personal que se ha popularizado a nivel mundial. Junto con el auge de la popularidad, ha habido muchos mitos y concepciones erróneas sobre el mundo del Krav Maga. En el siguiente artículo, hablamos sobre algunos de los mitos comunes y exponemos la verdad detrás de esta increíble disciplina.\n\nMito 1: El Krav Maga es solo un sistema de defensa personal militar y de fuerzas Realidad: Aunque Krav Maga se desarrolló principalmente dentro de las fuerzas de defensa de Israel y es un método que han utilizado muchas fuerzas de seguridad de todo el mundo, se basa en principios y pretende ser aprendido por cualquier individuo, independientemente de su profesión. Los métodos deben ser tan fáciles y útiles que una persona de cualquier edad y estado de forma pueda aprender y utilizar Krav Maga para su defensa.\n\nMito 2: El Krav Maga es muy violento Realidad: El Krav Maga es un sistema de la manera más efectiva para neutralizar amenazas y protegerse a sí mismo. Aunque el Krav Maga tiene aspectos de ataque, no es una \"artes marciales\" en cuanto a que no es un sistema de violencia gratuita, sino un sistema de autoprotección. Los estudiantes aprenden a evitar conflictos de interés cuando sea necesario y a recurrir a la fuerza solo como último recurso.\n\nMito 3: Krav Maga es un ejercicio efectivo solo para hombres: El Krav Maga es tan efectivo para las mujeres como para los hombres. De hecho, muchas mujeres encuentran que el Krav Maga es un gran nivelador en lo que respecta a la capacidad de autodefensa. Las técnicas están diseñadas para superar la desventaja de tamaño y fuerza usando la mecánica del movimiento y los principios de la palanca para maximizar la eficiencia del esfuerzo de fuerza del ejecutante.\n',
-      'en':
-          'Krav Maga is an effective and realistic method of self-defense that has become popular worldwide. Along with the rise in popularity, there have been many myths and misconceptions about the world of Krav Maga. In the following article, we talk about some of the common myths and expose the truth behind this incredible discipline.\n\nMyth 1: Krav Maga is only a military and force self-defense system Fact: Although Krav Maga was primarily developed within the Israeli defense forces and is a method that has been used by many security forces around the world, it is It is based on principles and is intended to be learned by any individual, regardless of their profession. The methods should be so easy and useful that a person of any age and fitness level can learn and use Krav Maga for their defense.\n\nMyth 2: Krav Maga is very violent Fact: Krav Maga is a system of the most effective way to neutralize threats and protect yourself. Although Krav Maga has attacking aspects, it is not a \"martial arts\" in that it is not a system of gratuitous violence, but rather a system of self-protection. Students learn to avoid conflicts of interest when necessary and to resort to force only as a last resort.\n\nMyth 3: Krav Maga is an effective exercise only for men: Krav Maga is as effective for women as it is for men. In fact, many women find Krav Maga to be a great equalizer when it comes to self-defense ability. The techniques are designed to overcome the size and strength disadvantage by using movement mechanics and lever principles to maximize the efficiency of the performer\'s force effort.',
-    },
-    'f9mrz39v': {
-      'es': 'Notícias',
-      'en': 'News',
+      'es': 'Preferencias',
+      'en': 'Preferences',
     },
   },
   // Noticia2
@@ -518,7 +569,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en':
           'Physical Health\n1. Improves Cardiovascular Condition\nKrav Maga training sessions are intensive and dynamic, which helps improve cardiovascular endurance. High-intensity exercises and combat techniques increase heart rate, improving lung capacity and heart efficiency.\n\n2. Increased Strength and Muscle Tone\nKrav Maga involves movements that require strength and power, such as punches, kicks, and blocks. This helps develop and tone muscles throughout the body, especially in the arms, legs, abdomen and back.\n\n3. Improved Flexibility and Mobility\nKrav Maga techniques include a variety of movements that increase flexibility and joint mobility. Stretching exercises and defensive techniques that require agility and quickness help keep the body flexible and injury-free.\n\n4. Weight Loss and Body Weight Control\nThe intensity of Krav Maga training burns a large number of calories, which helps in weight loss and maintaining a healthy weight. In addition, the increase in basal metabolism due to increased muscle mass also contributes to long-term weight control.\n\n5. Improved Balance and Coordination\nKrav Maga techniques and movements require good balance and coordination. Constant practice helps improve these skills, which also benefits other physical and sports activities.',
     },
-    'i5lbldf9': {
+    'f9mrz39v': {
       'es': 'Notícias',
       'en': 'News',
     },
@@ -534,6 +585,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '¡Hola, querido lector! Hoy quiero hablarte sobre un tema importante que nos concierne a todos: la fuerza responsable y cómo podemos aplicarla para proteger nuestra seguridad y la de quienes nos rodean. Aunque no somos oficiales de policía, es crucial que conozcamos la importancia de esta facultad y cómo aplicarla de manera adecuada.\n\nLa Fuerza Responsable: Un Poder que Todos Poseemos\n\nSeguro has escuchado hablar de la fuerza utilizada por los oficiales de policía para protegernos. ¡Pero no te equivoques! La fuerza no es solo una habilidad exclusiva para ellos. Todos tenemos la capacidad de emplearla de forma responsable cuando nos enfrentamos a situaciones peligrosas o que pongan en riesgo nuestra integridad o la de otros.\n\nEl Análisis de Riesgo: Tu Aliado en la Seguridad\n\nCuando se trata de enfrentar situaciones delicadas, hacer un análisis de riesgo es vital. Sé que puede sonar complicado, pero es más simple de lo que parece. ',
       'en':
           'Hello, dear reader! Today I want to talk to you about an important topic that concerns us all: responsible force and how we can apply it to protect our safety and the safety of those around us. Although we are not police officers, it is crucial that we know the importance of this power and how to apply it appropriately.\n\nThe Responsible Force: A Power We All Possess\n\nYou\'ve probably heard about the force used by police officers to protect us. But make no mistake! Strength is not just an exclusive ability for them. We all have the ability to use it responsibly when we face dangerous situations or situations that put our integrity or that of others at risk.\n\nRisk Analysis: Your Ally in Security\n\nWhen it comes to facing delicate situations, doing a risk analysis is vital. I know it may sound complicated, but it\'s simpler than it seems.',
+    },
+    'i5lbldf9': {
+      'es': 'Notícias',
+      'en': 'News',
+    },
+  },
+  // DetalleNoticia
+  {
+    'yelkhmaa': {
+      'es':
+          'El Krav Maga es un método eficaz y realista de defensa personal que se ha popularizado a nivel mundial. Junto con el auge de la popularidad, ha habido muchos mitos y concepciones erróneas sobre el mundo del Krav Maga. En el siguiente artículo, hablamos sobre algunos de los mitos comunes y exponemos la verdad detrás de esta increíble disciplina.\n\nMito 1: El Krav Maga es solo un sistema de defensa personal militar y de fuerzas Realidad: Aunque Krav Maga se desarrolló principalmente dentro de las fuerzas de defensa de Israel y es un método que han utilizado muchas fuerzas de seguridad de todo el mundo, se basa en principios y pretende ser aprendido por cualquier individuo, independientemente de su profesión. Los métodos deben ser tan fáciles y útiles que una persona de cualquier edad y estado de forma pueda aprender y utilizar Krav Maga para su defensa.\n\nMito 2: El Krav Maga es muy violento Realidad: El Krav Maga es un sistema de la manera más efectiva para neutralizar amenazas y protegerse a sí mismo. Aunque el Krav Maga tiene aspectos de ataque, no es una \"artes marciales\" en cuanto a que no es un sistema de violencia gratuita, sino un sistema de autoprotección. Los estudiantes aprenden a evitar conflictos de interés cuando sea necesario y a recurrir a la fuerza solo como último recurso.\n\nMito 3: Krav Maga es un ejercicio efectivo solo para hombres: El Krav Maga es tan efectivo para las mujeres como para los hombres. De hecho, muchas mujeres encuentran que el Krav Maga es un gran nivelador en lo que respecta a la capacidad de autodefensa. Las técnicas están diseñadas para superar la desventaja de tamaño y fuerza usando la mecánica del movimiento y los principios de la palanca para maximizar la eficiencia del esfuerzo de fuerza del ejecutante.\n',
+      'en':
+          'Krav Maga is an effective and realistic method of self-defense that has become popular worldwide. Along with the rise in popularity, there have been many myths and misconceptions about the world of Krav Maga. In the following article, we talk about some of the common myths and expose the truth behind this incredible discipline.\n\nMyth 1: Krav Maga is only a military and force self-defense system Fact: Although Krav Maga was primarily developed within the Israeli defense forces and is a method that has been used by many security forces around the world, it is It is based on principles and is intended to be learned by any individual, regardless of their profession. The methods should be so easy and useful that a person of any age and fitness level can learn and use Krav Maga for their defense.\n\nMyth 2: Krav Maga is very violent Fact: Krav Maga is a system of the most effective way to neutralize threats and protect yourself. Although Krav Maga has attacking aspects, it is not a \"martial arts\" in that it is not a system of gratuitous violence, but rather a system of self-protection. Students learn to avoid conflicts of interest when necessary and to resort to force only as a last resort.\n\nMyth 3: Krav Maga is an effective exercise only for men: Krav Maga is as effective for women as it is for men. In fact, many women find Krav Maga to be a great equalizer when it comes to self-defense ability. The techniques are designed to overcome the size and strength disadvantage by using movement mechanics and lever principles to maximize the efficiency of the performer\'s force effort.',
+    },
+    '8uh5w0x0': {
+      'es': 'Mitos y realidades \ndel Krav Maga',
+      'en': 'Myths and realities \nof Krav Maga',
     },
     'ca5vb57x': {
       'es': 'Notícias',

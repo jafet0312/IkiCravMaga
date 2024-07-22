@@ -45,10 +45,25 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
+          leading: InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              context.safePop();
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: FlutterFlowTheme.of(context).primaryText,
+              size: 30.0,
+            ),
+          ),
           title: Text(
             FFLocalizations.of(context).getText(
-              'dxfrozqv' /* Formulario */,
+              'gjngctx0' /* Sugerencias */,
             ),
+            textAlign: TextAlign.center,
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Sora',
                   color: Colors.white,
@@ -69,7 +84,7 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
               children: [
                 Container(
                   width: MediaQuery.sizeOf(context).width * 0.9,
-                  height: MediaQuery.sizeOf(context).height * 0.46,
+                  height: MediaQuery.sizeOf(context).height * 0.75,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     borderRadius: BorderRadius.circular(24.0),
@@ -97,8 +112,8 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
                             ),
                       ),
                       Container(
-                        width: 260.0,
-                        height: 120.0,
+                        width: MediaQuery.sizeOf(context).width * 0.8,
+                        height: MediaQuery.sizeOf(context).height * 0.4,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).accent1,
                           borderRadius: BorderRadius.circular(24.0),
@@ -146,24 +161,19 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
                           ),
                         ),
                       ),
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          RatingBar.builder(
-                            onRatingUpdate: (newValue) => setState(
-                                () => _model.rbEstrellasValue = newValue),
-                            itemBuilder: (context, index) => Icon(
-                              Icons.star_rounded,
-                              color: FlutterFlowTheme.of(context).tertiary,
-                            ),
-                            direction: Axis.horizontal,
-                            initialRating: _model.rbEstrellasValue ??= 3.0,
-                            unratedColor: FlutterFlowTheme.of(context).accent3,
-                            itemCount: 5,
-                            itemSize: 40.0,
-                            glowColor: FlutterFlowTheme.of(context).tertiary,
-                          ),
-                        ],
+                      RatingBar.builder(
+                        onRatingUpdate: (newValue) =>
+                            setState(() => _model.rbEstrellasValue = newValue),
+                        itemBuilder: (context, index) => Icon(
+                          Icons.star_rounded,
+                          color: FlutterFlowTheme.of(context).tertiary,
+                        ),
+                        direction: Axis.horizontal,
+                        initialRating: _model.rbEstrellasValue ??= 3.0,
+                        unratedColor: FlutterFlowTheme.of(context).accent3,
+                        itemCount: 5,
+                        itemSize: 40.0,
+                        glowColor: FlutterFlowTheme.of(context).tertiary,
                       ),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.4,

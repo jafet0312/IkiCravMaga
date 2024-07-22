@@ -96,9 +96,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Registro',
           path: '/registro',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Registro')
-              : const RegistroWidget(),
+          builder: (context, params) => RegistroWidget(
+            correoInvalido: params.getParam(
+              'correoInvalido',
+              ParamType.bool,
+            ),
+          ),
         ),
         FFRoute(
           name: 'PerfilUsuario',
@@ -117,9 +120,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Sugerencias',
           path: '/sugerencias',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Sugerencias')
-              : const SugerenciasWidget(),
+          builder: (context, params) => const SugerenciasWidget(),
         ),
         FFRoute(
           name: 'Guias',
@@ -139,15 +140,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Preferencias',
           path: '/preferencias',
-          builder: (context, params) => const NavBarPage(
-            initialPage: '',
-            page: PreferenciasWidget(),
-          ),
-        ),
-        FFRoute(
-          name: 'Noticia1',
-          path: '/noticia1',
-          builder: (context, params) => const Noticia1Widget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Preferencias')
+              : const PreferenciasWidget(),
         ),
         FFRoute(
           name: 'Noticia2',
@@ -158,6 +153,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Noticia3',
           path: '/noticia3',
           builder: (context, params) => const Noticia3Widget(),
+        ),
+        FFRoute(
+          name: 'DetalleNoticia',
+          path: '/detalleNoticia',
+          builder: (context, params) => const DetalleNoticiaWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
