@@ -13,9 +13,11 @@ export '/paginas_secundarias/guias/guias_widget.dart' show GuiasWidget;
 export '/paginas_secundarias/noticias/noticias_widget.dart' show NoticiasWidget;
 export '/paginas_secundarias/detalles_curso/detalles_curso_widget.dart'
     show DetallesCursoWidget;
-export '/paginas_principales/preferencias/preferencias_widget.dart'
-    show PreferenciasWidget;
 export '/por_eliminar/noticia2/noticia2_widget.dart' show Noticia2Widget;
 export '/por_eliminar/noticia3/noticia3_widget.dart' show Noticia3Widget;
 export '/paginas_secundarias/detalle_noticia/detalle_noticia_widget.dart'
     show DetalleNoticiaWidget;
+export '/paginas_principales/preferencias/preferencias_widget.dart'
+    show PreferenciasWidget;
+export '/admin/admin_cursos/admin_cursos_widget.dart' show AdminCursosWidget;
+export '/por_eliminar/noticia1/noticia1_widget.dart' show Noticia1Widget;

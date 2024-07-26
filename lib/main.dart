@@ -253,7 +253,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 ),
                 Text(
                   FFLocalizations.of(context).getText(
-                    '80xv863x' /* Preferencias */,
+                    'gs3gnckf' /* Preferencias */,
                   ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(

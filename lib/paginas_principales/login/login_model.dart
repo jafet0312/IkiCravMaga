@@ -32,11 +32,32 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   late bool txtContraseniaVisibility;
   String? Function(BuildContext, String?)?
       txtContraseniaTextControllerValidator;
+  String? _txtContraseniaTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        'okl1ueu2' /* Ingrese una contraseña */,
+      );
+    }
+
+    if (val.length < 6) {
+      return FFLocalizations.of(context).getText(
+        '1spuml9b' /* La contraseña tiene mínimo 6 c... */,
+      );
+    }
+
+    return null;
+  }
+
+  // Stores action output result for [Custom Action - inicioSesion] action in contBtnInicioSesion widget.
+  bool? inicioSesionResultado;
 
   @override
   void initState(BuildContext context) {
     txtCorreoTextControllerValidator = _txtCorreoTextControllerValidator;
     txtContraseniaVisibility = false;
+    txtContraseniaTextControllerValidator =
+        _txtContraseniaTextControllerValidator;
   }
 
   @override

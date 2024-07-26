@@ -16,3 +16,11 @@ int? pasarEntero(double decimal) {
   int entero = decimal.toInt();
   return entero;
 }
+
+DateTime startDate(DateTime date) {
+  return DateTime(date.year, date.month, date.day);
+}
+
+DateTime endDate(DateTime date) {
+  return DateTime(date.year, date.month, date.day, 23, 59, 59);
+}

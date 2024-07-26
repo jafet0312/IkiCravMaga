@@ -108,7 +108,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/perfilUsuario',
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'PerfilUsuario')
-              : const PerfilUsuarioWidget(),
+              : PerfilUsuarioWidget(
+                  edit: params.getParam(
+                    'edit',
+                    ParamType.bool,
+                  ),
+                ),
         ),
         FFRoute(
           name: 'Matricula',
@@ -138,13 +143,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const DetallesCursoWidget(),
         ),
         FFRoute(
-          name: 'Preferencias',
-          path: '/preferencias',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Preferencias')
-              : const PreferenciasWidget(),
-        ),
-        FFRoute(
           name: 'Noticia2',
           path: '/noticia2',
           builder: (context, params) => const Noticia2Widget(),
@@ -158,6 +156,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'DetalleNoticia',
           path: '/detalleNoticia',
           builder: (context, params) => const DetalleNoticiaWidget(),
+        ),
+        FFRoute(
+          name: 'Preferencias',
+          path: '/preferencias',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Preferencias')
+              : const PreferenciasWidget(),
+        ),
+        FFRoute(
+          name: 'AdminCursos',
+          path: '/adminCursos',
+          builder: (context, params) => const AdminCursosWidget(),
+        ),
+        FFRoute(
+          name: 'Noticia1',
+          path: '/noticia1',
+          builder: (context, params) => const Noticia1Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

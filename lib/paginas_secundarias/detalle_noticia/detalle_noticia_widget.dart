@@ -57,7 +57,7 @@ class _DetalleNoticiaWidgetState extends State<DetalleNoticiaWidget> {
           ),
           title: Text(
             FFLocalizations.of(context).getText(
-              '8uh5w0x0' /* Mitos y realidades 
+              'gjngctx0' /* Mitos y realidades 
 del Krav M... */
               ,
             ),

@@ -188,7 +188,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                     backgroundColor:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .accent1,
+                                                            .accent2,
                                                     icon: Icons
                                                         .add_circle_outline,
                                                     onPressed: (_) {
@@ -202,7 +202,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                 title: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'f50w72xs' /* Manejo de cuchillo */,
+                                                    'fe56h84b' /* Manejo de cuchillo */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -246,91 +246,6 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                             ),
                                           ),
                                         ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 10.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context
-                                                  .pushNamed('DetallesCurso');
-                                            },
-                                            child: Slidable(
-                                              endActionPane: ActionPane(
-                                                motion: const ScrollMotion(),
-                                                extentRatio: 0.25,
-                                                children: [
-                                                  SlidableAction(
-                                                    label: FFLocalizations.of(
-                                                            context)
-                                                        .getText(
-                                                      'ycgfwn05' /* Matricular */,
-                                                    ),
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .accent1,
-                                                    icon: Icons
-                                                        .add_circle_outline,
-                                                    onPressed: (_) {
-                                                      print(
-                                                          'SlidableActionWidget pressed ...');
-                                                    },
-                                                  ),
-                                                ],
-                                              ),
-                                              child: ListTile(
-                                                title: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'ngwtcwp7' /* Salidas rápidas de ataques dir... */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily: 'Sora',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                                subtitle: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '50vc0ras' /* Horario: 8:00pm */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                                trailing: Icon(
-                                                  Icons.arrow_forward_ios,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  size: 20.0,
-                                                ),
-                                                dense: false,
-                                                contentPadding:
-                                                    const EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          24.0),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
                                       ],
                                     ),
                                   ),
@@ -342,8 +257,8 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                   Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.9,
-                                    height:
-                                        MediaQuery.sizeOf(context).height * 0.7,
+                                    height: MediaQuery.sizeOf(context).height *
+                                        0.63,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -505,8 +420,8 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          FlutterFlowTheme.of(context).secondary,
-                          FlutterFlowTheme.of(context).primary
+                          FlutterFlowTheme.of(context).tertiary,
+                          FlutterFlowTheme.of(context).secondary
                         ],
                         stops: const [0.1, 1.0],
                         begin: const AlignmentDirectional(1.0, -1.0),

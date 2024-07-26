@@ -76,87 +76,133 @@ class _GuiasWidgetState extends State<GuiasWidget> {
             top: true,
             child: Align(
               alignment: const AlignmentDirectional(0.0, 0.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 366.0,
-                    height: 267.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(24.0),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          FFLocalizations.of(context).getText(
-                            'mikm6b35' /* Entrevista */,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 366.0,
+                      height: 267.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(24.0),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'mikm6b35' /* Entrevista */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
+                          const Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                5.0, 0.0, 5.0, 0.0),
+                            child: FlutterFlowYoutubePlayer(
+                              url: 'https://youtu.be/eXACRn8HIiY',
+                              autoPlay: false,
+                              looping: true,
+                              mute: false,
+                              showControls: true,
+                              showFullScreen: true,
+                              strictRelatedVideos: false,
+                            ),
+                          ),
+                        ]
+                            .divide(const SizedBox(height: 10.0))
+                            .around(const SizedBox(height: 10.0)),
+                      ),
+                    ),
+                    Container(
+                      width: 366.0,
+                      height: 267.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(24.0),
+                      ),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                'ywwgf69o' /* Entrevista */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
                                     fontFamily: 'Inter',
                                     letterSpacing: 0.0,
                                   ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  5.0, 0.0, 5.0, 0.0),
+                              child: FlutterFlowYoutubePlayer(
+                                url: 'https://youtu.be/zWtWzx6HSwM',
+                                autoPlay: false,
+                                looping: true,
+                                mute: false,
+                                showControls: true,
+                                showFullScreen: true,
+                                strictRelatedVideos: false,
+                              ),
+                            ),
+                          ]
+                              .divide(const SizedBox(height: 10.0))
+                              .around(const SizedBox(height: 10.0)),
                         ),
-                        const Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
-                          child: FlutterFlowYoutubePlayer(
-                            url: 'https://youtu.be/eXACRn8HIiY',
-                            autoPlay: false,
-                            looping: true,
-                            mute: false,
-                            showControls: true,
-                            showFullScreen: true,
-                            strictRelatedVideos: false,
-                          ),
-                        ),
-                      ]
-                          .divide(const SizedBox(height: 10.0))
-                          .around(const SizedBox(height: 10.0)),
+                      ),
                     ),
-                  ),
-                  Container(
-                    width: 366.0,
-                    height: 267.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(24.0),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          FFLocalizations.of(context).getText(
-                            'ywwgf69o' /* Entrevista */,
+                    Container(
+                      width: 366.0,
+                      height: 277.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'ug8vf1j1' /* Entrevista */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
-                          child: FlutterFlowYoutubePlayer(
-                            url: 'https://youtu.be/zWtWzx6HSwM',
-                            autoPlay: false,
-                            looping: true,
-                            mute: false,
-                            showControls: true,
-                            showFullScreen: true,
-                            strictRelatedVideos: false,
+                          const Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                5.0, 0.0, 5.0, 0.0),
+                            child: FlutterFlowYoutubePlayer(
+                              url: 'https://youtu.be/TRFaL5iUSZw',
+                              autoPlay: false,
+                              looping: true,
+                              mute: false,
+                              showControls: true,
+                              showFullScreen: true,
+                              strictRelatedVideos: false,
+                            ),
                           ),
-                        ),
-                      ]
-                          .divide(const SizedBox(height: 10.0))
-                          .around(const SizedBox(height: 10.0)),
+                        ]
+                            .divide(const SizedBox(height: 10.0))
+                            .around(const SizedBox(height: 10.0)),
+                      ),
                     ),
-                  ),
-                ].divide(const SizedBox(height: 30.0)).around(const SizedBox(height: 30.0)),
+                  ]
+                      .divide(const SizedBox(height: 30.0))
+                      .around(const SizedBox(height: 30.0)),
+                ),
               ),
             ),
           ),

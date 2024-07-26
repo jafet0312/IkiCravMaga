@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -25,15 +26,45 @@ class CoursesRecord extends FirestoreRecord {
   int get price => _price ?? 0;
   bool hasPrice() => _price != null;
 
-  // "day" field.
-  DateTime? _day;
-  DateTime? get day => _day;
-  bool hasDay() => _day != null;
+  // "participants" field.
+  List<DocumentReference>? _participants;
+  List<DocumentReference> get participants => _participants ?? const [];
+  bool hasParticipants() => _participants != null;
+
+  // "maxCapacity" field.
+  int? _maxCapacity;
+  int get maxCapacity => _maxCapacity ?? 0;
+  bool hasMaxCapacity() => _maxCapacity != null;
+
+  // "description" field.
+  String? _description;
+  String get description => _description ?? '';
+  bool hasDescription() => _description != null;
+
+  // "date" field.
+  DateTime? _date;
+  DateTime? get date => _date;
+  bool hasDate() => _date != null;
+
+  // "time" field.
+  DateTime? _time;
+  DateTime? get time => _time;
+  bool hasTime() => _time != null;
+
+  // "imageURL" field.
+  String? _imageURL;
+  String get imageURL => _imageURL ?? '';
+  bool hasImageURL() => _imageURL != null;
 
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _price = castToType<int>(snapshotData['price']);
-    _day = snapshotData['day'] as DateTime?;
+    _participants = getDataList(snapshotData['participants']);
+    _maxCapacity = castToType<int>(snapshotData['maxCapacity']);
+    _description = snapshotData['description'] as String?;
+    _date = snapshotData['date'] as DateTime?;
+    _time = snapshotData['time'] as DateTime?;
+    _imageURL = snapshotData['imageURL'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -73,13 +104,21 @@ class CoursesRecord extends FirestoreRecord {
 Map<String, dynamic> createCoursesRecordData({
   String? name,
   int? price,
-  DateTime? day,
+  int? maxCapacity,
+  String? description,
+  DateTime? date,
+  DateTime? time,
+  String? imageURL,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'name': name,
       'price': price,
-      'day': day,
+      'maxCapacity': maxCapacity,
+      'description': description,
+      'date': date,
+      'time': time,
+      'imageURL': imageURL,
     }.withoutNulls,
   );
 
@@ -91,12 +130,28 @@ class CoursesRecordDocumentEquality implements Equality<CoursesRecord> {
 
   @override
   bool equals(CoursesRecord? e1, CoursesRecord? e2) {
-    return e1?.name == e2?.name && e1?.price == e2?.price && e1?.day == e2?.day;
+    const listEquality = ListEquality();
+    return e1?.name == e2?.name &&
+        e1?.price == e2?.price &&
+        listEquality.equals(e1?.participants, e2?.participants) &&
+        e1?.maxCapacity == e2?.maxCapacity &&
+        e1?.description == e2?.description &&
+        e1?.date == e2?.date &&
+        e1?.time == e2?.time &&
+        e1?.imageURL == e2?.imageURL;
   }
 
   @override
-  int hash(CoursesRecord? e) =>
-      const ListEquality().hash([e?.name, e?.price, e?.day]);
+  int hash(CoursesRecord? e) => const ListEquality().hash([
+        e?.name,
+        e?.price,
+        e?.participants,
+        e?.maxCapacity,
+        e?.description,
+        e?.date,
+        e?.time,
+        e?.imageURL
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is CoursesRecord;

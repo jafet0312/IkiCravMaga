@@ -1,8 +1,10 @@
-import '/auth/firebase_auth/auth_util.dart';
+import '/bottom_sheets/bs_inicio_sesion_fallido/bs_inicio_sesion_fallido_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
@@ -306,19 +308,53 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     !_model.formKey.currentState!.validate()) {
                                   return;
                                 }
-                                GoRouter.of(context).prepareAuthEvent();
-
-                                final user = await authManager.signInWithEmail(
-                                  context,
+                                _model.inicioSesionResultado =
+                                    await actions.inicioSesion(
                                   _model.txtCorreoTextController.text,
                                   _model.txtContraseniaTextController.text,
                                 );
-                                if (user == null) {
-                                  return;
+                                if (_model.inicioSesionResultado!) {
+                                  setState(() {
+                                    _model.txtCorreoTextController?.clear();
+                                    _model.txtContraseniaTextController
+                                        ?.clear();
+                                  });
+
+                                  context.pushNamed('HomePage');
+                                } else {
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    enableDrag: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return WebViewAware(
+                                        child: GestureDetector(
+                                          onTap: () => _model
+                                                  .unfocusNode.canRequestFocus
+                                              ? FocusScope.of(context)
+                                                  .requestFocus(
+                                                      _model.unfocusNode)
+                                              : FocusScope.of(context)
+                                                  .unfocus(),
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: SizedBox(
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  0.25,
+                                              child:
+                                                  const BsInicioSesionFallidoWidget(),
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => safeSetState(() {}));
                                 }
 
-                                context.goNamedAuth(
-                                    'HomePage', context.mounted);
+                                setState(() {});
                               },
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.4,
@@ -326,8 +362,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
                                     colors: [
-                                      FlutterFlowTheme.of(context).secondary,
-                                      FlutterFlowTheme.of(context).primary
+                                      FlutterFlowTheme.of(context).tertiary,
+                                      FlutterFlowTheme.of(context).secondary
                                     ],
                                     stops: const [0.1, 1.0],
                                     begin: const AlignmentDirectional(1.0, -1.0),

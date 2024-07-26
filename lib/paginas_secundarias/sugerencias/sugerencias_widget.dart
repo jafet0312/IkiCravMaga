@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -175,42 +177,58 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
                         itemSize: 40.0,
                         glowColor: FlutterFlowTheme.of(context).tertiary,
                       ),
-                      Container(
-                        width: MediaQuery.sizeOf(context).width * 0.4,
-                        height: 40.0,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              FlutterFlowTheme.of(context).secondary,
-                              FlutterFlowTheme.of(context).primary
-                            ],
-                            stops: const [0.1, 1.0],
-                            begin: const AlignmentDirectional(1.0, -1.0),
-                            end: const AlignmentDirectional(-1.0, 1.0),
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await SuggestionsRecord.collection
+                              .doc()
+                              .set(createSuggestionsRecordData(
+                                user: currentUserReference,
+                                score: _model.rbEstrellasValue?.round(),
+                                description:
+                                    _model.txtfResenaTextController.text,
+                              ));
+                        },
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 0.4,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                FlutterFlowTheme.of(context).tertiary,
+                                FlutterFlowTheme.of(context).secondary
+                              ],
+                              stops: const [0.1, 1.0],
+                              begin: const AlignmentDirectional(1.0, -1.0),
+                              end: const AlignmentDirectional(-1.0, 1.0),
+                            ),
+                            borderRadius: BorderRadius.circular(24.0),
                           ),
-                          borderRadius: BorderRadius.circular(24.0),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.send,
-                              color: FlutterFlowTheme.of(context).alternate,
-                              size: 24.0,
-                            ),
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                'wsvtrkpe' /* Enviar */,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.send,
+                                color: FlutterFlowTheme.of(context).alternate,
+                                size: 24.0,
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                          ].divide(const SizedBox(width: 10.0)),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'wsvtrkpe' /* Enviar */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ].divide(const SizedBox(width: 10.0)),
+                          ),
                         ),
                       ),
                     ]

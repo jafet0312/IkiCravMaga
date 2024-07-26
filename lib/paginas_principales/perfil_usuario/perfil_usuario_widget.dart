@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -7,7 +8,12 @@ import 'perfil_usuario_model.dart';
 export 'perfil_usuario_model.dart';
 
 class PerfilUsuarioWidget extends StatefulWidget {
-  const PerfilUsuarioWidget({super.key});
+  const PerfilUsuarioWidget({
+    super.key,
+    bool? edit,
+  }) : edit = edit ?? false;
+
+  final bool edit;
 
   @override
   State<PerfilUsuarioWidget> createState() => _PerfilUsuarioWidgetState();
@@ -25,13 +31,6 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
 
     _model.txtNumeroTTextController ??= TextEditingController();
     _model.txtNumeroTFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
-          _model.txtNumeroTTextController?.text =
-              FFLocalizations.of(context).getText(
-            'm7g85kvb' /* 0000-0000 */,
-          );
-        }));
   }
 
   @override
@@ -77,7 +76,7 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
               children: [
                 Container(
                   width: MediaQuery.sizeOf(context).width * 0.9,
-                  height: MediaQuery.sizeOf(context).height * 0.25,
+                  height: MediaQuery.sizeOf(context).height * 0.27,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     borderRadius: BorderRadius.circular(24.0),
@@ -183,6 +182,7 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                       () => setState(() {}),
                                     ),
                                     autofocus: true,
+                                    readOnly: !widget.edit,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText:
@@ -271,39 +271,84 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                 ),
                               ),
                             ),
-                            FFButtonWidget(
-                              onPressed: () {
-                                print('btnEditar pressed ...');
-                              },
-                              text: FFLocalizations.of(context).getText(
-                                'xz1rh3dn' /* Editar */,
-                              ),
-                              icon: const Icon(
-                                Icons.edit,
-                                size: 15.0,
-                              ),
-                              options: FFButtonOptions(
-                                width: 110.0,
-                                height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
+                            Builder(
+                              builder: (context) {
+                                if (!widget.edit) {
+                                  return FFButtonWidget(
+                                    onPressed: () {
+                                      print('btnEditar pressed ...');
+                                    },
+                                    text: FFLocalizations.of(context).getText(
+                                      'xz1rh3dn' /* Editar */,
                                     ),
-                                elevation: 3.0,
-                                borderSide: const BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
+                                    icon: const Icon(
+                                      Icons.edit,
+                                      size: 15.0,
+                                    ),
+                                    options: FFButtonOptions(
+                                      width: 110.0,
+                                      height: 40.0,
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 24.0, 0.0),
+                                      iconPadding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: Colors.white,
+                                            letterSpacing: 0.0,
+                                          ),
+                                      elevation: 3.0,
+                                      borderSide: const BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  );
+                                } else {
+                                  return FFButtonWidget(
+                                    onPressed: () {
+                                      print('btnConfirmarEdicion pressed ...');
+                                    },
+                                    text: FFLocalizations.of(context).getText(
+                                      'xz1rh3dn' /* OK */,
+                                    ),
+                                    icon: const Icon(
+                                      Icons.check_circle,
+                                      size: 15.0,
+                                    ),
+                                    options: FFButtonOptions(
+                                      width: 110.0,
+                                      height: 40.0,
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 24.0, 0.0),
+                                      iconPadding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: Colors.white,
+                                            letterSpacing: 0.0,
+                                          ),
+                                      elevation: 3.0,
+                                      borderSide: const BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  );
+                                }
+                              },
                             ),
                           ],
                         ),
@@ -408,62 +453,66 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    FFButtonWidget(
-                      onPressed: () async {
-                        context.pushNamed('Login');
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        '4cty0uqe' /* Cerrar Sesión */,
-                      ),
-                      options: FFButtonOptions(
-                        height: 40.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Inter',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                ),
-                        elevation: 3.0,
-                        borderSide: const BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
+                    Expanded(
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            GoRouter.of(context).prepareAuthEvent();
+                            await authManager.signOut();
+                            GoRouter.of(context).clearRedirectLocation();
+
+                            context.goNamedAuth('Login', context.mounted);
+                          },
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 0.4,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  FlutterFlowTheme.of(context).tertiary,
+                                  FlutterFlowTheme.of(context).secondary
+                                ],
+                                stops: const [0.1, 1.0],
+                                begin: const AlignmentDirectional(1.0, -1.0),
+                                end: const AlignmentDirectional(-1.0, 1.0),
+                              ),
+                              borderRadius: BorderRadius.circular(24.0),
+                            ),
+                            child: Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Icon(
+                                    Icons.logout_rounded,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 24.0,
+                                  ),
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      '25f7l60p' /* Cerrar Sesión */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    FFButtonWidget(
-                      onPressed: () async {
-                        context.pushNamed('Preferencias');
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        'xnwizlt0' /* Preferencias */,
-                      ),
-                      options: FFButtonOptions(
-                        height: 40.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Inter',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                ),
-                        elevation: 3.0,
-                        borderSide: const BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
                   ],

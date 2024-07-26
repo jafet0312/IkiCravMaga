@@ -95,70 +95,79 @@ class _NoticiasWidgetState extends State<NoticiasWidget> {
                           width: 100.0,
                           height: 100.0,
                           decoration: const BoxDecoration(),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Container(
-                                width: 100.0,
-                                height: 100.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/mitos_de_KM.webp',
-                                    width: 300.0,
-                                    height: 200.0,
-                                    fit: BoxFit.fill,
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('Noticia1');
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Container(
+                                  width: 100.0,
+                                  height: 100.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                   ),
-                                ),
-                              ),
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      '7zqy8213' /* Mitos y realidades del Krav Ma... */,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                      'assets/images/mitos_de_KM.webp',
+                                      width: 322.0,
+                                      height: 200.0,
+                                      fit: BoxFit.fill,
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
                                   ),
-                                  Container(
-                                    width: 220.0,
-                                    height: 62.0,
-                                    decoration: const BoxDecoration(),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'tdforno9' /* Conocé acerca de los mitos más... */,
+                                ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        '7zqy8213' /* Mitos y realidades del Krav Ma... */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                    Container(
+                                      width: 220.0,
+                                      height: 62.0,
+                                      decoration: const BoxDecoration(),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 5.0, 0.0, 0.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'tdforno9' /* Conocé acerca de los mitos más... */,
+                                          ),
+                                          textAlign: TextAlign.justify,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
-                                        textAlign: TextAlign.justify,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              fontSize: 12.0,
-                                              letterSpacing: 0.0,
-                                            ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ]
-                                .divide(const SizedBox(width: 10.0))
-                                .around(const SizedBox(width: 10.0)),
+                                  ],
+                                ),
+                              ]
+                                  .divide(const SizedBox(width: 10.0))
+                                  .around(const SizedBox(width: 10.0)),
+                            ),
                           ),
                         ),
                       ),
