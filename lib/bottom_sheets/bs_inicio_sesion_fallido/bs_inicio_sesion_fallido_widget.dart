@@ -48,13 +48,20 @@ class _BsInicioSesionFallidoWidgetState
         children: [
           Text(
             FFLocalizations.of(context).getText(
-              '6pqmivzg' /* Inicio de sesión fallido */,
+              '0g0uoysz' /* Inicio de sesión fallido */,
             ),
             style: FlutterFlowTheme.of(context).titleLarge.override(
-                  fontFamily: 'Sora',
-                  color: FlutterFlowTheme.of(context).error,
-                  letterSpacing: 0.0,
-                ),
+              fontFamily: 'Sora',
+              color: FlutterFlowTheme.of(context).error,
+              letterSpacing: 0.0,
+              shadows: [
+                Shadow(
+                  color: FlutterFlowTheme.of(context).primary,
+                  offset: const Offset(2.0, 2.0),
+                  blurRadius: 2.0,
+                )
+              ],
+            ),
           ),
           InkWell(
             splashColor: Colors.transparent,
@@ -90,7 +97,7 @@ class _BsInicioSesionFallidoWidgetState
                   ),
                   Text(
                     FFLocalizations.of(context).getText(
-                      's3wukcow' /* Ok */,
+                      'u8lyc0cp' /* Ok */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',

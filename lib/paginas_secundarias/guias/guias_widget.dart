@@ -62,11 +62,18 @@ class _GuiasWidgetState extends State<GuiasWidget> {
                 'eygujvao' /* Guias de uso */,
               ),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Sora',
-                    color: Colors.white,
-                    fontSize: 22.0,
-                    letterSpacing: 0.0,
-                  ),
+                fontFamily: 'Sora',
+                color: Colors.white,
+                fontSize: 22.0,
+                letterSpacing: 0.0,
+                shadows: [
+                  Shadow(
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    offset: const Offset(2.0, 2.0),
+                    blurRadius: 2.0,
+                  )
+                ],
+              ),
             ),
             actions: const [],
             centerTitle: true,
@@ -93,7 +100,7 @@ class _GuiasWidgetState extends State<GuiasWidget> {
                         children: [
                           Text(
                             FFLocalizations.of(context).getText(
-                              'mikm6b35' /* Entrevista */,
+                              'mikm6b35' /* Entrevista 1 */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -133,7 +140,7 @@ class _GuiasWidgetState extends State<GuiasWidget> {
                           children: [
                             Text(
                               FFLocalizations.of(context).getText(
-                                'ywwgf69o' /* Entrevista */,
+                                'ywwgf69o' /* Entrevista 2 */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -172,7 +179,7 @@ class _GuiasWidgetState extends State<GuiasWidget> {
                         children: [
                           Text(
                             FFLocalizations.of(context).getText(
-                              'ug8vf1j1' /* Entrevista */,
+                              'ug8vf1j1' /* Entrevista 3 */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium

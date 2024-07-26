@@ -1,25 +1,25 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'noticia1_model.dart';
-export 'noticia1_model.dart';
+import 'noticia4_model.dart';
+export 'noticia4_model.dart';
 
-class Noticia1Widget extends StatefulWidget {
-  const Noticia1Widget({super.key});
+class Noticia4Widget extends StatefulWidget {
+  const Noticia4Widget({super.key});
 
   @override
-  State<Noticia1Widget> createState() => _Noticia1WidgetState();
+  State<Noticia4Widget> createState() => _Noticia4WidgetState();
 }
 
-class _Noticia1WidgetState extends State<Noticia1Widget> {
-  late Noticia1Model _model;
+class _Noticia4WidgetState extends State<Noticia4Widget> {
+  late Noticia4Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Noticia1Model());
+    _model = createModel(context, () => Noticia4Model());
   }
 
   @override
@@ -57,9 +57,7 @@ class _Noticia1WidgetState extends State<Noticia1Widget> {
           ),
           title: Text(
             FFLocalizations.of(context).getText(
-              'ufxpf2qo' /* Mitos y realidades
-del Krav Ma... */
-              ,
+              'sh8v6p4x' /* 20 Beneficios */,
             ),
             textAlign: TextAlign.center,
             style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -94,7 +92,7 @@ del Krav Ma... */
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(24.0),
                     child: Image.asset(
-                      'assets/images/IKIIMAGEN6.PNG',
+                      'assets/images/IKIIMAGEN4.PNG',
                       width: 393.0,
                       height: 200.0,
                       fit: BoxFit.fill,
@@ -106,7 +104,7 @@ del Krav Ma... */
                       const EdgeInsetsDirectional.fromSTEB(40.0, 0.0, 40.0, 30.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      't5e6ujrj' /* El Krav Maga es un método efic... */,
+                      'omelhk5i' /* ¿Estás buscando un sistema de ... */,
                     ),
                     textAlign: TextAlign.justify,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(

@@ -67,11 +67,18 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
             ),
             textAlign: TextAlign.center,
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Sora',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                  letterSpacing: 0.0,
-                ),
+              fontFamily: 'Sora',
+              color: Colors.white,
+              fontSize: 22.0,
+              letterSpacing: 0.0,
+              shadows: [
+                Shadow(
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  offset: const Offset(2.0, 2.0),
+                  blurRadius: 2.0,
+                )
+              ],
+            ),
           ),
           actions: const [],
           centerTitle: true,
@@ -108,6 +115,7 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
                         FFLocalizations.of(context).getText(
                           'k9cnfi2j' /* Su opinión nos ayuda a mejorar... */,
                         ),
+                        textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
                               letterSpacing: 0.0,

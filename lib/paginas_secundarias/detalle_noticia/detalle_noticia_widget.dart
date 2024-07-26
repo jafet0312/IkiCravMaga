@@ -57,17 +57,24 @@ class _DetalleNoticiaWidgetState extends State<DetalleNoticiaWidget> {
           ),
           title: Text(
             FFLocalizations.of(context).getText(
-              'gjngctx0' /* Mitos y realidades 
+              '8uh5w0x0' /* Mitos y realidades 
 del Krav M... */
               ,
             ),
             textAlign: TextAlign.center,
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Sora',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                  letterSpacing: 0.0,
-                ),
+              fontFamily: 'Sora',
+              color: Colors.white,
+              fontSize: 22.0,
+              letterSpacing: 0.0,
+              shadows: [
+                Shadow(
+                  color: FlutterFlowTheme.of(context).alternate,
+                  offset: const Offset(2.0, 2.0),
+                  blurRadius: 2.0,
+                )
+              ],
+            ),
           ),
           actions: const [],
           centerTitle: true,
@@ -94,7 +101,7 @@ del Krav M... */
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(24.0),
                           child: Image.asset(
                             'assets/images/mitos_de_KM.webp',
                             width: 300.0,

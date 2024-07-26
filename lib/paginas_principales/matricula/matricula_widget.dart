@@ -50,11 +50,18 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
               'ha5pfizv' /* Matrícula de cursos */,
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Sora',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                  letterSpacing: 0.0,
-                ),
+              fontFamily: 'Sora',
+              color: Colors.white,
+              fontSize: 22.0,
+              letterSpacing: 0.0,
+              shadows: [
+                Shadow(
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  offset: const Offset(2.0, 2.0),
+                  blurRadius: 2.0,
+                )
+              ],
+            ),
           ),
           actions: const [],
           centerTitle: true,
@@ -202,7 +209,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                                 title: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'fe56h84b' /* Manejo de cuchillo */,
+                                                    'f50w72xs' /* Manejo de cuchillo */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)

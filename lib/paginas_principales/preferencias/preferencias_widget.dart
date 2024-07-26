@@ -102,11 +102,18 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
                   '9f306or7' /* Preferencias */,
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Sora',
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      letterSpacing: 0.0,
-                    ),
+                  fontFamily: 'Sora',
+                  color: Colors.white,
+                  fontSize: 22.0,
+                  letterSpacing: 0.0,
+                  shadows: [
+                    Shadow(
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      offset: const Offset(2.0, 2.0),
+                      blurRadius: 2.0,
+                    )
+                  ],
+                ),
               ),
               actions: const [],
               centerTitle: true,
@@ -366,7 +373,7 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'o742p6sh' /* Sugerencias */,
+                                                '49ek4dst' /* Sugerencias */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)

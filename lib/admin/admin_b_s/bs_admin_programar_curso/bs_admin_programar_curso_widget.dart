@@ -660,7 +660,7 @@ class _BsAdminProgramarCursoWidgetState
                                         listViewCoursesTemplateRecord.image,
                                         width: 125.0,
                                         height: 100.0,
-                                        fit: BoxFit.cover,
+                                        fit: BoxFit.fill,
                                       ),
                                     ),
                                   ),

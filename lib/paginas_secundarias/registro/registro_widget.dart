@@ -83,11 +83,18 @@ class _RegistroWidgetState extends State<RegistroWidget> {
               'r0lsvox2' /* IKI CR Krav Maga */,
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Sora',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                  letterSpacing: 0.0,
-                ),
+              fontFamily: 'Sora',
+              color: Colors.white,
+              fontSize: 22.0,
+              letterSpacing: 0.0,
+              shadows: [
+                Shadow(
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  offset: const Offset(2.0, 2.0),
+                  blurRadius: 2.0,
+                )
+              ],
+            ),
           ),
           actions: const [],
           centerTitle: true,

@@ -21,3 +21,4 @@ export '/paginas_principales/preferencias/preferencias_widget.dart'
     show PreferenciasWidget;
 export '/admin/admin_cursos/admin_cursos_widget.dart' show AdminCursosWidget;
 export '/por_eliminar/noticia1/noticia1_widget.dart' show Noticia1Widget;
+export '/por_eliminar/noticia4/noticia4_widget.dart' show Noticia4Widget;

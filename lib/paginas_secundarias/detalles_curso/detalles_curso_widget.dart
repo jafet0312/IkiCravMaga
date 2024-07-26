@@ -60,11 +60,18 @@ class _DetallesCursoWidgetState extends State<DetallesCursoWidget> {
               'to7bdpjg' /* Detalle de curso */,
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Sora',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                  letterSpacing: 0.0,
-                ),
+              fontFamily: 'Sora',
+              color: Colors.white,
+              fontSize: 22.0,
+              letterSpacing: 0.0,
+              shadows: [
+                Shadow(
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  offset: const Offset(2.0, 2.0),
+                  blurRadius: 2.0,
+                )
+              ],
+            ),
           ),
           actions: const [],
           centerTitle: true,
@@ -96,6 +103,7 @@ class _DetallesCursoWidgetState extends State<DetallesCursoWidget> {
                             FFLocalizations.of(context).getText(
                               '829j7twl' /* CURSO MANEJO DE ARMAS */,
                             ),
+                            textAlign: TextAlign.start,
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(

@@ -173,6 +173,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Noticia1',
           path: '/noticia1',
           builder: (context, params) => const Noticia1Widget(),
+        ),
+        FFRoute(
+          name: 'Noticia4',
+          path: '/noticia4',
+          builder: (context, params) => const Noticia4Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

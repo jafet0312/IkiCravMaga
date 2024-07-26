@@ -57,11 +57,18 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
               'fkun5m14' /* Perfil de Usuario */,
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Sora',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                  letterSpacing: 0.0,
-                ),
+              fontFamily: 'Sora',
+              color: Colors.white,
+              fontSize: 22.0,
+              letterSpacing: 0.0,
+              shadows: [
+                Shadow(
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  offset: const Offset(2.0, 2.0),
+                  blurRadius: 2.0,
+                )
+              ],
+            ),
           ),
           actions: const [],
           centerTitle: true,
@@ -316,7 +323,7 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                       print('btnConfirmarEdicion pressed ...');
                                     },
                                     text: FFLocalizations.of(context).getText(
-                                      'xz1rh3dn' /* OK */,
+                                      'f1y65ekt' /* OK */,
                                     ),
                                     icon: const Icon(
                                       Icons.check_circle,

@@ -36,7 +36,7 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'okl1ueu2' /* Ingrese una contraseña */,
+        '1bqwgloh' /* Ingrese una contraseña */,
       );
     }
 
