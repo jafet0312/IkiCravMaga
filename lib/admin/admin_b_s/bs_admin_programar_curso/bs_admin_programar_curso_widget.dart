@@ -31,14 +31,14 @@ class _BsAdminProgramarCursoWidgetState
     super.initState();
     _model = createModel(context, () => BsAdminProgramarCursoModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.txtFNombreTextController ??= TextEditingController();
+    _model.txtFNombreFocusNode ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
+    _model.txtFPrecioTextController ??= TextEditingController();
+    _model.txtFPrecioFocusNode ??= FocusNode();
 
-    _model.textController3 ??= TextEditingController();
-    _model.textFieldFocusNode3 ??= FocusNode();
+    _model.txtFDescripcionTextController ??= TextEditingController();
+    _model.txtFDescripcionFocusNode ??= FocusNode();
   }
 
   @override
@@ -227,8 +227,8 @@ class _BsAdminProgramarCursoWidgetState
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
                                 child: TextFormField(
-                                  controller: _model.textController1,
-                                  focusNode: _model.textFieldFocusNode1,
+                                  controller: _model.txtFNombreTextController,
+                                  focusNode: _model.txtFNombreFocusNode,
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
@@ -287,7 +287,8 @@ class _BsAdminProgramarCursoWidgetState
                                         fontFamily: 'Inter',
                                         letterSpacing: 0.0,
                                       ),
-                                  validator: _model.textController1Validator
+                                  validator: _model
+                                      .txtFNombreTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -299,8 +300,8 @@ class _BsAdminProgramarCursoWidgetState
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
                                 child: TextFormField(
-                                  controller: _model.textController2,
-                                  focusNode: _model.textFieldFocusNode2,
+                                  controller: _model.txtFPrecioTextController,
+                                  focusNode: _model.txtFPrecioFocusNode,
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
@@ -359,7 +360,8 @@ class _BsAdminProgramarCursoWidgetState
                                         fontFamily: 'Inter',
                                         letterSpacing: 0.0,
                                       ),
-                                  validator: _model.textController2Validator
+                                  validator: _model
+                                      .txtFPrecioTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -378,8 +380,8 @@ class _BsAdminProgramarCursoWidgetState
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: TextFormField(
-                              controller: _model.textController3,
-                              focusNode: _model.textFieldFocusNode3,
+                              controller: _model.txtFDescripcionTextController,
+                              focusNode: _model.txtFDescripcionFocusNode,
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
@@ -435,7 +437,8 @@ class _BsAdminProgramarCursoWidgetState
                                     letterSpacing: 0.0,
                                   ),
                               maxLines: 5,
-                              validator: _model.textController3Validator
+                              validator: _model
+                                  .txtFDescripcionTextControllerValidator
                                   .asValidator(context),
                             ),
                           ),
@@ -526,7 +529,7 @@ class _BsAdminProgramarCursoWidgetState
                           children: [
                             FFButtonWidget(
                               onPressed: () {
-                                print('Button pressed ...');
+                                print('btnPublicar pressed ...');
                               },
                               text: FFLocalizations.of(context).getText(
                                 'udn4a5y1' /* Publicar */,

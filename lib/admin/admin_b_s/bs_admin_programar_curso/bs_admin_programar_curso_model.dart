@@ -8,18 +8,19 @@ class BsAdminProgramarCursoModel
 
   final formKey = GlobalKey<FormState>();
   DateTime? datePicked;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
+  // State field(s) for txtFNombre widget.
+  FocusNode? txtFNombreFocusNode;
+  TextEditingController? txtFNombreTextController;
+  String? Function(BuildContext, String?)? txtFNombreTextControllerValidator;
+  // State field(s) for txtFPrecio widget.
+  FocusNode? txtFPrecioFocusNode;
+  TextEditingController? txtFPrecioTextController;
+  String? Function(BuildContext, String?)? txtFPrecioTextControllerValidator;
+  // State field(s) for txtFDescripcion widget.
+  FocusNode? txtFDescripcionFocusNode;
+  TextEditingController? txtFDescripcionTextController;
+  String? Function(BuildContext, String?)?
+      txtFDescripcionTextControllerValidator;
   // State field(s) for CountController widget.
   int? countControllerValue;
 
@@ -28,13 +29,13 @@ class BsAdminProgramarCursoModel
 
   @override
   void dispose() {
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    txtFNombreFocusNode?.dispose();
+    txtFNombreTextController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    txtFPrecioFocusNode?.dispose();
+    txtFPrecioTextController?.dispose();
 
-    textFieldFocusNode3?.dispose();
-    textController3?.dispose();
+    txtFDescripcionFocusNode?.dispose();
+    txtFDescripcionTextController?.dispose();
   }
 }
