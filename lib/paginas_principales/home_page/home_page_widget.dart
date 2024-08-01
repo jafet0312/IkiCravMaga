@@ -77,8 +77,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       context.pushNamed('AdminCursos');
                     },
                     child: Icon(
-                      Icons.settings_outlined,
-                      color: FlutterFlowTheme.of(context).secondaryText,
+                      Icons.admin_panel_settings_sharp,
+                      color: FlutterFlowTheme.of(context).primaryText,
                       size: 24.0,
                     ),
                   ),
@@ -309,7 +309,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        'wb7830nw' /* Ultimas noticias */,
+                                        'wb7830nw' /* Últimas noticias */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium

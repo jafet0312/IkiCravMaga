@@ -566,7 +566,7 @@ class _BsAdminProgramarCursoWidgetState
                                 Navigator.pop(context);
                               },
                               text: FFLocalizations.of(context).getText(
-                                '4hos3lsz' /* Atras */,
+                                '4hos3lsz' /* Atrás */,
                               ),
                               icon: const Icon(
                                 Icons.arrow_back_sharp,

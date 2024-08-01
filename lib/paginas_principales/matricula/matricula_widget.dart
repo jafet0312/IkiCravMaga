@@ -447,7 +447,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                         ),
                         Text(
                           FFLocalizations.of(context).getText(
-                            'ihnbg6im' /* Guias de Uso */,
+                            'ihnbg6im' /* Guías de Uso */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(

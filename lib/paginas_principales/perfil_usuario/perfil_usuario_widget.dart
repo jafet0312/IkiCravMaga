@@ -423,7 +423,7 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                           ListTile(
                             title: Text(
                               FFLocalizations.of(context).getText(
-                                'iqi2nfjx' /* Control de agreciones */,
+                                'iqi2nfjx' /* Control de agresiones */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium

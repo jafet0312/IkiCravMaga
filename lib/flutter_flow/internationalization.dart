@@ -126,7 +126,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'Costa Rica Krav Maga currently belongs to the World Krav Maga Federation IKI (Israeli Krav International) as well as has the support of the Panama Krav Maga Association for all these purposes, just as in our country we have the support of the company K9 G&S security.',
     },
     'wb7830nw': {
-      'es': 'Ultimas noticias',
+      'es': 'Últimas noticias',
       'en': 'Last News',
     },
     'w4jw16rn': {
@@ -320,17 +320,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'etsqrazx': {
       'es':
-          'Felicitaciones, has completado con exito el curso de manejo de cuchillo',
+          'Felicitaciones, has completado con éxito el curso de manejo de cuchillo',
       'en':
           'Congratulations, you have successfully completed the knife handling course.',
     },
     'iqi2nfjx': {
-      'es': 'Control de agreciones',
+      'es': 'Control de agresiones',
       'en': 'Aggression control',
     },
     '8o0zp16s': {
       'es':
-          'Felicitaciones, has completado con exito el curso de control de agreciones',
+          'Felicitaciones, has completado con éxito el curso de control de agresiones',
       'en':
           'Congratulations, you have successfully completed the aggression control course.',
     },
@@ -378,7 +378,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Date: 06/27/2024 - Time: 8:00pm',
     },
     'ihnbg6im': {
-      'es': 'Guias de Uso',
+      'es': 'Guías de Uso',
       'en': 'Use Guides',
     },
     'ha5pfizv': {
@@ -532,7 +532,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'njkm0kyi': {
       'es':
-          'Salud Física\n1. Mejora la Condición Cardiovascular\nLas sesiones de entrenamiento de Krav Maga son intensivas y dinámicas, lo que ayuda a mejorar la resistencia cardiovascular. Los ejercicios de alta intensidad y las técnicas de combate aumentan la frecuencia cardíaca, mejorando la capacidad pulmonar y la eficiencia del corazón.\n\n2. Aumento de la Fuerza y Tono Muscular\nEl Krav Maga involucra movimientos que requieren fuerza y potencia, como golpes, patadas y bloqueos. Esto ayuda a desarrollar y tonificar los músculos de todo el cuerpo, especialmente en los brazos, piernas, abdomen y espalda.\n\n3. Mejora de la Flexibilidad y Movilidad\nLas técnicas de Krav Maga incluyen una variedad de movimientos que aumentan la flexibilidad y la movilidad articular. Los ejercicios de estiramiento y las técnicas de defensa que requieren agilidad y rapidez contribuyen a mantener el cuerpo flexible y libre de lesiones.\n\n4. Pérdida de Peso y Control del Peso Corporal\nLa intensidad del entrenamiento de Krav Maga quema una gran cantidad de calorías, lo que ayuda en la pérdida de peso y el mantenimiento de un peso saludable. Además, el aumento del metabolismo basal debido al incremento de la masa muscular también contribuye al control del peso a largo plazo.\n\n5. Mejora del Equilibrio y la Coordinación\nLas técnicas y los movimientos de Krav Maga requieren un buen equilibrio y coordinación. La práctica constante ayuda a mejorar estas habilidades, lo que también beneficia otras actividades físicas y deportivas.',
+          'Salud Física\n1. Mejora la Condición Cardiovascular:\nLas sesiones de entrenamiento de Krav Maga son intensivas y dinámicas, lo que ayuda a mejorar la resistencia cardiovascular. Los ejercicios de alta intensidad y las técnicas de combate aumentan la frecuencia cardíaca, mejorando la capacidad pulmonar y la eficiencia del corazón.\n\n2. Aumento de la Fuerza y Tono Muscular:\nEl Krav Maga involucra movimientos que requieren fuerza y potencia, como golpes, patadas y bloqueos. Esto ayuda a desarrollar y tonificar los músculos de todo el cuerpo, especialmente en los brazos, piernas, abdomen y espalda.\n\n3. Mejora de la Flexibilidad y Movilidad:\nLas técnicas de Krav Maga incluyen una variedad de movimientos que aumentan la flexibilidad y la movilidad articular. Los ejercicios de estiramiento y las técnicas de defensa que requieren agilidad y rapidez contribuyen a mantener el cuerpo flexible y libre de lesiones.\n\n4. Pérdida de Peso y Control del Peso Corporal:\nLa intensidad del entrenamiento de Krav Maga quema una gran cantidad de calorías, lo que ayuda en la pérdida de peso y el mantenimiento de un peso saludable. Además, el aumento del metabolismo basal debido al incremento de la masa muscular también contribuye al control del peso a largo plazo.\n\n5. Mejora del Equilibrio y la Coordinación:\nLas técnicas y los movimientos de Krav Maga requieren un buen equilibrio y coordinación. La práctica constante ayuda a mejorar estas habilidades, lo que también beneficia otras actividades físicas y deportivas.',
       'en':
           'Physical Health\n1. Improves Cardiovascular Condition\nKrav Maga training sessions are intensive and dynamic, which helps improve cardiovascular endurance. High-intensity exercises and combat techniques increase heart rate, improving lung capacity and heart efficiency.\n\n2. Increased Strength and Muscle Tone\nKrav Maga involves movements that require strength and power, such as punches, kicks, and blocks. This helps develop and tone muscles throughout the body, especially in the arms, legs, abdomen and back.\n\n3. Improved Flexibility and Mobility\nKrav Maga techniques include a variety of movements that increase flexibility and joint mobility. Stretching exercises and defensive techniques that require agility and quickness help keep the body flexible and injury-free.\n\n4. Weight Loss and Body Weight Control\nThe intensity of Krav Maga training burns a large number of calories, which helps in weight loss and maintaining a healthy weight. In addition, the increase in basal metabolism due to increased muscle mass also contributes to long-term weight control.\n\n5. Improved Balance and Coordination\nKrav Maga techniques and movements require good balance and coordination. Constant practice helps improve these skills, which also benefits other physical and sports activities.',
     },
@@ -704,7 +704,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Post',
     },
     '4hos3lsz': {
-      'es': 'Atras',
+      'es': 'Atrás',
       'en': 'Back',
     },
     'p36b8mjl': {
