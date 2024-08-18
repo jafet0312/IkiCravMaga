@@ -35,11 +35,17 @@ class NewsRecord extends FirestoreRecord {
   String get imageURL => _imageURL ?? '';
   bool hasImageURL() => _imageURL != null;
 
+  // "introduction" field.
+  String? _introduction;
+  String get introduction => _introduction ?? '';
+  bool hasIntroduction() => _introduction != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _description = snapshotData['description'] as String?;
     _date = snapshotData['date'] as DateTime?;
     _imageURL = snapshotData['imageURL'] as String?;
+    _introduction = snapshotData['introduction'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -80,6 +86,7 @@ Map<String, dynamic> createNewsRecordData({
   String? description,
   DateTime? date,
   String? imageURL,
+  String? introduction,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -87,6 +94,7 @@ Map<String, dynamic> createNewsRecordData({
       'description': description,
       'date': date,
       'imageURL': imageURL,
+      'introduction': introduction,
     }.withoutNulls,
   );
 
@@ -101,12 +109,13 @@ class NewsRecordDocumentEquality implements Equality<NewsRecord> {
     return e1?.name == e2?.name &&
         e1?.description == e2?.description &&
         e1?.date == e2?.date &&
-        e1?.imageURL == e2?.imageURL;
+        e1?.imageURL == e2?.imageURL &&
+        e1?.introduction == e2?.introduction;
   }
 
   @override
   int hash(NewsRecord? e) => const ListEquality()
-      .hash([e?.name, e?.description, e?.date, e?.imageURL]);
+      .hash([e?.name, e?.description, e?.date, e?.imageURL, e?.introduction]);
 
   @override
   bool isValidKey(Object? o) => o is NewsRecord;

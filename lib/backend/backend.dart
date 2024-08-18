@@ -13,6 +13,7 @@ import 'schema/news_record.dart';
 import 'schema/invoices_record.dart';
 import 'schema/achievements_record.dart';
 import 'schema/courses_template_record.dart';
+import 'schema/class_schedules_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -29,6 +30,7 @@ export 'schema/news_record.dart';
 export 'schema/invoices_record.dart';
 export 'schema/achievements_record.dart';
 export 'schema/courses_template_record.dart';
+export 'schema/class_schedules_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -321,6 +323,43 @@ Future<List<CoursesTemplateRecord>> queryCoursesTemplateRecordOnce({
     queryCollectionOnce(
       CoursesTemplateRecord.collection,
       CoursesTemplateRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query ClassSchedulesRecords (as a Stream and as a Future).
+Future<int> queryClassSchedulesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ClassSchedulesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ClassSchedulesRecord>> queryClassSchedulesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ClassSchedulesRecord.collection,
+      ClassSchedulesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ClassSchedulesRecord>> queryClassSchedulesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ClassSchedulesRecord.collection,
+      ClassSchedulesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

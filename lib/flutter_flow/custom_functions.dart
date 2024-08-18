@@ -24,3 +24,10 @@ DateTime startDate(DateTime date) {
 DateTime endDate(DateTime date) {
   return DateTime(date.year, date.month, date.day, 23, 59, 59);
 }
+
+int calculoCupos(
+  int cupos,
+  int matriculados,
+) {
+  return cupos - matriculados;
+}

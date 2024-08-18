@@ -12,7 +12,6 @@ class AdminCursosModel extends FlutterFlowModel<AdminCursosWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for Calendar widget.
   DateTimeRange? calendarSelectedDay;
 
@@ -25,7 +24,5 @@ class AdminCursosModel extends FlutterFlowModel<AdminCursosWidget> {
   }
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

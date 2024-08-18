@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class PerfilUsuarioModel extends FlutterFlowModel<PerfilUsuarioWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for txtNumeroT widget.
   FocusNode? txtNumeroTFocusNode;
   TextEditingController? txtNumeroTTextController;
@@ -16,7 +15,6 @@ class PerfilUsuarioModel extends FlutterFlowModel<PerfilUsuarioWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     txtNumeroTFocusNode?.dispose();
     txtNumeroTTextController?.dispose();
   }

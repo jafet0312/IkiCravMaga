@@ -6,7 +6,6 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 class RegistroModel extends FlutterFlowModel<RegistroWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for txtfCorreo widget.
   FocusNode? txtfCorreoFocusNode;
@@ -103,7 +102,6 @@ class RegistroModel extends FlutterFlowModel<RegistroWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     txtfCorreoFocusNode?.dispose();
     txtfCorreoTextController?.dispose();
 

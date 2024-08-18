@@ -1,13 +1,11 @@
-import '/admin/admin_b_s/bs_admin_programar_curso/bs_admin_programar_curso_widget.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'admin_cursos_model.dart';
 export 'admin_cursos_model.dart';
 
@@ -79,9 +77,7 @@ class _AdminCursosWidgetState extends State<AdminCursosWidget> {
         List<CoursesRecord> adminCursosCoursesRecordList = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -135,7 +131,7 @@ class _AdminCursosWidgetState extends State<AdminCursosWidget> {
                   children: [
                     Container(
                       width: MediaQuery.sizeOf(context).width * 0.9,
-                      height: MediaQuery.sizeOf(context).height * 0.23,
+                      height: MediaQuery.sizeOf(context).height * 0.24,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         borderRadius: BorderRadius.circular(24.0),
@@ -201,29 +197,7 @@ class _AdminCursosWidgetState extends State<AdminCursosWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                isDismissible: false,
-                                enableDrag: false,
-                                context: context,
-                                builder: (context) {
-                                  return WebViewAware(
-                                    child: GestureDetector(
-                                      onTap: () => _model
-                                              .unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
-                                      child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: const BsAdminProgramarCursoWidget(),
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ).then((value) => safeSetState(() {}));
+                              context.pushNamed('RegistrarCurso');
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.4,
@@ -271,79 +245,239 @@ class _AdminCursosWidgetState extends State<AdminCursosWidget> {
                             .around(const SizedBox(height: 10.0)),
                       ),
                     ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                    Expanded(
                       child: Builder(
                         builder: (context) {
-                          final listaCursos =
-                              adminCursosCoursesRecordList.toList();
+                          final cursos = adminCursosCoursesRecordList.toList();
 
                           return ListView.builder(
                             padding: EdgeInsets.zero,
+                            primary: false,
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
-                            itemCount: listaCursos.length,
-                            itemBuilder: (context, listaCursosIndex) {
-                              final listaCursosItem =
-                                  listaCursos[listaCursosIndex];
-                              return Slidable(
-                                endActionPane: ActionPane(
-                                  motion: const ScrollMotion(),
-                                  extentRatio: 0.25,
-                                  children: [
-                                    SlidableAction(
-                                      label:
-                                          FFLocalizations.of(context).getText(
-                                        'f0lywkb2' /* Share */,
-                                      ),
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context).info,
-                                      icon: Icons.share,
-                                      onPressed: (_) {
-                                        print(
-                                            'SlidableActionWidget pressed ...');
-                                      },
-                                    ),
-                                  ],
-                                ),
-                                child: ListTile(
-                                  title: Text(
-                                    listaCursosItem.name,
-                                    style: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .override(
-                                          fontFamily: 'Sora',
-                                          letterSpacing: 0.0,
+                            itemCount: cursos.length,
+                            itemBuilder: (context, cursosIndex) {
+                              final cursosItem = cursos[cursosIndex];
+                              return Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Divider(
+                                    thickness: 1.0,
+                                    color: FlutterFlowTheme.of(context).accent4,
+                                  ),
+                                  Container(
+                                    decoration: const BoxDecoration(),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Container(
+                                          width: 300.0,
+                                          height: 120.0,
+                                          decoration: const BoxDecoration(),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 5.0, 0.0, 5.0),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  child: Image.network(
+                                                    cursosItem.imageURL,
+                                                    width: 125.0,
+                                                    height: 100.0,
+                                                    fit: BoxFit.fill,
+                                                  ),
+                                                ),
+                                              ),
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    width: 175.0,
+                                                    decoration: const BoxDecoration(),
+                                                    child: AutoSizeText(
+                                                      cursosItem.name,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '3acjbo4c' /* Precio: ₡ */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                      Text(
+                                                        cursosItem.price
+                                                            .toString(),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '59xvlop9' /* Cupos:  */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                      Text(
+                                                        cursosItem.maxCapacity
+                                                            .toString(),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'e9kndg7r' /* Disponibles:  */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                      Text(
+                                                        functions
+                                                            .calculoCupos(
+                                                                cursosItem
+                                                                    .maxCapacity,
+                                                                cursosItem
+                                                                    .participants
+                                                                    .length)
+                                                            .toString(),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ].divide(
+                                                    const SizedBox(height: 10.0)),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                  ),
-                                  subtitle: Text(
-                                    dateTimeFormat(
-                                      'd/M h:mm a',
-                                      listaCursosItem.date!,
-                                      locale: FFLocalizations.of(context)
-                                          .languageCode,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
+                                        SizedBox(
+                                          height: 100.0,
+                                          child: VerticalDivider(
+                                            thickness: 1.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .accent4,
+                                          ),
                                         ),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                await cursosItem.reference
+                                                    .delete();
+                                              },
+                                              child: Icon(
+                                                Icons.delete,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                                size: 30.0,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ]
+                                          .divide(const SizedBox(width: 10.0))
+                                          .around(const SizedBox(width: 10.0)),
+                                    ),
                                   ),
-                                  trailing: Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 20.0,
-                                  ),
-                                  tileColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  dense: false,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(24.0),
-                                  ),
-                                ),
+                                ],
                               );
                             },
                           );

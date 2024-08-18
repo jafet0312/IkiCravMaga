@@ -1,11 +1,10 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'home_page_widget.dart' show HomePageWidget;
+import 'info_widget.dart' show InfoWidget;
 import 'package:flutter/material.dart';
 
-class HomePageModel extends FlutterFlowModel<HomePageWidget> {
+class InfoModel extends FlutterFlowModel<InfoWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for pvInicio widget.
   PageController? pvInicioController;
 
@@ -19,7 +18,5 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

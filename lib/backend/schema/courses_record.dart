@@ -46,11 +46,6 @@ class CoursesRecord extends FirestoreRecord {
   DateTime? get date => _date;
   bool hasDate() => _date != null;
 
-  // "time" field.
-  DateTime? _time;
-  DateTime? get time => _time;
-  bool hasTime() => _time != null;
-
   // "imageURL" field.
   String? _imageURL;
   String get imageURL => _imageURL ?? '';
@@ -63,7 +58,6 @@ class CoursesRecord extends FirestoreRecord {
     _maxCapacity = castToType<int>(snapshotData['maxCapacity']);
     _description = snapshotData['description'] as String?;
     _date = snapshotData['date'] as DateTime?;
-    _time = snapshotData['time'] as DateTime?;
     _imageURL = snapshotData['imageURL'] as String?;
   }
 
@@ -107,7 +101,6 @@ Map<String, dynamic> createCoursesRecordData({
   int? maxCapacity,
   String? description,
   DateTime? date,
-  DateTime? time,
   String? imageURL,
 }) {
   final firestoreData = mapToFirestore(
@@ -117,7 +110,6 @@ Map<String, dynamic> createCoursesRecordData({
       'maxCapacity': maxCapacity,
       'description': description,
       'date': date,
-      'time': time,
       'imageURL': imageURL,
     }.withoutNulls,
   );
@@ -137,7 +129,6 @@ class CoursesRecordDocumentEquality implements Equality<CoursesRecord> {
         e1?.maxCapacity == e2?.maxCapacity &&
         e1?.description == e2?.description &&
         e1?.date == e2?.date &&
-        e1?.time == e2?.time &&
         e1?.imageURL == e2?.imageURL;
   }
 
@@ -149,7 +140,6 @@ class CoursesRecordDocumentEquality implements Equality<CoursesRecord> {
         e?.maxCapacity,
         e?.description,
         e?.date,
-        e?.time,
         e?.imageURL
       ]);
 

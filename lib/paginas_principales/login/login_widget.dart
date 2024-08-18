@@ -1,9 +1,11 @@
-import '/bottom_sheets/bs_inicio_sesion_fallido/bs_inicio_sesion_fallido_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/paginas_principales/bs_main/bs_inicio_sesion_fallido/bs_inicio_sesion_fallido_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'login_model.dart';
 export 'login_model.dart';
@@ -15,10 +17,13 @@ class LoginWidget extends StatefulWidget {
   State<LoginWidget> createState() => _LoginWidgetState();
 }
 
-class _LoginWidgetState extends State<LoginWidget> {
+class _LoginWidgetState extends State<LoginWidget>
+    with TickerProviderStateMixin {
   late LoginModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -30,6 +35,23 @@ class _LoginWidgetState extends State<LoginWidget> {
 
     _model.txtContraseniaTextController ??= TextEditingController();
     _model.txtContraseniaFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        loop: true,
+        reverse: true,
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          TiltEffect(
+            curve: Curves.easeInOut,
+            delay: 2000.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0, 0),
+            end: const Offset(0, 3.142),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -42,9 +64,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -105,7 +125,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                           height: 150.0,
                           fit: BoxFit.cover,
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['imageOnPageLoadAnimation']!),
                       Form(
                         key: _model.formKey,
                         autovalidateMode: AutovalidateMode.disabled,
@@ -322,12 +343,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 );
                                 if (_model.inicioSesionResultado!) {
                                   setState(() {
-                                    _model.txtCorreoTextController?.clear();
                                     _model.txtContraseniaTextController
                                         ?.clear();
+                                    _model.txtCorreoTextController?.clear();
                                   });
 
-                                  context.pushNamed('HomePage');
+                                  context.pushNamed('Info');
                                 } else {
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
@@ -337,13 +358,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     builder: (context) {
                                       return WebViewAware(
                                         child: GestureDetector(
-                                          onTap: () => _model
-                                                  .unfocusNode.canRequestFocus
-                                              ? FocusScope.of(context)
-                                                  .requestFocus(
-                                                      _model.unfocusNode)
-                                              : FocusScope.of(context)
-                                                  .unfocus(),
+                                          onTap: () =>
+                                              FocusScope.of(context).unfocus(),
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
@@ -391,7 +407,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     ),
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        'ykypsjnt' /* Iniciar Sesión */,
+                                        'p9gsu83y' /* Iniciar Sesión */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium

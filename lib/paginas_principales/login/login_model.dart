@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class LoginModel extends FlutterFlowModel<LoginWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for txtCorreo widget.
   FocusNode? txtCorreoFocusNode;
@@ -62,7 +61,6 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     txtCorreoFocusNode?.dispose();
     txtCorreoTextController?.dispose();
 

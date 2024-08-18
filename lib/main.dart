@@ -1,3 +1,4 @@
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -20,7 +21,13 @@ void main() async {
 
   await FFLocalizations.initialize();
 
-  runApp(const MyApp());
+  final appState = FFAppState(); // Initialize FFAppState
+  await appState.initializePersistedState();
+
+  runApp(ChangeNotifierProvider(
+    create: (context) => appState,
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -116,7 +123,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'HomePage';
+  String _currentPageName = 'Matricula';
   late Widget? _currentPage;
 
   @override
@@ -129,9 +136,9 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'HomePage': const HomePageWidget(),
-      'Matricula': const MatriculaWidget(),
+      'Info': const InfoWidget(),
       'PerfilUsuario': const PerfilUsuarioWidget(),
+      'Matricula': const MatriculaWidget(),
       'Preferencias': const PreferenciasWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -167,7 +174,7 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.home,
+                  Icons.info_outline,
                   color: currentIndex == 0
                       ? FlutterFlowTheme.of(context).secondary
                       : FlutterFlowTheme.of(context).secondaryText,
@@ -175,7 +182,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 ),
                 Text(
                   FFLocalizations.of(context).getText(
-                    '0y6kkoe3' /* Inicio */,
+                    '0y6kkoe3' /* Informacion */,
                   ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -193,7 +200,7 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.fitness_center_rounded,
+                  Icons.person,
                   color: currentIndex == 1
                       ? FlutterFlowTheme.of(context).secondary
                       : FlutterFlowTheme.of(context).secondaryText,
@@ -201,7 +208,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 ),
                 Text(
                   FFLocalizations.of(context).getText(
-                    'hvcyvcbh' /* Matricula */,
+                    'wsrdpx4a' /* Perfil */,
                   ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -219,7 +226,7 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.person,
+                  Icons.calendar_month,
                   color: currentIndex == 2
                       ? FlutterFlowTheme.of(context).secondary
                       : FlutterFlowTheme.of(context).secondaryText,
@@ -227,7 +234,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 ),
                 Text(
                   FFLocalizations.of(context).getText(
-                    'wsrdpx4a' /* Perfil */,
+                    'hvcyvcbh' /* Matricula */,
                   ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -253,7 +260,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 ),
                 Text(
                   FFLocalizations.of(context).getText(
-                    'gs3gnckf' /* Preferencias */,
+                    'pleyjlv5' /* Preferencias */,
                   ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(

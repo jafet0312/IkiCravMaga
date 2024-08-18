@@ -3,15 +3,9 @@ import 'guias_widget.dart' show GuiasWidget;
 import 'package:flutter/material.dart';
 
 class GuiasModel extends FlutterFlowModel<GuiasWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

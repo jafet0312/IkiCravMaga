@@ -34,9 +34,7 @@ class _GuiasWidgetState extends State<GuiasWidget> {
   Widget build(BuildContext context) {
     return YoutubeFullScreenWrapper(
       child: GestureDetector(
-        onTap: () => _model.unfocusNode.canRequestFocus
-            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-            : FocusScope.of(context).unfocus(),
+        onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -103,7 +101,7 @@ class _GuiasWidgetState extends State<GuiasWidget> {
                               'mikm6b35' /* Entrevista 1 */,
                             ),
                             style: FlutterFlowTheme.of(context)
-                                .bodyMedium
+                                .titleMedium
                                 .override(
                                   fontFamily: 'Inter',
                                   letterSpacing: 0.0,
@@ -134,38 +132,36 @@ class _GuiasWidgetState extends State<GuiasWidget> {
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         borderRadius: BorderRadius.circular(24.0),
                       ),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                'ywwgf69o' /* Entrevista 2 */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'ywwgf69o' /* Entrevista 2 */,
                             ),
-                            const Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 0.0, 5.0, 0.0),
-                              child: FlutterFlowYoutubePlayer(
-                                url: 'https://youtu.be/zWtWzx6HSwM',
-                                autoPlay: false,
-                                looping: true,
-                                mute: false,
-                                showControls: true,
-                                showFullScreen: true,
-                                strictRelatedVideos: false,
-                              ),
+                            style: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                          const Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                5.0, 0.0, 5.0, 0.0),
+                            child: FlutterFlowYoutubePlayer(
+                              url: 'https://youtu.be/zWtWzx6HSwM',
+                              autoPlay: false,
+                              looping: true,
+                              mute: false,
+                              showControls: true,
+                              showFullScreen: true,
+                              strictRelatedVideos: false,
                             ),
-                          ]
-                              .divide(const SizedBox(height: 10.0))
-                              .around(const SizedBox(height: 10.0)),
-                        ),
+                          ),
+                        ]
+                            .divide(const SizedBox(height: 10.0))
+                            .around(const SizedBox(height: 10.0)),
                       ),
                     ),
                     Container(
@@ -182,7 +178,7 @@ class _GuiasWidgetState extends State<GuiasWidget> {
                               'ug8vf1j1' /* Entrevista 3 */,
                             ),
                             style: FlutterFlowTheme.of(context)
-                                .bodyMedium
+                                .titleMedium
                                 .override(
                                   fontFamily: 'Inter',
                                   letterSpacing: 0.0,

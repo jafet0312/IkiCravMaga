@@ -2,8 +2,10 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/paginas_principales/bs_main/bs_sugerencia_enviada/bs_sugerencia_enviada_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'sugerencias_model.dart';
 export 'sugerencias_model.dart';
 
@@ -38,9 +40,7 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -199,6 +199,31 @@ class _SugerenciasWidgetState extends State<SugerenciasWidget> {
                                 description:
                                     _model.txtfResenaTextController.text,
                               ));
+                          setState(() {
+                            _model.txtfResenaTextController?.clear();
+                          });
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            enableDrag: false,
+                            context: context,
+                            builder: (context) {
+                              return WebViewAware(
+                                child: GestureDetector(
+                                  onTap: () => FocusScope.of(context).unfocus(),
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: SizedBox(
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.3,
+                                      child: const BsSugerenciaEnviadaWidget(),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.4,

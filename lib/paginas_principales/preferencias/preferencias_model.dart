@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class PreferenciasModel extends FlutterFlowModel<PreferenciasWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for Slider widget.
   double? sliderValue;
 
@@ -13,7 +12,5 @@ class PreferenciasModel extends FlutterFlowModel<PreferenciasWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }
