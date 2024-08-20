@@ -7,7 +7,7 @@ import 'auth/firebase_auth/firebase_user_provider.dart';
 import 'auth/firebase_auth/auth_util.dart';
 
 import 'backend/firebase/firebase_config.dart';
-import 'flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
@@ -136,10 +136,11 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'Info': const InfoWidget(),
+      'InfoHome': const InfoHomeWidget(),
       'PerfilUsuario': const PerfilUsuarioWidget(),
       'Matricula': const MatriculaWidget(),
       'Preferencias': const PreferenciasWidget(),
+      'PruebasWidgets': const PruebasWidgetsWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -182,7 +183,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 ),
                 Text(
                   FFLocalizations.of(context).getText(
-                    '0y6kkoe3' /* Informacion */,
+                    '0y6kkoe3' /* Información */,
                   ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -265,6 +266,32 @@ class _NavBarPageState extends State<NavBarPage> {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 3
+                        ? FlutterFlowTheme.of(context).secondary
+                        : FlutterFlowTheme.of(context).secondaryText,
+                    fontSize: 11.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.query_stats,
+                  color: currentIndex == 4
+                      ? FlutterFlowTheme.of(context).secondary
+                      : FlutterFlowTheme.of(context).secondaryText,
+                  size: 24.0,
+                ),
+                Text(
+                  FFLocalizations.of(context).getText(
+                    'a2v1dvcu' /* Pruebas */,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 4
                         ? FlutterFlowTheme.of(context).secondary
                         : FlutterFlowTheme.of(context).secondaryText,
                     fontSize: 11.0,

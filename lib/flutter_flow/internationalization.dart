@@ -105,7 +105,7 @@ Locale createLocale(String language) => language.contains('_')
     : Locale(language);
 
 final kTranslationsMap = <Map<String, Map<String, String>>>[
-  // Info
+  // InfoHome
   {
     'ulqhiprq': {
       'es':
@@ -130,19 +130,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Last News',
     },
     'pm5uwpec': {
-      'es': 'Beneficios',
-      'en': '',
+      'es': 'Información',
+      'en': 'Benefits',
     },
     'w4jw16rn': {
       'es': 'IKI CR Krav Maga',
       'en': 'IKI CR Crav Maga',
     },
     '0y6kkoe3': {
-      'es': 'Informacion',
-      'en': 'Home',
+      'es': 'Información',
+      'en': 'Information',
     },
   },
-  // Login
+  // LoginApp
   {
     'zz5htu1c': {
       'es': 'Correo electrónico',
@@ -197,7 +197,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Home',
     },
   },
-  // Registro
+  // RegistroUsuario
   {
     '9lrabwix': {
       'es': 'Crear una cuenta',
@@ -208,7 +208,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Email',
     },
     'luhiu5sq': {
-      'es': 'Nombre',
+      'es': 'Nombre Completo',
       'en': 'Name',
     },
     'h84eyf93': {
@@ -384,7 +384,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Tuition',
     },
   },
-  // Sugerencias
+  // SugerenciasCliente
   {
     'c9ctsi2f': {
       'es': 'Encuesta de satisfacción',
@@ -411,7 +411,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Suggestions',
     },
   },
-  // Guias
+  // GuiasYT
   {
     'mikm6b35': {
       'es': 'Entrevista 1',
@@ -434,7 +434,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Home',
     },
   },
-  // Noticias
+  // NoticiasApp
   {
     'te7uwi3w': {
       'es': 'Notícias',
@@ -484,18 +484,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Nuevo',
       'en': 'New',
     },
-    '3acjbo4c': {
-      'es': 'Precio: ₡',
-      'en': 'Price: ₡',
-    },
-    '59xvlop9': {
-      'es': 'Cupos: ',
-      'en': 'Quotas:',
-    },
-    'e9kndg7r': {
-      'es': 'Disponibles: ',
-      'en': 'Available:',
-    },
     'flhc46l7': {
       'es': 'Admin Cursos',
       'en': 'Admin Courses',
@@ -536,7 +524,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Preferences',
     },
   },
-  // RegistrarCurso
+  // RegistrarCursos
   {
     'wfn28rk3': {
       'es': 'Fecha',
@@ -626,6 +614,55 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Information',
     },
     'bhj68i07': {
+      'es': 'Home',
+      'en': 'Home',
+    },
+  },
+  // PruebasWidgets
+  {
+    'joc57url': {
+      'es': 'Titulo Página',
+      'en': 'Title Page',
+    },
+    'a2v1dvcu': {
+      'es': 'Pruebas',
+      'en': 'Evidence',
+    },
+  },
+  // AdminCursosCopy
+  {
+    '3a04txqf': {
+      'es': 'Nuevo',
+      'en': 'New',
+    },
+    '0sr1vqug': {
+      'es': 'Precio: ₡',
+      'en': 'Price: ₡',
+    },
+    'fk8ygbqs': {
+      'es': 'Cupos: ',
+      'en': 'Quotas:',
+    },
+    '0cm456hy': {
+      'es': 'Disponibles: ',
+      'en': 'Available:',
+    },
+    'frokyxa4': {
+      'es': 'Admin Cursos',
+      'en': 'Admin Courses',
+    },
+    '7bugmudj': {
+      'es': 'Inicio',
+      'en': 'Home',
+    },
+  },
+  // ReproductorMusica
+  {
+    'kezcscjt': {
+      'es': 'ReproductorIKI',
+      'en': 'IKI Player',
+    },
+    'z6hmrs2y': {
       'es': 'Home',
       'en': 'Home',
     },

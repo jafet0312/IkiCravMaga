@@ -2,30 +2,29 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'admin_cursos_model.dart';
-export 'admin_cursos_model.dart';
+import 'admin_cursos_copy_model.dart';
+export 'admin_cursos_copy_model.dart';
 
-class AdminCursosWidget extends StatefulWidget {
-  const AdminCursosWidget({super.key});
+class AdminCursosCopyWidget extends StatefulWidget {
+  const AdminCursosCopyWidget({super.key});
 
   @override
-  State<AdminCursosWidget> createState() => _AdminCursosWidgetState();
+  State<AdminCursosCopyWidget> createState() => _AdminCursosCopyWidgetState();
 }
 
-class _AdminCursosWidgetState extends State<AdminCursosWidget> {
-  late AdminCursosModel _model;
+class _AdminCursosCopyWidgetState extends State<AdminCursosCopyWidget> {
+  late AdminCursosCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AdminCursosModel());
+    _model = createModel(context, () => AdminCursosCopyModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -75,7 +74,7 @@ class _AdminCursosWidgetState extends State<AdminCursosWidget> {
             ),
           );
         }
-        List<CoursesRecord> adminCursosCoursesRecordList = snapshot.data!;
+        List<CoursesRecord> adminCursosCopyCoursesRecordList = snapshot.data!;
 
         return GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -101,7 +100,7 @@ class _AdminCursosWidgetState extends State<AdminCursosWidget> {
               ),
               title: Text(
                 FFLocalizations.of(context).getText(
-                  'flhc46l7' /* Admin Cursos */,
+                  'frokyxa4' /* Admin Cursos */,
                 ),
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -229,7 +228,7 @@ class _AdminCursosWidgetState extends State<AdminCursosWidget> {
                                   ),
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      'u4ug1odu' /* Nuevo */,
+                                      '3a04txqf' /* Nuevo */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -250,7 +249,8 @@ class _AdminCursosWidgetState extends State<AdminCursosWidget> {
                     Expanded(
                       child: Builder(
                         builder: (context) {
-                          final cursos = adminCursosCoursesRecordList.toList();
+                          final cursos =
+                              adminCursosCopyCoursesRecordList.toList();
 
                           return ListView.builder(
                             padding: EdgeInsets.zero,
@@ -276,6 +276,7 @@ class _AdminCursosWidgetState extends State<AdminCursosWidget> {
                                       children: [
                                         Container(
                                           width: 300.0,
+                                          height: 120.0,
                                           decoration: const BoxDecoration(),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -296,24 +297,39 @@ class _AdminCursosWidgetState extends State<AdminCursosWidget> {
                                                   ),
                                                 ),
                                               ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Container(
-                                                      width: 165.0,
-                                                      decoration:
-                                                          const BoxDecoration(),
-                                                      child: AutoSizeText(
-                                                        cursosItem.name,
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    width: 175.0,
+                                                    decoration: const BoxDecoration(),
+                                                    child: AutoSizeText(
+                                                      cursosItem.name,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '0sr1vqug' /* Precio: ₡ */,
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -323,71 +339,84 @@ class _AdminCursosWidgetState extends State<AdminCursosWidget> {
                                                                       'Inter',
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
                                                                 ),
                                                       ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 140.0,
-                                                      child: Divider(
-                                                        height: 20.0,
-                                                        thickness: 1.0,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent4,
-                                                      ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 140.0,
-                                                      height: 20.0,
-                                                      child: custom_widgets
-                                                          .ConcatenatedText(
-                                                        width: 140.0,
-                                                        height: 20.0,
-                                                        firstText: 'Precio: ₡',
-                                                        secondText: cursosItem
-                                                            .price
+                                                      Text(
+                                                        cursosItem.price
                                                             .toString(),
-                                                        fontSize: 14.0,
-                                                        textColor:
+                                                        style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryText,
-                                                        fontFamily:
-                                                            'Secondary Family',
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 140.0,
-                                                      height: 20.0,
-                                                      child: custom_widgets
-                                                          .ConcatenatedText(
-                                                        width: 140.0,
-                                                        height: 20.0,
-                                                        firstText: 'Cupos: ',
-                                                        secondText: cursosItem
-                                                            .maxCapacity
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'fk8ygbqs' /* Cupos:  */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                      Text(
+                                                        cursosItem.maxCapacity
                                                             .toString(),
-                                                        fontSize: 14.0,
-                                                        textColor:
+                                                        style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryText,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 140.0,
-                                                      height: 20.0,
-                                                      child: custom_widgets
-                                                          .ConcatenatedText(
-                                                        width: 140.0,
-                                                        height: 20.0,
-                                                        firstText:
-                                                            'Disponibles: ',
-                                                        secondText: functions
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '0cm456hy' /* Disponibles:  */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                      Text(
+                                                        functions
                                                             .calculoCupos(
                                                                 cursosItem
                                                                     .maxCapacity,
@@ -395,40 +424,21 @@ class _AdminCursosWidgetState extends State<AdminCursosWidget> {
                                                                     .participants
                                                                     .length)
                                                             .toString(),
-                                                        fontSize: 14.0,
-                                                        textColor:
+                                                        style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryText,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 140.0,
-                                                      height: 20.0,
-                                                      child: custom_widgets
-                                                          .ConcatenatedText(
-                                                        width: 140.0,
-                                                        height: 20.0,
-                                                        firstText: 'Hora: ',
-                                                        secondText:
-                                                            dateTimeFormat(
-                                                          "jm",
-                                                          cursosItem.date!,
-                                                          locale:
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .languageCode,
-                                                        ),
-                                                        fontSize: 14.0,
-                                                        textColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                      ),
-                                                    ),
-                                                  ].divide(
-                                                      const SizedBox(height: 5.0)),
-                                                ),
+                                                    ],
+                                                  ),
+                                                ].divide(
+                                                    const SizedBox(height: 10.0)),
                                               ),
                                             ],
                                           ),
@@ -465,8 +475,8 @@ class _AdminCursosWidgetState extends State<AdminCursosWidget> {
                                           ],
                                         ),
                                       ]
-                                          .divide(const SizedBox(width: 0.0))
-                                          .around(const SizedBox(width: 0.0)),
+                                          .divide(const SizedBox(width: 10.0))
+                                          .around(const SizedBox(width: 10.0)),
                                     ),
                                   ),
                                 ],

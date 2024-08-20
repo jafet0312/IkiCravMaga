@@ -9,6 +9,9 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import '/custom_code/widgets/index.dart';
+import '/custom_code/actions/index.dart';
+import '/flutter_flow/custom_functions.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/services.dart';
 import 'dart:ui';
@@ -32,7 +35,7 @@ class _SlidingUpPanelExampleState extends State<SlidingUpPanelExample> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      systemNavigationBarColor: Color.fromARGB(255, 227, 227, 227),
+      systemNavigationBarColor: Color.fromARGB(255, 16, 16, 16),
       systemNavigationBarIconBrightness: Brightness.dark,
       systemNavigationBarDividerColor: Colors.black,
     ));
@@ -62,7 +65,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
     _fabHeight = _initFabHeight;
   }
 
@@ -71,6 +73,7 @@ class _HomePageState extends State<HomePage> {
     _panelHeightOpen = MediaQuery.of(context).size.height * .80;
 
     return Material(
+      color: const Color.fromARGB(255, 23, 23, 23), // Fondo negro
       child: Stack(
         alignment: Alignment.topCenter,
         children: <Widget>[
@@ -90,7 +93,7 @@ class _HomePageState extends State<HomePage> {
             }),
           ),
 
-          //the Title
+          // El Título
           Positioned(
             top: 52.0,
             child: Container(
@@ -100,11 +103,11 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(fontWeight: FontWeight.w500),
               ),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color.fromARGB(255, 144, 33, 33),
                 borderRadius: BorderRadius.circular(24.0),
                 boxShadow: [
                   BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, .25), blurRadius: 16.0)
+                      color: Color.fromARGB(255, 0, 0, 0), blurRadius: 16.0)
                 ],
               ),
             ),
@@ -116,118 +119,111 @@ class _HomePageState extends State<HomePage> {
 
   Widget _panel(ScrollController sc) {
     return MediaQuery.removePadding(
-        context: context,
-        removeTop: true,
-        child: ListView(
-          controller: sc,
-          children: <Widget>[
-            SizedBox(
-              height: 12.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+      context: context,
+      removeTop: true,
+      child: ListView(
+        controller: sc,
+        children: <Widget>[
+          SizedBox(height: 12.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                width: 30,
+                height: 5,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 152, 25, 25),
+                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 18.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                "Miralos aquí abajo",
+                style: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  fontSize: 24.0,
+                  color: const Color.fromARGB(
+                      255, 0, 0, 0), // Texto blanco para el fondo negro
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 36.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              _button("Salud", Icons.favorite, Colors.blue),
+              _button("Alimentación", Icons.restaurant, Colors.red),
+              _button("Disciplina", Icons.emoji_people, Colors.amber),
+              _button("Mentalidad", Icons.psychology, Colors.green),
+            ],
+          ),
+          SizedBox(height: 36.0),
+          Container(
+            padding: const EdgeInsets.only(left: 24.0, right: 24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Container(
-                  width: 30,
-                  height: 5,
-                  decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 152, 25, 25),
-                      borderRadius: BorderRadius.all(Radius.circular(12.0))),
+                Text("Para ti",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: const Color.fromARGB(255, 0, 0, 0), // Texto blanco
+                    )),
+                SizedBox(height: 12.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    CachedNetworkImage(
+                      imageUrl:
+                          "https://americantopteamwestpines.com/wp-content/uploads/2022/01/Woman-makes-elbow-kick-self-defense-workout-scaled.jpg",
+                      height: 120.0,
+                      width: (MediaQuery.of(context).size.width - 48) / 2 - 2,
+                      fit: BoxFit.cover,
+                    ),
+                    CachedNetworkImage(
+                      imageUrl:
+                          "https://cdn.prod.website-files.com/581c85345d7e0501760aa7db/611eb423886296642613e8dd_Self-Defense-vs-Krav-Maga-Portland.jpeg",
+                      width: (MediaQuery.of(context).size.width - 48) / 2 - 2,
+                      height: 120.0,
+                      fit: BoxFit.cover,
+                    ),
+                  ],
                 ),
               ],
             ),
-            SizedBox(
-              height: 18.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+          ),
+          SizedBox(height: 36.0),
+          Container(
+            padding: const EdgeInsets.only(left: 24.0, right: 24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                Text("Sabías que",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: const Color.fromARGB(255, 0, 0, 0), // Texto blanco
+                    )),
+                SizedBox(height: 12.0),
                 Text(
-                  "Miralos aquí abajo",
+                  """Te da muchos beneficios para tu vida, El krav maga no es solo una actividad física, sino una filosofía de vida que te enseña a ser más consciente. Practicar krav maga te ayuda a adoptar buenos hábitos en tu día a día, a seguir protocolos y mejorar tu vida.
+                  """,
                   style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 24.0,
-                  ),
+                      color:
+                          const Color.fromARGB(255, 0, 0, 0)), // Texto blanco
+                  softWrap: true,
                 ),
               ],
             ),
-            SizedBox(
-              height: 36.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                _button("Salud", Icons.favorite, Colors.blue),
-                _button("Alimentación", Icons.restaurant, Colors.red),
-                _button("Disciplina", Icons.emoji_people, Colors.amber),
-                _button("Mentalidad", Icons.psychology, Colors.green),
-              ],
-            ),
-            SizedBox(
-              height: 36.0,
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 24.0, right: 24.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text("Para tí",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                      )),
-                  SizedBox(
-                    height: 12.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      CachedNetworkImage(
-                        imageUrl:
-                            "https://americantopteamwestpines.com/wp-content/uploads/2022/01/Woman-makes-elbow-kick-self-defense-workout-scaled.jpg",
-                        height: 120.0,
-                        width: (MediaQuery.of(context).size.width - 48) / 2 - 2,
-                        fit: BoxFit.cover,
-                      ),
-                      CachedNetworkImage(
-                        imageUrl:
-                            "https://cdn.prod.website-files.com/581c85345d7e0501760aa7db/611eb423886296642613e8dd_Self-Defense-vs-Krav-Maga-Portland.jpeg",
-                        width: (MediaQuery.of(context).size.width - 48) / 2 - 2,
-                        height: 120.0,
-                        fit: BoxFit.cover,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 36.0,
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 24.0, right: 24.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text("Sabías que",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                      )),
-                  SizedBox(
-                    height: 12.0,
-                  ),
-                  Text(
-                    """Te da muchos beneficios para tu vida, El krav maga no es solo una actividad física, sino una filosofía de vida que te enseña a ser más consciente. Practicar krav maga te ayuda a adoptar buenos hábitos en tu día a día, a seguir protocolos y mejorar tu vida.
-                    """,
-                    softWrap: true,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 24,
-            ),
-          ],
-        ));
+          ),
+          SizedBox(height: 24),
+        ],
+      ),
+    );
   }
 
   Widget _button(String label, IconData icon, Color color) {
@@ -237,7 +233,7 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.all(16.0),
           child: Icon(
             icon,
-            color: Colors.white,
+            color: const Color.fromARGB(255, 21, 21, 21),
           ),
           decoration:
               BoxDecoration(color: color, shape: BoxShape.circle, boxShadow: [
@@ -250,10 +246,17 @@ class _HomePageState extends State<HomePage> {
         SizedBox(
           height: 12.0,
         ),
-        Text(label),
+        Text(
+          label,
+          style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)), // Texto blanco
+        ),
       ],
     );
   }
 
-  _body() {}
+  _body() {
+    return Container(
+      color: const Color.fromARGB(255, 33, 33, 33), // Fondo negro del cuerpo
+    );
+  }
 }

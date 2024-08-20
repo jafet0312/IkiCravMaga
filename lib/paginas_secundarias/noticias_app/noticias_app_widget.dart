@@ -4,25 +4,25 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/paginas_secundarias/bs_secundarios/bs_detalle_noticia/bs_detalle_noticia_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'noticias_model.dart';
-export 'noticias_model.dart';
+import 'noticias_app_model.dart';
+export 'noticias_app_model.dart';
 
-class NoticiasWidget extends StatefulWidget {
-  const NoticiasWidget({super.key});
+class NoticiasAppWidget extends StatefulWidget {
+  const NoticiasAppWidget({super.key});
 
   @override
-  State<NoticiasWidget> createState() => _NoticiasWidgetState();
+  State<NoticiasAppWidget> createState() => _NoticiasAppWidgetState();
 }
 
-class _NoticiasWidgetState extends State<NoticiasWidget> {
-  late NoticiasModel _model;
+class _NoticiasAppWidgetState extends State<NoticiasAppWidget> {
+  late NoticiasAppModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => NoticiasModel());
+    _model = createModel(context, () => NoticiasAppModel());
   }
 
   @override
@@ -54,7 +54,7 @@ class _NoticiasWidgetState extends State<NoticiasWidget> {
             ),
           );
         }
-        List<NewsRecord> noticiasNewsRecordList = snapshot.data!;
+        List<NewsRecord> noticiasAppNewsRecordList = snapshot.data!;
 
         return GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -120,7 +120,7 @@ class _NoticiasWidgetState extends State<NoticiasWidget> {
                         ),
                         child: Builder(
                           builder: (context) {
-                            final noticias = noticiasNewsRecordList.toList();
+                            final noticias = noticiasAppNewsRecordList.toList();
 
                             return ListView.builder(
                               padding: EdgeInsets.zero,

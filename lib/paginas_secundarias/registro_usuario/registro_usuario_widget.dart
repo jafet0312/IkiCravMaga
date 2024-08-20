@@ -5,11 +5,11 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'registro_model.dart';
-export 'registro_model.dart';
+import 'registro_usuario_model.dart';
+export 'registro_usuario_model.dart';
 
-class RegistroWidget extends StatefulWidget {
-  const RegistroWidget({
+class RegistroUsuarioWidget extends StatefulWidget {
+  const RegistroUsuarioWidget({
     super.key,
     bool? correoInvalido,
   }) : correoInvalido = correoInvalido ?? false;
@@ -17,27 +17,27 @@ class RegistroWidget extends StatefulWidget {
   final bool correoInvalido;
 
   @override
-  State<RegistroWidget> createState() => _RegistroWidgetState();
+  State<RegistroUsuarioWidget> createState() => _RegistroUsuarioWidgetState();
 }
 
-class _RegistroWidgetState extends State<RegistroWidget> {
-  late RegistroModel _model;
+class _RegistroUsuarioWidgetState extends State<RegistroUsuarioWidget> {
+  late RegistroUsuarioModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => RegistroModel());
+    _model = createModel(context, () => RegistroUsuarioModel());
 
-    _model.txtfCorreoTextController ??= TextEditingController();
-    _model.txtfCorreoFocusNode ??= FocusNode();
+    _model.txtfCorreoElectronicoTextController ??= TextEditingController();
+    _model.txtfCorreoElectronicoFocusNode ??= FocusNode();
 
-    _model.txtfNombreTextController ??= TextEditingController();
-    _model.txtfNombreFocusNode ??= FocusNode();
+    _model.txtfNombreCompletoTextController ??= TextEditingController();
+    _model.txtfNombreCompletoFocusNode ??= FocusNode();
 
-    _model.txtfTelefonoTextController ??= TextEditingController();
-    _model.txtfTelefonoFocusNode ??= FocusNode();
+    _model.txtfTelefonoUTextController ??= TextEditingController();
+    _model.txtfTelefonoUFocusNode ??= FocusNode();
 
     _model.txtfContrasenaTextController ??= TextEditingController();
     _model.txtfContrasenaFocusNode ??= FocusNode();
@@ -73,7 +73,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
             onPressed: () async {
               context.pop();
 
-              context.pushNamed('Login');
+              context.pushNamed('LoginApp');
             },
           ),
           title: Text(
@@ -144,11 +144,12 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.8,
                                     child: TextFormField(
-                                      controller:
-                                          _model.txtfCorreoTextController,
-                                      focusNode: _model.txtfCorreoFocusNode,
+                                      controller: _model
+                                          .txtfCorreoElectronicoTextController,
+                                      focusNode:
+                                          _model.txtfCorreoElectronicoFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
-                                        '_model.txtfCorreoTextController',
+                                        '_model.txtfCorreoElectronicoTextController',
                                         const Duration(milliseconds: 200),
                                         () => setState(() {}),
                                       ),
@@ -214,13 +215,13 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                               .tertiary,
                                         ),
                                         suffixIcon: _model
-                                                .txtfCorreoTextController!
+                                                .txtfCorreoElectronicoTextController!
                                                 .text
                                                 .isNotEmpty
                                             ? InkWell(
                                                 onTap: () async {
                                                   _model
-                                                      .txtfCorreoTextController
+                                                      .txtfCorreoElectronicoTextController
                                                       ?.clear();
                                                   setState(() {});
                                                 },
@@ -242,7 +243,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                           ),
                                       keyboardType: TextInputType.emailAddress,
                                       validator: _model
-                                          .txtfCorreoTextControllerValidator
+                                          .txtfCorreoElectronicoTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -254,11 +255,12 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.8,
                                     child: TextFormField(
-                                      controller:
-                                          _model.txtfNombreTextController,
-                                      focusNode: _model.txtfNombreFocusNode,
+                                      controller: _model
+                                          .txtfNombreCompletoTextController,
+                                      focusNode:
+                                          _model.txtfNombreCompletoFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
-                                        '_model.txtfNombreTextController',
+                                        '_model.txtfNombreCompletoTextController',
                                         const Duration(milliseconds: 200),
                                         () => setState(() {}),
                                       ),
@@ -268,7 +270,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                       decoration: InputDecoration(
                                         labelText:
                                             FFLocalizations.of(context).getText(
-                                          'luhiu5sq' /* Nombre */,
+                                          'luhiu5sq' /* Nombre Completo */,
                                         ),
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -324,13 +326,13 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                               .tertiary,
                                         ),
                                         suffixIcon: _model
-                                                .txtfNombreTextController!
+                                                .txtfNombreCompletoTextController!
                                                 .text
                                                 .isNotEmpty
                                             ? InkWell(
                                                 onTap: () async {
                                                   _model
-                                                      .txtfNombreTextController
+                                                      .txtfNombreCompletoTextController
                                                       ?.clear();
                                                   setState(() {});
                                                 },
@@ -351,7 +353,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                             letterSpacing: 0.0,
                                           ),
                                       validator: _model
-                                          .txtfNombreTextControllerValidator
+                                          .txtfNombreCompletoTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -364,10 +366,10 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                         MediaQuery.sizeOf(context).width * 0.8,
                                     child: TextFormField(
                                       controller:
-                                          _model.txtfTelefonoTextController,
-                                      focusNode: _model.txtfTelefonoFocusNode,
+                                          _model.txtfTelefonoUTextController,
+                                      focusNode: _model.txtfTelefonoUFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
-                                        '_model.txtfTelefonoTextController',
+                                        '_model.txtfTelefonoUTextController',
                                         const Duration(milliseconds: 200),
                                         () => setState(() {}),
                                       ),
@@ -435,13 +437,13 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                               .tertiary,
                                         ),
                                         suffixIcon: _model
-                                                .txtfTelefonoTextController!
+                                                .txtfTelefonoUTextController!
                                                 .text
                                                 .isNotEmpty
                                             ? InkWell(
                                                 onTap: () async {
                                                   _model
-                                                      .txtfTelefonoTextController
+                                                      .txtfTelefonoUTextController
                                                       ?.clear();
                                                   setState(() {});
                                                 },
@@ -461,10 +463,10 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                           ),
                                       keyboardType: TextInputType.number,
                                       validator: _model
-                                          .txtfTelefonoTextControllerValidator
+                                          .txtfTelefonoUTextControllerValidator
                                           .asValidator(context),
                                       inputFormatters: [
-                                        _model.txtfTelefonoMask
+                                        _model.txtfTelefonoUMask
                                       ],
                                     ),
                                   ),
@@ -618,12 +620,15 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                       }
                                       _model.usuarioCreado =
                                           await actions.createClient(
-                                        _model.txtfCorreoTextController.text,
+                                        _model
+                                            .txtfCorreoElectronicoTextController
+                                            .text,
                                         _model
                                             .txtfContrasenaTextController.text,
                                         'usuario',
-                                        _model.txtfNombreTextController.text,
-                                        _model.txtfTelefonoTextController.text,
+                                        _model.txtfNombreCompletoTextController
+                                            .text,
+                                        _model.txtfTelefonoUTextController.text,
                                         random_data.randomString(
                                           10,
                                           10,
@@ -633,10 +638,10 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                                         ),
                                       );
                                       if (_model.usuarioCreado!) {
-                                        context.pushNamed('Login');
+                                        context.pushNamed('LoginApp');
                                       } else {
                                         context.pushNamed(
-                                          'Registro',
+                                          'RegistroUsuario',
                                           queryParameters: {
                                             'correoInvalido': serializeParam(
                                               true,

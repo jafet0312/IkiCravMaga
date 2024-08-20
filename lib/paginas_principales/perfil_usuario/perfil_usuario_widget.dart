@@ -445,7 +445,7 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                             await authManager.signOut();
                             GoRouter.of(context).clearRedirectLocation();
 
-                            context.goNamedAuth('Login', context.mounted);
+                            context.goNamedAuth('LoginApp', context.mounted);
                           },
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.4,

@@ -5,25 +5,25 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'registrar_curso_model.dart';
-export 'registrar_curso_model.dart';
+import 'registrar_cursos_model.dart';
+export 'registrar_cursos_model.dart';
 
-class RegistrarCursoWidget extends StatefulWidget {
-  const RegistrarCursoWidget({super.key});
+class RegistrarCursosWidget extends StatefulWidget {
+  const RegistrarCursosWidget({super.key});
 
   @override
-  State<RegistrarCursoWidget> createState() => _RegistrarCursoWidgetState();
+  State<RegistrarCursosWidget> createState() => _RegistrarCursosWidgetState();
 }
 
-class _RegistrarCursoWidgetState extends State<RegistrarCursoWidget> {
-  late RegistrarCursoModel _model;
+class _RegistrarCursosWidgetState extends State<RegistrarCursosWidget> {
+  late RegistrarCursosModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => RegistrarCursoModel());
+    _model = createModel(context, () => RegistrarCursosModel());
 
     _model.txtfFechaTextController ??=
         TextEditingController(text: FFAppState().fechaSeleccionada?.toString());

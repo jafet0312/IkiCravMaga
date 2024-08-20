@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'sugerencias_widget.dart' show SugerenciasWidget;
+import 'sugerencias_cliente_widget.dart' show SugerenciasClienteWidget;
 import 'package:flutter/material.dart';
 
-class SugerenciasModel extends FlutterFlowModel<SugerenciasWidget> {
+class SugerenciasClienteModel
+    extends FlutterFlowModel<SugerenciasClienteWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for txtfResena widget.

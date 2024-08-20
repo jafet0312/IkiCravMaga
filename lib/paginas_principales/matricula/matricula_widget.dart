@@ -417,7 +417,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    context.pushNamed('Guias');
+                    context.pushNamed('GuiasYT');
                   },
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 0.4,

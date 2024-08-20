@@ -4,25 +4,25 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'info_model.dart';
-export 'info_model.dart';
+import 'info_home_model.dart';
+export 'info_home_model.dart';
 
-class InfoWidget extends StatefulWidget {
-  const InfoWidget({super.key});
+class InfoHomeWidget extends StatefulWidget {
+  const InfoHomeWidget({super.key});
 
   @override
-  State<InfoWidget> createState() => _InfoWidgetState();
+  State<InfoHomeWidget> createState() => _InfoHomeWidgetState();
 }
 
-class _InfoWidgetState extends State<InfoWidget> {
-  late InfoModel _model;
+class _InfoHomeWidgetState extends State<InfoHomeWidget> {
+  late InfoHomeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => InfoModel());
+    _model = createModel(context, () => InfoHomeModel());
   }
 
   @override
@@ -275,7 +275,7 @@ class _InfoWidgetState extends State<InfoWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed('Noticias');
+                              context.pushNamed('NoticiasApp');
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.4,
@@ -364,7 +364,7 @@ class _InfoWidgetState extends State<InfoWidget> {
                                     ),
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        'pm5uwpec' /* Beneficios */,
+                                        'pm5uwpec' /* Información */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium

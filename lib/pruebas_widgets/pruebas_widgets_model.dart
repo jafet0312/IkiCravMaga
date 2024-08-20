@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'guias_widget.dart' show GuiasWidget;
+import 'pruebas_widgets_widget.dart' show PruebasWidgetsWidget;
 import 'package:flutter/material.dart';
 
-class GuiasModel extends FlutterFlowModel<GuiasWidget> {
+class PruebasWidgetsModel extends FlutterFlowModel<PruebasWidgetsWidget> {
   @override
   void initState(BuildContext context) {}
 

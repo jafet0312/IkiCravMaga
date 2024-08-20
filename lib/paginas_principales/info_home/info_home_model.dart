@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'info_widget.dart' show InfoWidget;
+import 'info_home_widget.dart' show InfoHomeWidget;
 import 'package:flutter/material.dart';
 
-class InfoModel extends FlutterFlowModel<InfoWidget> {
+class InfoHomeModel extends FlutterFlowModel<InfoHomeWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for pvInicio widget.

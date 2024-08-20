@@ -7,19 +7,19 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'login_model.dart';
-export 'login_model.dart';
+import 'login_app_model.dart';
+export 'login_app_model.dart';
 
-class LoginWidget extends StatefulWidget {
-  const LoginWidget({super.key});
+class LoginAppWidget extends StatefulWidget {
+  const LoginAppWidget({super.key});
 
   @override
-  State<LoginWidget> createState() => _LoginWidgetState();
+  State<LoginAppWidget> createState() => _LoginAppWidgetState();
 }
 
-class _LoginWidgetState extends State<LoginWidget>
+class _LoginAppWidgetState extends State<LoginAppWidget>
     with TickerProviderStateMixin {
-  late LoginModel _model;
+  late LoginAppModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -28,13 +28,13 @@ class _LoginWidgetState extends State<LoginWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => LoginModel());
+    _model = createModel(context, () => LoginAppModel());
 
-    _model.txtCorreoTextController ??= TextEditingController();
-    _model.txtCorreoFocusNode ??= FocusNode();
+    _model.txtCorreoElectronicoTextController ??= TextEditingController();
+    _model.txtCorreoElectronicoFocusNode ??= FocusNode();
 
-    _model.txtContraseniaTextController ??= TextEditingController();
-    _model.txtContraseniaFocusNode ??= FocusNode();
+    _model.txtContrasenaTextController ??= TextEditingController();
+    _model.txtContrasenaFocusNode ??= FocusNode();
 
     animationsMap.addAll({
       'imageOnPageLoadAnimation': AnimationInfo(
@@ -139,10 +139,12 @@ class _LoginWidgetState extends State<LoginWidget>
                               child: SizedBox(
                                 width: MediaQuery.sizeOf(context).width * 0.8,
                                 child: TextFormField(
-                                  controller: _model.txtCorreoTextController,
-                                  focusNode: _model.txtCorreoFocusNode,
+                                  controller:
+                                      _model.txtCorreoElectronicoTextController,
+                                  focusNode:
+                                      _model.txtCorreoElectronicoFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
-                                    '_model.txtCorreoTextController',
+                                    '_model.txtCorreoElectronicoTextController',
                                     const Duration(milliseconds: 200),
                                     () => setState(() {}),
                                   ),
@@ -202,11 +204,14 @@ class _LoginWidgetState extends State<LoginWidget>
                                       color:
                                           FlutterFlowTheme.of(context).tertiary,
                                     ),
-                                    suffixIcon: _model.txtCorreoTextController!
-                                            .text.isNotEmpty
+                                    suffixIcon: _model
+                                            .txtCorreoElectronicoTextController!
+                                            .text
+                                            .isNotEmpty
                                         ? InkWell(
                                             onTap: () async {
-                                              _model.txtCorreoTextController
+                                              _model
+                                                  .txtCorreoElectronicoTextController
                                                   ?.clear();
                                               setState(() {});
                                             },
@@ -228,7 +233,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                       ),
                                   keyboardType: TextInputType.emailAddress,
                                   validator: _model
-                                      .txtCorreoTextControllerValidator
+                                      .txtCorreoElectronicoTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -240,10 +245,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                 width: MediaQuery.sizeOf(context).width * 0.8,
                                 child: TextFormField(
                                   controller:
-                                      _model.txtContraseniaTextController,
-                                  focusNode: _model.txtContraseniaFocusNode,
+                                      _model.txtContrasenaTextController,
+                                  focusNode: _model.txtContrasenaFocusNode,
                                   autofocus: false,
-                                  obscureText: !_model.txtContraseniaVisibility,
+                                  obscureText: !_model.txtContrasenaVisibility,
                                   decoration: InputDecoration(
                                     labelText:
                                         FFLocalizations.of(context).getText(
@@ -300,12 +305,12 @@ class _LoginWidgetState extends State<LoginWidget>
                                     ),
                                     suffixIcon: InkWell(
                                       onTap: () => setState(
-                                        () => _model.txtContraseniaVisibility =
-                                            !_model.txtContraseniaVisibility,
+                                        () => _model.txtContrasenaVisibility =
+                                            !_model.txtContrasenaVisibility,
                                       ),
                                       focusNode: FocusNode(skipTraversal: true),
                                       child: Icon(
-                                        _model.txtContraseniaVisibility
+                                        _model.txtContrasenaVisibility
                                             ? Icons.visibility_outlined
                                             : Icons.visibility_off_outlined,
                                         color: FlutterFlowTheme.of(context)
@@ -321,7 +326,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                         letterSpacing: 0.0,
                                       ),
                                   validator: _model
-                                      .txtContraseniaTextControllerValidator
+                                      .txtContrasenaTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -338,17 +343,18 @@ class _LoginWidgetState extends State<LoginWidget>
                                 }
                                 _model.inicioSesionResultado =
                                     await actions.inicioSesion(
-                                  _model.txtCorreoTextController.text,
-                                  _model.txtContraseniaTextController.text,
+                                  _model
+                                      .txtCorreoElectronicoTextController.text,
+                                  _model.txtContrasenaTextController.text,
                                 );
                                 if (_model.inicioSesionResultado!) {
                                   setState(() {
-                                    _model.txtContraseniaTextController
+                                    _model.txtContrasenaTextController?.clear();
+                                    _model.txtCorreoElectronicoTextController
                                         ?.clear();
-                                    _model.txtCorreoTextController?.clear();
                                   });
 
-                                  context.pushNamed('Info');
+                                  context.pushNamed('InfoHome');
                                 } else {
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
@@ -452,7 +458,7 @@ class _LoginWidgetState extends State<LoginWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed('Registro');
+                          context.pushNamed('RegistroUsuario');
                         },
                         child: Text(
                           FFLocalizations.of(context).getText(

@@ -64,7 +64,7 @@ class _BsSugerenciaEnviadaWidgetState extends State<BsSugerenciaEnviadaWidget> {
             onTap: () async {
               Navigator.pop(context);
 
-              context.pushNamed('Sugerencias');
+              context.pushNamed('SugerenciasCliente');
             },
             child: Container(
               width: MediaQuery.sizeOf(context).width * 0.4,

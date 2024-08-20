@@ -1,17 +1,18 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'registro_widget.dart' show RegistroWidget;
+import 'registro_usuario_widget.dart' show RegistroUsuarioWidget;
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class RegistroModel extends FlutterFlowModel<RegistroWidget> {
+class RegistroUsuarioModel extends FlutterFlowModel<RegistroUsuarioWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
-  // State field(s) for txtfCorreo widget.
-  FocusNode? txtfCorreoFocusNode;
-  TextEditingController? txtfCorreoTextController;
-  String? Function(BuildContext, String?)? txtfCorreoTextControllerValidator;
-  String? _txtfCorreoTextControllerValidator(
+  // State field(s) for txtfCorreoElectronico widget.
+  FocusNode? txtfCorreoElectronicoFocusNode;
+  TextEditingController? txtfCorreoElectronicoTextController;
+  String? Function(BuildContext, String?)?
+      txtfCorreoElectronicoTextControllerValidator;
+  String? _txtfCorreoElectronicoTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
@@ -27,11 +28,12 @@ class RegistroModel extends FlutterFlowModel<RegistroWidget> {
     return null;
   }
 
-  // State field(s) for txtfNombre widget.
-  FocusNode? txtfNombreFocusNode;
-  TextEditingController? txtfNombreTextController;
-  String? Function(BuildContext, String?)? txtfNombreTextControllerValidator;
-  String? _txtfNombreTextControllerValidator(
+  // State field(s) for txtfNombreCompleto widget.
+  FocusNode? txtfNombreCompletoFocusNode;
+  TextEditingController? txtfNombreCompletoTextController;
+  String? Function(BuildContext, String?)?
+      txtfNombreCompletoTextControllerValidator;
+  String? _txtfNombreCompletoTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
@@ -42,12 +44,12 @@ class RegistroModel extends FlutterFlowModel<RegistroWidget> {
     return null;
   }
 
-  // State field(s) for txtfTelefono widget.
-  FocusNode? txtfTelefonoFocusNode;
-  TextEditingController? txtfTelefonoTextController;
-  final txtfTelefonoMask = MaskTextInputFormatter(mask: '####-####');
-  String? Function(BuildContext, String?)? txtfTelefonoTextControllerValidator;
-  String? _txtfTelefonoTextControllerValidator(
+  // State field(s) for txtfTelefonoU widget.
+  FocusNode? txtfTelefonoUFocusNode;
+  TextEditingController? txtfTelefonoUTextController;
+  final txtfTelefonoUMask = MaskTextInputFormatter(mask: '####-####');
+  String? Function(BuildContext, String?)? txtfTelefonoUTextControllerValidator;
+  String? _txtfTelefonoUTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
@@ -92,9 +94,12 @@ class RegistroModel extends FlutterFlowModel<RegistroWidget> {
 
   @override
   void initState(BuildContext context) {
-    txtfCorreoTextControllerValidator = _txtfCorreoTextControllerValidator;
-    txtfNombreTextControllerValidator = _txtfNombreTextControllerValidator;
-    txtfTelefonoTextControllerValidator = _txtfTelefonoTextControllerValidator;
+    txtfCorreoElectronicoTextControllerValidator =
+        _txtfCorreoElectronicoTextControllerValidator;
+    txtfNombreCompletoTextControllerValidator =
+        _txtfNombreCompletoTextControllerValidator;
+    txtfTelefonoUTextControllerValidator =
+        _txtfTelefonoUTextControllerValidator;
     txtfContrasenaVisibility = false;
     txtfContrasenaTextControllerValidator =
         _txtfContrasenaTextControllerValidator;
@@ -102,14 +107,14 @@ class RegistroModel extends FlutterFlowModel<RegistroWidget> {
 
   @override
   void dispose() {
-    txtfCorreoFocusNode?.dispose();
-    txtfCorreoTextController?.dispose();
+    txtfCorreoElectronicoFocusNode?.dispose();
+    txtfCorreoElectronicoTextController?.dispose();
 
-    txtfNombreFocusNode?.dispose();
-    txtfNombreTextController?.dispose();
+    txtfNombreCompletoFocusNode?.dispose();
+    txtfNombreCompletoTextController?.dispose();
 
-    txtfTelefonoFocusNode?.dispose();
-    txtfTelefonoTextController?.dispose();
+    txtfTelefonoUFocusNode?.dispose();
+    txtfTelefonoUTextController?.dispose();
 
     txtfContrasenaFocusNode?.dispose();
     txtfContrasenaTextController?.dispose();

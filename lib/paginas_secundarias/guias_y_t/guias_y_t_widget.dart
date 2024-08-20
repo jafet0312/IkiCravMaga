@@ -2,25 +2,25 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_youtube_player.dart';
 import 'package:flutter/material.dart';
-import 'guias_model.dart';
-export 'guias_model.dart';
+import 'guias_y_t_model.dart';
+export 'guias_y_t_model.dart';
 
-class GuiasWidget extends StatefulWidget {
-  const GuiasWidget({super.key});
+class GuiasYTWidget extends StatefulWidget {
+  const GuiasYTWidget({super.key});
 
   @override
-  State<GuiasWidget> createState() => _GuiasWidgetState();
+  State<GuiasYTWidget> createState() => _GuiasYTWidgetState();
 }
 
-class _GuiasWidgetState extends State<GuiasWidget> {
-  late GuiasModel _model;
+class _GuiasYTWidgetState extends State<GuiasYTWidget> {
+  late GuiasYTModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => GuiasModel());
+    _model = createModel(context, () => GuiasYTModel());
   }
 
   @override

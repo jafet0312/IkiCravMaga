@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'noticias_widget.dart' show NoticiasWidget;
+import 'reproductor_musica_widget.dart' show ReproductorMusicaWidget;
 import 'package:flutter/material.dart';
 
-class NoticiasModel extends FlutterFlowModel<NoticiasWidget> {
+class ReproductorMusicaModel extends FlutterFlowModel<ReproductorMusicaWidget> {
   @override
   void initState(BuildContext context) {}
 

@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'registrar_curso_widget.dart' show RegistrarCursoWidget;
+import 'registrar_cursos_widget.dart' show RegistrarCursosWidget;
 import 'package:flutter/material.dart';
 
-class RegistrarCursoModel extends FlutterFlowModel<RegistrarCursoWidget> {
+class RegistrarCursosModel extends FlutterFlowModel<RegistrarCursosWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -69,7 +69,7 @@ class RegistrarCursoModel extends FlutterFlowModel<RegistrarCursoWidget> {
 
   // State field(s) for CountController widget.
   int? countControllerValue;
-  // Stores action output result for [Validate Form] action in contBtnIGuardar widget.
+  // Stores action output result for [Validate Form] action in contBtnICrear widget.
   bool? validacionFormularioCopy;
 
   @override

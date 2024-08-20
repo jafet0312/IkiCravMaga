@@ -399,7 +399,8 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed('Sugerencias');
+                                          context
+                                              .pushNamed('SugerenciasCliente');
                                         },
                                         child: Container(
                                           width:

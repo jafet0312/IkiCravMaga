@@ -73,29 +73,30 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
+          appStateNotifier.loggedIn ? const NavBarPage() : const LoginAppWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
+              appStateNotifier.loggedIn ? const NavBarPage() : const LoginAppWidget(),
         ),
         FFRoute(
-          name: 'Info',
-          path: '/info',
-          builder: (context, params) =>
-              params.isEmpty ? const NavBarPage(initialPage: 'Info') : const InfoWidget(),
+          name: 'InfoHome',
+          path: '/infoHome',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'InfoHome')
+              : const InfoHomeWidget(),
         ),
         FFRoute(
-          name: 'Login',
-          path: '/login',
-          builder: (context, params) => const LoginWidget(),
+          name: 'LoginApp',
+          path: '/loginApp',
+          builder: (context, params) => const LoginAppWidget(),
         ),
         FFRoute(
-          name: 'Registro',
-          path: '/registro',
-          builder: (context, params) => RegistroWidget(
+          name: 'RegistroUsuario',
+          path: '/registroUsuario',
+          builder: (context, params) => RegistroUsuarioWidget(
             correoInvalido: params.getParam(
               'correoInvalido',
               ParamType.bool,
@@ -122,22 +123,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const MatriculaWidget(),
         ),
         FFRoute(
-          name: 'Sugerencias',
-          path: '/sugerencias',
-          builder: (context, params) => const SugerenciasWidget(),
+          name: 'SugerenciasCliente',
+          path: '/sugerenciasCliente',
+          builder: (context, params) => const SugerenciasClienteWidget(),
         ),
         FFRoute(
-          name: 'Guias',
-          path: '/guias',
+          name: 'GuiasYT',
+          path: '/guiasYT',
           builder: (context, params) => const NavBarPage(
             initialPage: '',
-            page: GuiasWidget(),
+            page: GuiasYTWidget(),
           ),
         ),
         FFRoute(
-          name: 'Noticias',
-          path: '/noticias',
-          builder: (context, params) => const NoticiasWidget(),
+          name: 'NoticiasApp',
+          path: '/noticiasApp',
+          builder: (context, params) => const NoticiasAppWidget(),
         ),
         FFRoute(
           name: 'DetallesCurso',
@@ -157,14 +158,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const PreferenciasWidget(),
         ),
         FFRoute(
-          name: 'RegistrarCurso',
-          path: '/registrarCurso',
-          builder: (context, params) => const RegistrarCursoWidget(),
+          name: 'RegistrarCursos',
+          path: '/registrarCursos',
+          builder: (context, params) => const RegistrarCursosWidget(),
         ),
         FFRoute(
           name: 'Informacion',
           path: '/informacion',
           builder: (context, params) => const InformacionWidget(),
+        ),
+        FFRoute(
+          name: 'PruebasWidgets',
+          path: '/pruebasWidgets',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'PruebasWidgets')
+              : const PruebasWidgetsWidget(),
+        ),
+        FFRoute(
+          name: 'AdminCursosCopy',
+          path: '/adminCursosCopy',
+          builder: (context, params) => const AdminCursosCopyWidget(),
+        ),
+        FFRoute(
+          name: 'ReproductorMusica',
+          path: '/reproductorMusica',
+          builder: (context, params) => const ReproductorMusicaWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -336,7 +354,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/login';
+            return '/loginApp';
           }
           return null;
         },

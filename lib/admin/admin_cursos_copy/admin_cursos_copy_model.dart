@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'admin_cursos_widget.dart' show AdminCursosWidget;
+import 'admin_cursos_copy_widget.dart' show AdminCursosCopyWidget;
 import 'package:flutter/material.dart';
 
-class AdminCursosModel extends FlutterFlowModel<AdminCursosWidget> {
+class AdminCursosCopyModel extends FlutterFlowModel<AdminCursosCopyWidget> {
   ///  Local state fields for this page.
 
   DateTime? startDate;

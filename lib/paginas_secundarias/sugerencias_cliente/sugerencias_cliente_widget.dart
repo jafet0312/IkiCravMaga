@@ -2,29 +2,30 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/paginas_principales/bs_main/bs_sugerencia_enviada/bs_sugerencia_enviada_widget.dart';
+import '/paginas_principales/bs_sugerencia_enviada/bs_sugerencia_enviada_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'sugerencias_model.dart';
-export 'sugerencias_model.dart';
+import 'sugerencias_cliente_model.dart';
+export 'sugerencias_cliente_model.dart';
 
-class SugerenciasWidget extends StatefulWidget {
-  const SugerenciasWidget({super.key});
+class SugerenciasClienteWidget extends StatefulWidget {
+  const SugerenciasClienteWidget({super.key});
 
   @override
-  State<SugerenciasWidget> createState() => _SugerenciasWidgetState();
+  State<SugerenciasClienteWidget> createState() =>
+      _SugerenciasClienteWidgetState();
 }
 
-class _SugerenciasWidgetState extends State<SugerenciasWidget> {
-  late SugerenciasModel _model;
+class _SugerenciasClienteWidgetState extends State<SugerenciasClienteWidget> {
+  late SugerenciasClienteModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SugerenciasModel());
+    _model = createModel(context, () => SugerenciasClienteModel());
 
     _model.txtfResenaTextController ??= TextEditingController();
     _model.txtfResenaFocusNode ??= FocusNode();
