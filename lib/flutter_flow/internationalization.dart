@@ -533,11 +533,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Suggestions',
     },
     '4rroa17o': {
-      'es': 'Calcular Masa ',
+      'es': 'Términos y condiciones',
       'en': '',
     },
     'bftya030': {
-      'es': 'Calculadora',
+      'es': 'Acá',
       'en': '',
     },
     'pleyjlv5': {
@@ -845,6 +845,47 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'w44qrt51': {
       'es': 'Nutrición',
       'en': 'Title Page',
+    },
+  },
+  // Terminos
+  {
+    '15fwu9ip': {
+      'es': 'Términos y condiciones',
+      'en': 'Terms and conditions',
+    },
+    'mmsg45ey': {
+      'es':
+          'Al acceder y realizar un pedido con Iki cr krav maga, usted confirma que está de acuerdo y sujeto a los términos de servicio.\n\nIki cr krav maga no será responsable de ningún resultado que pueda ocurrir durante el curso del uso de nuestros recursos',
+      'en':
+          'By accessing and placing an order with Iki cr krav maga, you confirm that you agree to and are bound by the terms of service.\n\nIki cr krav maga will not be held responsible for any results that may occur during the course of using our resources',
+    },
+    'zs4bag0a': {
+      'es': 'Licencia',
+      'en': 'License',
+    },
+    'l6s9h6si': {
+      'es':
+          'Iki cr krav maga le otorga una licencia revocable, no exclusiva, intransferible y limitada para descargar, instalar y usar la app estrictamente de acuerdo con los términos de este Acuerdo. Estos Términos y condiciones son un contrato entre usted y Iki\ncr krav maga (\"nosotros\", \"nuestro\" o \"nos\").',
+      'en':
+          'Iki cr krav maga grants you a revocable, non-exclusive, non-transferable, limited license to download, install and use the App strictly in accordance with the terms of this Agreement. These Terms and Conditions are a contract between you and Iki cr krav maga (\"we\", \"our\" or \"us\").',
+    },
+    '3hthvsus': {
+      'es': 'Restricciones',
+      'en': 'Restrictions',
+    },
+    'o2wsmz54': {
+      'es':
+          'Usted acepta no hacerlo y no permitirá que otros:\n\nLicenciar, vender, alquilar, arrendar, asignar, distribuir, transmitir, alojar, subcontratar, divulgar o explotar\ncomercialmente la plataforma o poner la plataforma a disposición de terceros.\n\nModificar, realizar trabajos derivados, desensamblar, descifrar, realizar una compilación inversa o realizar ingeniería\ninversa de cualquier parte de la plataforma.\n\nEliminar, alterar u ocultar cualquier aviso de propiedad (incluido cualquier aviso de derechos de autor o marca\nregistrada) de sus afiliados, socios, proveedores o licenciatarios de la plataforma.',
+      'en':
+          'You agree not to, and will not allow others to:\n\nLicense, sell, rent, lease, assign, distribute, transmit, host, subcontract, disclose or commercially exploit the Platform or make the Platform available to any third party.\n\nModify, make derivative works of, disassemble, decrypt, reverse compile or reverse engineer any portion of the Platform.\n\nRemove, alter or obscure any proprietary notices (including any copyright or trademark notices) of the Platform\'s affiliates, partners, suppliers or licensors.',
+    },
+    'k60h10j1': {
+      'es': 'Importante',
+      'en': 'Important',
+    },
+    'ddkxxipw': {
+      'es': 'Home',
+      'en': 'Home',
     },
   },
   // bs_inicioSesionFallido
