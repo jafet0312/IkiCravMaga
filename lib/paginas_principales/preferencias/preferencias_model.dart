@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 class PreferenciasModel extends FlutterFlowModel<PreferenciasWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for Slider widget.
-  double? sliderValue;
+  // State field(s) for SliderTamanoL widget.
+  double? sliderTamanoLValue;
 
   @override
   void initState(BuildContext context) {}

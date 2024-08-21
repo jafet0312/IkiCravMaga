@@ -162,7 +162,7 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'n0vewkcp' /* Textos */,
+                                                'n0vewkcp' /* Ajustar */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -203,16 +203,16 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
                                                 );
                                               }
                                               List<SettingsRecord>
-                                                  sliderSettingsRecordList =
+                                                  sliderTamanoLSettingsRecordList =
                                                   snapshot.data!;
                                               // Return an empty Container when the item does not exist.
                                               if (snapshot.data!.isEmpty) {
                                                 return Container();
                                               }
-                                              final sliderSettingsRecord =
-                                                  sliderSettingsRecordList
+                                              final sliderTamanoLSettingsRecord =
+                                                  sliderTamanoLSettingsRecordList
                                                           .isNotEmpty
-                                                      ? sliderSettingsRecordList
+                                                      ? sliderTamanoLSettingsRecordList
                                                           .first
                                                       : null;
 
@@ -225,9 +225,10 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
                                                         .alternate,
                                                 min: 10.0,
                                                 max: 15.0,
-                                                value: _model.sliderValue ??=
+                                                value: _model
+                                                        .sliderTamanoLValue ??=
                                                     10.0,
-                                                label: _model.sliderValue
+                                                label: _model.sliderTamanoLValue
                                                     ?.toStringAsFixed(0),
                                                 divisions: 5,
                                                 onChanged: (newValue) async {
@@ -235,7 +236,8 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
                                                       newValue
                                                           .toStringAsFixed(0));
                                                   setState(() => _model
-                                                      .sliderValue = newValue);
+                                                          .sliderTamanoLValue =
+                                                      newValue);
 
                                                   await preferenciasSettingsRecord!
                                                       .reference
@@ -243,7 +245,7 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
                                                           createSettingsRecordData(
                                                     title: functions
                                                         .pasarEntero(_model
-                                                            .sliderValue!),
+                                                            .sliderTamanoLValue!),
                                                   ));
                                                 },
                                               );

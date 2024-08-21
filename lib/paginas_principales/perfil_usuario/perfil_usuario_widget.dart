@@ -473,43 +473,68 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                               letterSpacing: 0.0,
                             ),
                       ),
-                      ListView(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        children: [
-                          ListTile(
-                            title: Text(
-                              FFLocalizations.of(context).getText(
-                                'fe56h84b' /* Manejo de cuchillo */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .titleMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
+                      StreamBuilder<List<CoursesRecord>>(
+                        stream: queryCoursesRecord(),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
                                   ),
-                            ),
-                            subtitle: Text(
-                              FFLocalizations.of(context).getText(
-                                'etsqrazx' /* Felicitaciones, has completado... */,
+                                ),
                               ),
-                              textAlign: TextAlign.justify,
-                              style: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
+                            );
+                          }
+                          List<CoursesRecord> listViewCoursesRecordList =
+                              snapshot.data!;
+
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listViewCoursesRecordList.length,
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewCoursesRecord =
+                                  listViewCoursesRecordList[listViewIndex];
+                              return ListTile(
+                                title: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'fe56h84b' /* Manejo de cuchillo */,
                                   ),
-                            ),
-                            tileColor: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            dense: false,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(24.0),
-                            ),
-                          ),
-                        ],
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                                subtitle: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'etsqrazx' /* Felicitaciones, has completado... */,
+                                  ),
+                                  textAlign: TextAlign.justify,
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                                tileColor: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                dense: false,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(24.0),
+                                ),
+                              );
+                            },
+                          );
+                        },
                       ),
                     ]
                         .divide(const SizedBox(height: 20.0))

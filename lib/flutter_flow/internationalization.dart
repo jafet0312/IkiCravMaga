@@ -509,7 +509,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Preferences',
     },
     'n0vewkcp': {
-      'es': 'Textos',
+      'es': 'Ajustar',
       'en': 'Texts',
     },
     'zx6sftws': {
@@ -672,6 +672,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'IKI Player',
     },
     'z6hmrs2y': {
+      'es': 'Home',
+      'en': 'Home',
+    },
+  },
+  // FotoPerfil
+  {
+    'fhpyz3rl': {
+      'es': 'Page Title',
+      'en': 'Title Page',
+    },
+    'ddkxxipw': {
       'es': 'Home',
       'en': 'Home',
     },

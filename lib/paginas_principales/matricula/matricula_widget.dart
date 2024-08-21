@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -162,96 +163,135 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                                           .secondaryBackground,
                                       borderRadius: BorderRadius.circular(24.0),
                                     ),
-                                    child: ListView(
-                                      padding: EdgeInsets.zero,
-                                      scrollDirection: Axis.vertical,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 10.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context
-                                                  .pushNamed('DetallesCurso');
-                                            },
-                                            child: Slidable(
-                                              endActionPane: ActionPane(
-                                                motion: const ScrollMotion(),
-                                                extentRatio: 0.25,
-                                                children: [
-                                                  SlidableAction(
-                                                    label: FFLocalizations.of(
-                                                            context)
-                                                        .getText(
-                                                      'x8vx5mrq' /* Matricular */,
-                                                    ),
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .accent2,
-                                                    icon: Icons
-                                                        .add_circle_outline,
-                                                    onPressed: (_) {
-                                                      print(
-                                                          'SlidableActionWidget pressed ...');
-                                                    },
-                                                  ),
-                                                ],
-                                              ),
-                                              child: ListTile(
-                                                title: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'f50w72xs' /* Manejo de cuchillo */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily: 'Sora',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                                subtitle: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'vta1h13c' /* Horario: 6:00pm */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                                trailing: Icon(
-                                                  Icons.arrow_forward_ios,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  size: 20.0,
-                                                ),
-                                                dense: false,
-                                                contentPadding:
-                                                    const EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          24.0),
+                                    child: StreamBuilder<List<CoursesRecord>>(
+                                      stream: queryCoursesRecord(),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: CircularProgressIndicator(
+                                                valueColor:
+                                                    AlwaysStoppedAnimation<
+                                                        Color>(
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ),
-                                      ],
+                                          );
+                                        }
+                                        List<CoursesRecord>
+                                            listViewCoursesRecordList =
+                                            snapshot.data!;
+
+                                        return ListView.builder(
+                                          padding: EdgeInsets.zero,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount:
+                                              listViewCoursesRecordList.length,
+                                          itemBuilder:
+                                              (context, listViewIndex) {
+                                            final listViewCoursesRecord =
+                                                listViewCoursesRecordList[
+                                                    listViewIndex];
+                                            return Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 10.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed(
+                                                      'DetallesCurso');
+                                                },
+                                                child: Slidable(
+                                                  endActionPane: ActionPane(
+                                                    motion:
+                                                        const ScrollMotion(),
+                                                    extentRatio: 0.25,
+                                                    children: [
+                                                      SlidableAction(
+                                                        label:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'x8vx5mrq' /* Matricular */,
+                                                        ),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .accent2,
+                                                        icon: Icons
+                                                            .add_circle_outline,
+                                                        onPressed: (_) {
+                                                          print(
+                                                              'SlidableActionWidget pressed ...');
+                                                        },
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  child: ListTile(
+                                                    title: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'f50w72xs' /* Manejo de cuchillo */,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleLarge
+                                                          .override(
+                                                            fontFamily: 'Sora',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                    subtitle: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'vta1h13c' /* Horario: 6:00pm */,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                    trailing: Icon(
+                                                      Icons.arrow_forward_ios,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      size: 20.0,
+                                                    ),
+                                                    dense: false,
+                                                    contentPadding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              24.0),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      },
                                     ),
                                   ),
                                 ].divide(const SizedBox(height: 20.0)),
