@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -111,17 +112,60 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  'vhltpbr4' /* Nombre:  */,
+                              StreamBuilder<List<SettingsRecord>>(
+                                stream: querySettingsRecord(
+                                  queryBuilder: (settingsRecord) =>
+                                      settingsRecord.where(
+                                    'name',
+                                    isEqualTo: 'Textos',
+                                  ),
+                                  singleRecord: true,
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                  List<SettingsRecord>
+                                      labelNombreSettingsRecordList =
+                                      snapshot.data!;
+                                  // Return an empty Container when the item does not exist.
+                                  if (snapshot.data!.isEmpty) {
+                                    return Container();
+                                  }
+                                  final labelNombreSettingsRecord =
+                                      labelNombreSettingsRecordList.isNotEmpty
+                                          ? labelNombreSettingsRecordList.first
+                                          : null;
+
+                                  return Text(
+                                    FFLocalizations.of(context).getText(
+                                      'vhltpbr4' /* Nombre:  */,
                                     ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: labelNombreSettingsRecord
+                                              ?.title
+                                              .toDouble(),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  );
+                                },
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
@@ -143,17 +187,60 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  'tag5s145' /* Correo:  */,
+                              StreamBuilder<List<SettingsRecord>>(
+                                stream: querySettingsRecord(
+                                  queryBuilder: (settingsRecord) =>
+                                      settingsRecord.where(
+                                    'name',
+                                    isEqualTo: 'Textos',
+                                  ),
+                                  singleRecord: true,
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                  List<SettingsRecord>
+                                      labelCorreoSettingsRecordList =
+                                      snapshot.data!;
+                                  // Return an empty Container when the item does not exist.
+                                  if (snapshot.data!.isEmpty) {
+                                    return Container();
+                                  }
+                                  final labelCorreoSettingsRecord =
+                                      labelCorreoSettingsRecordList.isNotEmpty
+                                          ? labelCorreoSettingsRecordList.first
+                                          : null;
+
+                                  return Text(
+                                    FFLocalizations.of(context).getText(
+                                      'tag5s145' /* Correo:  */,
                                     ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: labelCorreoSettingsRecord
+                                              ?.title
+                                              .toDouble(),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  );
+                                },
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(

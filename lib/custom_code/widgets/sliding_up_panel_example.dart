@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               padding: const EdgeInsets.fromLTRB(24.0, 18.0, 24.0, 18.0),
               child: Text(
-                "Sobre nosotros",
+                "Beneficios",
                 style: TextStyle(fontWeight: FontWeight.w500),
               ),
               decoration: BoxDecoration(

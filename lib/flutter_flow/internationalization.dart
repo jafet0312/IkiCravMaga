@@ -125,6 +125,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en':
           'Costa Rica Krav Maga currently belongs to the World Krav Maga Federation IKI (Israeli Krav International) as well as has the support of the Panama Krav Maga Association for all these purposes, just as in our country we have the support of the company K9 G&S security.',
     },
+    '5utu4wsd': {
+      'es':
+          'Podés escuchar ya mismo la historia del Krav Magá por medio de un interesante Podcast el cual puedes escuchar en cualquier momento!',
+      'en': '',
+    },
+    '3yqvenwu': {
+      'es': 'Click Aquí!',
+      'en': '',
+    },
     'wb7830nw': {
       'es': 'Últimas noticias',
       'en': 'Last News',
@@ -197,7 +206,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Home',
     },
   },
-  // RegistroUsuario
+  // RegistroUsuarios
   {
     '9lrabwix': {
       'es': 'Crear una cuenta',
@@ -656,10 +665,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Home',
     },
   },
-  // ReproductorMusica
+  // ReproductorHistoriaKrav
   {
     'kezcscjt': {
-      'es': 'ReproductorIKI',
+      'es': 'Historia del Krav Magá',
       'en': 'IKI Player',
     },
     'z6hmrs2y': {

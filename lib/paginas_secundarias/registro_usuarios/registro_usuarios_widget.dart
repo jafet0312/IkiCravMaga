@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -5,11 +6,11 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'registro_usuario_model.dart';
-export 'registro_usuario_model.dart';
+import 'registro_usuarios_model.dart';
+export 'registro_usuarios_model.dart';
 
-class RegistroUsuarioWidget extends StatefulWidget {
-  const RegistroUsuarioWidget({
+class RegistroUsuariosWidget extends StatefulWidget {
+  const RegistroUsuariosWidget({
     super.key,
     bool? correoInvalido,
   }) : correoInvalido = correoInvalido ?? false;
@@ -17,18 +18,18 @@ class RegistroUsuarioWidget extends StatefulWidget {
   final bool correoInvalido;
 
   @override
-  State<RegistroUsuarioWidget> createState() => _RegistroUsuarioWidgetState();
+  State<RegistroUsuariosWidget> createState() => _RegistroUsuariosWidgetState();
 }
 
-class _RegistroUsuarioWidgetState extends State<RegistroUsuarioWidget> {
-  late RegistroUsuarioModel _model;
+class _RegistroUsuariosWidgetState extends State<RegistroUsuariosWidget> {
+  late RegistroUsuariosModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => RegistroUsuarioModel());
+    _model = createModel(context, () => RegistroUsuariosModel());
 
     _model.txtfCorreoElectronicoTextController ??= TextEditingController();
     _model.txtfCorreoElectronicoFocusNode ??= FocusNode();
@@ -578,19 +579,68 @@ class _RegistroUsuarioWidgetState extends State<RegistroUsuarioWidget> {
                                 Builder(
                                   builder: (context) {
                                     if (widget.correoInvalido) {
-                                      return Text(
-                                        FFLocalizations.of(context).getText(
-                                          '6pqmivzg' /* El correo electrónico ya está ... */,
+                                      return StreamBuilder<
+                                          List<SettingsRecord>>(
+                                        stream: querySettingsRecord(
+                                          queryBuilder: (settingsRecord) =>
+                                              settingsRecord.where(
+                                            'name',
+                                            isEqualTo: 'Textos',
+                                          ),
+                                          singleRecord: true,
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .error,
-                                              letterSpacing: 0.0,
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          List<SettingsRecord>
+                                              txtCorreoExistenteSettingsRecordList =
+                                              snapshot.data!;
+                                          // Return an empty Container when the item does not exist.
+                                          if (snapshot.data!.isEmpty) {
+                                            return Container();
+                                          }
+                                          final txtCorreoExistenteSettingsRecord =
+                                              txtCorreoExistenteSettingsRecordList
+                                                      .isNotEmpty
+                                                  ? txtCorreoExistenteSettingsRecordList
+                                                      .first
+                                                  : null;
+
+                                          return Text(
+                                            FFLocalizations.of(context).getText(
+                                              '6pqmivzg' /* El correo electrónico ya está ... */,
                                             ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  fontSize:
+                                                      txtCorreoExistenteSettingsRecord
+                                                          ?.title
+                                                          .toDouble(),
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          );
+                                        },
                                       );
                                     } else {
                                       return Container(
@@ -641,7 +691,7 @@ class _RegistroUsuarioWidgetState extends State<RegistroUsuarioWidget> {
                                         context.pushNamed('LoginApp');
                                       } else {
                                         context.pushNamed(
-                                          'RegistroUsuario',
+                                          'RegistroUsuarios',
                                           queryParameters: {
                                             'correoInvalido': serializeParam(
                                               true,

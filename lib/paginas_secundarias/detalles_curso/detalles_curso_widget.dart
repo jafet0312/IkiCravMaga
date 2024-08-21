@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -169,17 +170,56 @@ class _DetallesCursoWidgetState extends State<DetallesCursoWidget> {
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              'elkr4hzw' /* Debemos saber como movernos y ... */,
+                          StreamBuilder<List<SettingsRecord>>(
+                            stream: querySettingsRecord(
+                              queryBuilder: (settingsRecord) =>
+                                  settingsRecord.where(
+                                'name',
+                                isEqualTo: 'Textos',
+                              ),
+                              singleRecord: true,
                             ),
-                            textAlign: TextAlign.justify,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  letterSpacing: 0.0,
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        FlutterFlowTheme.of(context).primary,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }
+                              List<SettingsRecord> txtInfoSettingsRecordList =
+                                  snapshot.data!;
+                              // Return an empty Container when the item does not exist.
+                              if (snapshot.data!.isEmpty) {
+                                return Container();
+                              }
+                              final txtInfoSettingsRecord =
+                                  txtInfoSettingsRecordList.isNotEmpty
+                                      ? txtInfoSettingsRecordList.first
+                                      : null;
+
+                              return Text(
+                                FFLocalizations.of(context).getText(
+                                  'elkr4hzw' /* Debemos saber como movernos y ... */,
                                 ),
+                                textAlign: TextAlign.justify,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      fontSize: txtInfoSettingsRecord?.title
+                                          .toDouble(),
+                                      letterSpacing: 0.0,
+                                    ),
+                              );
+                            },
                           ),
                         ]
                             .divide(const SizedBox(height: 20.0))

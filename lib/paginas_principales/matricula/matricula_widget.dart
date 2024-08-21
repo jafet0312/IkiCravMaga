@@ -439,7 +439,7 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Icon(
-                          Icons.video_label,
+                          Icons.library_books_sharp,
                           color: FlutterFlowTheme.of(context).primaryText,
                           size: 24.0,
                         ),

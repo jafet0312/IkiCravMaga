@@ -3,8 +3,8 @@ export '/paginas_principales/info_home/info_home_widget.dart'
     show InfoHomeWidget;
 export '/paginas_principales/login_app/login_app_widget.dart'
     show LoginAppWidget;
-export '/paginas_secundarias/registro_usuario/registro_usuario_widget.dart'
-    show RegistroUsuarioWidget;
+export '/paginas_secundarias/registro_usuarios/registro_usuarios_widget.dart'
+    show RegistroUsuariosWidget;
 export '/paginas_principales/perfil_usuario/perfil_usuario_widget.dart'
     show PerfilUsuarioWidget;
 export '/paginas_principales/matricula/matricula_widget.dart'
@@ -20,12 +20,12 @@ export '/paginas_secundarias/detalles_curso/detalles_curso_widget.dart'
 export '/admin/admin_cursos/admin_cursos_widget.dart' show AdminCursosWidget;
 export '/paginas_principales/preferencias/preferencias_widget.dart'
     show PreferenciasWidget;
-export '/admin/registrar_cursos/registrar_cursos_widget.dart'
+export '/paginas_principales/registrar_cursos/registrar_cursos_widget.dart'
     show RegistrarCursosWidget;
 export '/paginas_principales/informacion/informacion_widget.dart'
     show InformacionWidget;
 export '/pruebas_widgets/pruebas_widgets_widget.dart' show PruebasWidgetsWidget;
 export '/admin/admin_cursos_copy/admin_cursos_copy_widget.dart'
     show AdminCursosCopyWidget;
-export '/reproductor_musica/reproductor_musica_widget.dart'
-    show ReproductorMusicaWidget;
+export '/reproductor_historia_krav/reproductor_historia_krav_widget.dart'
+    show ReproductorHistoriaKravWidget;

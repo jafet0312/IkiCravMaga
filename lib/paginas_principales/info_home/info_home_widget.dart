@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
@@ -136,17 +137,66 @@ class _InfoHomeWidgetState extends State<InfoHomeWidget> {
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 30.0, 12.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'ulqhiprq' /* IKI CR Krav Maga fue fundado e... */,
+                                      child:
+                                          StreamBuilder<List<SettingsRecord>>(
+                                        stream: querySettingsRecord(
+                                          queryBuilder: (settingsRecord) =>
+                                              settingsRecord.where(
+                                            'name',
+                                            isEqualTo: 'Textos',
+                                          ),
+                                          singleRecord: true,
                                         ),
-                                        textAlign: TextAlign.justify,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              letterSpacing: 0.0,
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          List<SettingsRecord>
+                                              detalleSettingsRecordList =
+                                              snapshot.data!;
+                                          // Return an empty Container when the item does not exist.
+                                          if (snapshot.data!.isEmpty) {
+                                            return Container();
+                                          }
+                                          final detalleSettingsRecord =
+                                              detalleSettingsRecordList
+                                                      .isNotEmpty
+                                                  ? detalleSettingsRecordList
+                                                      .first
+                                                  : null;
+
+                                          return Text(
+                                            FFLocalizations.of(context).getText(
+                                              'ulqhiprq' /* IKI CR Krav Maga fue fundado e... */,
                                             ),
+                                            textAlign: TextAlign.justify,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize:
+                                                      detalleSettingsRecord
+                                                          ?.title
+                                                          .toDouble(),
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          );
+                                        },
                                       ),
                                     ),
                                   ],
@@ -171,17 +221,66 @@ class _InfoHomeWidgetState extends State<InfoHomeWidget> {
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 30.0, 12.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'h2s3dnnz' /* Basamos nuestra técnica en la ... */,
+                                      child:
+                                          StreamBuilder<List<SettingsRecord>>(
+                                        stream: querySettingsRecord(
+                                          queryBuilder: (settingsRecord) =>
+                                              settingsRecord.where(
+                                            'name',
+                                            isEqualTo: 'Textos',
+                                          ),
+                                          singleRecord: true,
                                         ),
-                                        textAlign: TextAlign.justify,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              letterSpacing: 0.0,
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          List<SettingsRecord>
+                                              detalle2SettingsRecordList =
+                                              snapshot.data!;
+                                          // Return an empty Container when the item does not exist.
+                                          if (snapshot.data!.isEmpty) {
+                                            return Container();
+                                          }
+                                          final detalle2SettingsRecord =
+                                              detalle2SettingsRecordList
+                                                      .isNotEmpty
+                                                  ? detalle2SettingsRecordList
+                                                      .first
+                                                  : null;
+
+                                          return Text(
+                                            FFLocalizations.of(context).getText(
+                                              'h2s3dnnz' /* Basamos nuestra técnica en la ... */,
                                             ),
+                                            textAlign: TextAlign.justify,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize:
+                                                      detalle2SettingsRecord
+                                                          ?.title
+                                                          .toDouble(),
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          );
+                                        },
                                       ),
                                     ),
                                   ],
@@ -206,17 +305,221 @@ class _InfoHomeWidgetState extends State<InfoHomeWidget> {
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 30.0, 12.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'nfbhhqwh' /* Costa Rica Krav Maga pertenece... */,
+                                      child:
+                                          StreamBuilder<List<SettingsRecord>>(
+                                        stream: querySettingsRecord(
+                                          queryBuilder: (settingsRecord) =>
+                                              settingsRecord.where(
+                                            'name',
+                                            isEqualTo: 'Textos',
+                                          ),
+                                          singleRecord: true,
                                         ),
-                                        textAlign: TextAlign.justify,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              letterSpacing: 0.0,
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          List<SettingsRecord>
+                                              detalle3SettingsRecordList =
+                                              snapshot.data!;
+                                          // Return an empty Container when the item does not exist.
+                                          if (snapshot.data!.isEmpty) {
+                                            return Container();
+                                          }
+                                          final detalle3SettingsRecord =
+                                              detalle3SettingsRecordList
+                                                      .isNotEmpty
+                                                  ? detalle3SettingsRecordList
+                                                      .first
+                                                  : null;
+
+                                          return Text(
+                                            FFLocalizations.of(context).getText(
+                                              'nfbhhqwh' /* Costa Rica Krav Maga pertenece... */,
                                             ),
+                                            textAlign: TextAlign.justify,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize:
+                                                      detalle3SettingsRecord
+                                                          ?.title
+                                                          .toDouble(),
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 0.0),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.network(
+                                          'https://cdn.shopify.com/s/files/1/0646/4097/files/Lichtenfeld_grande.jpg?v=1574960505',
+                                          width: 300.0,
+                                          height: 320.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 30.0, 12.0, 0.0),
+                                      child:
+                                          StreamBuilder<List<SettingsRecord>>(
+                                        stream: querySettingsRecord(
+                                          queryBuilder: (settingsRecord) =>
+                                              settingsRecord.where(
+                                            'name',
+                                            isEqualTo: 'Textos',
+                                          ),
+                                          singleRecord: true,
+                                        ),
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          List<SettingsRecord>
+                                              detalle4SettingsRecordList =
+                                              snapshot.data!;
+                                          // Return an empty Container when the item does not exist.
+                                          if (snapshot.data!.isEmpty) {
+                                            return Container();
+                                          }
+                                          final detalle4SettingsRecord =
+                                              detalle4SettingsRecordList
+                                                      .isNotEmpty
+                                                  ? detalle4SettingsRecordList
+                                                      .first
+                                                  : null;
+
+                                          return Text(
+                                            FFLocalizations.of(context).getText(
+                                              '5utu4wsd' /* Podés escuchar ya mismo la his... */,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize:
+                                                      detalle4SettingsRecord
+                                                          ?.title
+                                                          .toDouble(),
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Align(
+                                        alignment:
+                                            const AlignmentDirectional(0.0, 0.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            context.pushNamed(
+                                                'ReproductorHistoriaKrav');
+                                          },
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.4,
+                                            height: 40.0,
+                                            decoration: BoxDecoration(
+                                              gradient: LinearGradient(
+                                                colors: [
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiary,
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary
+                                                ],
+                                                stops: const [0.1, 1.0],
+                                                begin: const AlignmentDirectional(
+                                                    1.0, -1.0),
+                                                end: const AlignmentDirectional(
+                                                    -1.0, 1.0),
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(24.0),
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  Icon(
+                                                    Icons.touch_app_outlined,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    size: 24.0,
+                                                  ),
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '3yqvenwu' /* Click Aquí! */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -232,7 +535,7 @@ class _InfoHomeWidgetState extends State<InfoHomeWidget> {
                               child: smooth_page_indicator.SmoothPageIndicator(
                                 controller: _model.pvInicioController ??=
                                     PageController(initialPage: 0),
-                                count: 3,
+                                count: 4,
                                 axisDirection: Axis.horizontal,
                                 onDotClicked: (i) async {
                                   await _model.pvInicioController!

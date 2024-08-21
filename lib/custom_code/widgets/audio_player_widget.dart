@@ -30,6 +30,7 @@ class AudioPlayerWidget extends StatefulWidget {
 class _AudioPlayerWidgetState extends State<AudioPlayerWidget>
     with WidgetsBindingObserver {
   final _player = AudioPlayer();
+  bool _dragging = false;
 
   @override
   void initState() {
@@ -50,7 +51,7 @@ class _AudioPlayerWidgetState extends State<AudioPlayerWidget>
       );
       await _player.setAudioSource(
         AudioSource.uri(Uri.parse(
-            "https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3")),
+            "https://firebasestorage.googleapis.com/v0/b/ikikravmaga-37686.appspot.com/o/Documental%20de%20Krav%20Maga.mp3?alt=media&token=0b69172b-aff7-44be-b88c-85cd4cf7e5c4")),
       );
     } on PlayerException catch (e) {
       print("Error loading audio source: $e");
@@ -82,29 +83,59 @@ class _AudioPlayerWidgetState extends State<AudioPlayerWidget>
             PositionData(position, bufferedPosition, duration ?? Duration.zero),
       );
 
+  void _onSeekChanged(Duration position) {
+    if (!_dragging) {
+      _player.seek(position);
+    }
+  }
+
+  void _onSeekDragStart(Duration position) {
+    _dragging = true;
+  }
+
+  void _onSeekDragEnd(Duration position) {
+    _dragging = false;
+    _player.seek(position);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ControlButtons(_player),
-            StreamBuilder<PositionData>(
-              stream: _positionDataStream,
-              builder: (context, snapshot) {
-                final positionData = snapshot.data;
-                return SeekBar(
-                  duration: positionData?.duration ?? Duration.zero,
-                  position: positionData?.position ?? Duration.zero,
-                  bufferedPosition:
-                      positionData?.bufferedPosition ?? Duration.zero,
-                  onChangeEnd: _player.seek,
-                );
-              },
-            ),
-          ],
+        child: Container(
+          color: const Color(0xFF17171A), // Establece el fondo en #17171A
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ControlButtons(_player,
+                  iconColor: Colors.white), // Pasa el color de los iconos
+              StreamBuilder<PositionData>(
+                stream: _positionDataStream,
+                builder: (context, snapshot) {
+                  final positionData = snapshot.data;
+                  return SeekBar(
+                    duration: positionData?.duration ?? Duration.zero,
+                    position: positionData?.position ?? Duration.zero,
+                    bufferedPosition:
+                        positionData?.bufferedPosition ?? Duration.zero,
+                    onChangeStart: _onSeekDragStart,
+                    onChanged: _onSeekChanged,
+                    onChangeEnd: _onSeekDragEnd,
+                    thumbColor: Colors
+                        .white, // Establece el color del thumb del deslizador
+                    activeTrackColor:
+                        Colors.blue, // Establece el color del track activo
+                    inactiveTrackColor: Colors
+                        .grey.shade300, // Establece el color del track inactivo
+                    textStyle: const TextStyle(
+                      color: Colors.white, // Establece el color del texto
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -113,8 +144,10 @@ class _AudioPlayerWidgetState extends State<AudioPlayerWidget>
 
 class ControlButtons extends StatelessWidget {
   final AudioPlayer player;
+  final Color? iconColor;
 
-  const ControlButtons(this.player, {Key? key}) : super(key: key);
+  const ControlButtons(this.player, {Key? key, this.iconColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -122,11 +155,11 @@ class ControlButtons extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         IconButton(
-          icon: const Icon(Icons.volume_up),
+          icon: Icon(Icons.volume_up, color: iconColor),
           onPressed: () {
             showSliderDialog(
               context: context,
-              title: "Adjust volume",
+              title: "Ajustar Volumen",
               divisions: 10,
               min: 0.0,
               max: 1.0,
@@ -153,19 +186,19 @@ class ControlButtons extends StatelessWidget {
               );
             } else if (playing != true) {
               return IconButton(
-                icon: const Icon(Icons.play_arrow),
+                icon: Icon(Icons.play_arrow, color: iconColor),
                 iconSize: 64.0,
                 onPressed: player.play,
               );
             } else if (processingState != ProcessingState.completed) {
               return IconButton(
-                icon: const Icon(Icons.pause),
+                icon: Icon(Icons.pause, color: iconColor),
                 iconSize: 64.0,
                 onPressed: player.pause,
               );
             } else {
               return IconButton(
-                icon: const Icon(Icons.replay),
+                icon: Icon(Icons.replay, color: iconColor),
                 iconSize: 64.0,
                 onPressed: () => player.seek(Duration.zero),
               );
@@ -177,12 +210,12 @@ class ControlButtons extends StatelessWidget {
           builder: (context, snapshot) => IconButton(
             icon: Text(
               "${snapshot.data?.toStringAsFixed(1)}x",
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold, color: iconColor),
             ),
             onPressed: () {
               showSliderDialog(
                 context: context,
-                title: "Adjust speed",
+                title: "Ajustar Velocidad",
                 divisions: 10,
                 min: 0.5,
                 max: 1.5,
@@ -204,7 +237,12 @@ class SeekBar extends StatefulWidget {
   final Duration position;
   final Duration bufferedPosition;
   final ValueChanged<Duration>? onChanged;
+  final ValueChanged<Duration>? onChangeStart;
   final ValueChanged<Duration>? onChangeEnd;
+  final Color? thumbColor;
+  final Color? activeTrackColor;
+  final Color? inactiveTrackColor;
+  final TextStyle? textStyle;
 
   const SeekBar({
     Key? key,
@@ -212,7 +250,12 @@ class SeekBar extends StatefulWidget {
     required this.position,
     required this.bufferedPosition,
     this.onChanged,
+    this.onChangeStart,
     this.onChangeEnd,
+    this.thumbColor,
+    this.activeTrackColor,
+    this.inactiveTrackColor,
+    this.textStyle,
   }) : super(key: key);
 
   @override
@@ -228,6 +271,9 @@ class SeekBarState extends State<SeekBar> {
     super.didChangeDependencies();
     _sliderThemeData = SliderTheme.of(context).copyWith(
       trackHeight: 2.0,
+      thumbColor: widget.thumbColor ?? Colors.white,
+      activeTrackColor: widget.activeTrackColor ?? Colors.blue,
+      inactiveTrackColor: widget.inactiveTrackColor ?? Colors.grey.shade300,
     );
   }
 
@@ -236,49 +282,22 @@ class SeekBarState extends State<SeekBar> {
     return Stack(
       children: [
         SliderTheme(
-          data: _sliderThemeData.copyWith(
-            thumbShape: RoundSliderThumbShape(enabledThumbRadius: 0.0),
-            activeTrackColor: Colors.blue.shade100,
-            inactiveTrackColor: Colors.grey.shade300,
-          ),
-          child: ExcludeSemantics(
-            child: Slider(
-              min: 0.0,
-              max: widget.duration.inMilliseconds.toDouble(),
-              value: min(widget.bufferedPosition.inMilliseconds.toDouble(),
-                  widget.duration.inMilliseconds.toDouble()),
-              onChanged: (value) {
-                setState(() {
-                  _dragValue = value;
-                });
-                if (widget.onChanged != null) {
-                  widget.onChanged!(Duration(milliseconds: value.round()));
-                }
-              },
-              onChangeEnd: (value) {
-                if (widget.onChangeEnd != null) {
-                  widget.onChangeEnd!(Duration(milliseconds: value.round()));
-                }
-                _dragValue = null;
-              },
-            ),
-          ),
-        ),
-        SliderTheme(
-          data: _sliderThemeData.copyWith(
-            inactiveTrackColor: Colors.transparent,
-          ),
+          data: _sliderThemeData,
           child: Slider(
             min: 0.0,
             max: widget.duration.inMilliseconds.toDouble(),
-            value: min(_dragValue ?? widget.position.inMilliseconds.toDouble(),
-                widget.duration.inMilliseconds.toDouble()),
+            value: _dragValue ?? widget.position.inMilliseconds.toDouble(),
             onChanged: (value) {
               setState(() {
                 _dragValue = value;
               });
               if (widget.onChanged != null) {
                 widget.onChanged!(Duration(milliseconds: value.round()));
+              }
+            },
+            onChangeStart: (_) {
+              if (widget.onChangeStart != null) {
+                widget.onChangeStart!(widget.position);
               }
             },
             onChangeEnd: (value) {
@@ -294,7 +313,7 @@ class SeekBarState extends State<SeekBar> {
           bottom: 0.0,
           child: Text(
             _formatDuration(widget.duration - widget.position),
-            style: Theme.of(context).textTheme.bodySmall,
+            style: widget.textStyle ?? Theme.of(context).textTheme.bodySmall,
           ),
         ),
       ],

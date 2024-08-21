@@ -112,15 +112,56 @@ class _SugerenciasClienteWidgetState extends State<SugerenciasClienteWidget> {
                               letterSpacing: 0.0,
                             ),
                       ),
-                      Text(
-                        FFLocalizations.of(context).getText(
-                          'k9cnfi2j' /* Su opinión nos ayuda a mejorar... */,
+                      StreamBuilder<List<SettingsRecord>>(
+                        stream: querySettingsRecord(
+                          queryBuilder: (settingsRecord) =>
+                              settingsRecord.where(
+                            'name',
+                            isEqualTo: 'Textos',
+                          ),
+                          singleRecord: true,
                         ),
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Inter',
-                              letterSpacing: 0.0,
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          List<SettingsRecord>
+                              txtDescripFormSettingsRecordList = snapshot.data!;
+                          // Return an empty Container when the item does not exist.
+                          if (snapshot.data!.isEmpty) {
+                            return Container();
+                          }
+                          final txtDescripFormSettingsRecord =
+                              txtDescripFormSettingsRecordList.isNotEmpty
+                                  ? txtDescripFormSettingsRecordList.first
+                                  : null;
+
+                          return Text(
+                            FFLocalizations.of(context).getText(
+                              'k9cnfi2j' /* Su opinión nos ayuda a mejorar... */,
                             ),
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  fontSize: txtDescripFormSettingsRecord?.title
+                                      .toDouble(),
+                                  letterSpacing: 0.0,
+                                ),
+                          );
+                        },
                       ),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.8,

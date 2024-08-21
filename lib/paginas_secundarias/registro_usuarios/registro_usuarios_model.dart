@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'registro_usuario_widget.dart' show RegistroUsuarioWidget;
+import 'registro_usuarios_widget.dart' show RegistroUsuariosWidget;
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class RegistroUsuarioModel extends FlutterFlowModel<RegistroUsuarioWidget> {
+class RegistroUsuariosModel extends FlutterFlowModel<RegistroUsuariosWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();

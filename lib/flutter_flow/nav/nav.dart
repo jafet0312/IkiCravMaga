@@ -94,9 +94,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const LoginAppWidget(),
         ),
         FFRoute(
-          name: 'RegistroUsuario',
-          path: '/registroUsuario',
-          builder: (context, params) => RegistroUsuarioWidget(
+          name: 'RegistroUsuarios',
+          path: '/registroUsuarios',
+          builder: (context, params) => RegistroUsuariosWidget(
             correoInvalido: params.getParam(
               'correoInvalido',
               ParamType.bool,
@@ -180,9 +180,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const AdminCursosCopyWidget(),
         ),
         FFRoute(
-          name: 'ReproductorMusica',
-          path: '/reproductorMusica',
-          builder: (context, params) => const ReproductorMusicaWidget(),
+          name: 'ReproductorHistoriaKrav',
+          path: '/reproductorHistoriaKrav',
+          builder: (context, params) => const ReproductorHistoriaKravWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

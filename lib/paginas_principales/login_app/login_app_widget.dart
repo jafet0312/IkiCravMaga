@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -443,35 +444,116 @@ class _LoginAppWidgetState extends State<LoginAppWidget>
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        FFLocalizations.of(context).getText(
-                          '2yxij0b1' /* No tienes cuenta?  */,
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Inter',
-                              letterSpacing: 0.0,
-                            ),
-                      ),
-                      InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed('RegistroUsuario');
-                        },
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            'cyghwrhk' /* Registrese aquí */,
+                      StreamBuilder<List<SettingsRecord>>(
+                        stream: querySettingsRecord(
+                          queryBuilder: (settingsRecord) =>
+                              settingsRecord.where(
+                            'name',
+                            isEqualTo: 'Textos',
                           ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Inter',
-                                color: FlutterFlowTheme.of(context).secondary,
-                                letterSpacing: 0.0,
-                              ),
+                          singleRecord: true,
                         ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          List<SettingsRecord> txtNoCuentaSettingsRecordList =
+                              snapshot.data!;
+                          // Return an empty Container when the item does not exist.
+                          if (snapshot.data!.isEmpty) {
+                            return Container();
+                          }
+                          final txtNoCuentaSettingsRecord =
+                              txtNoCuentaSettingsRecordList.isNotEmpty
+                                  ? txtNoCuentaSettingsRecordList.first
+                                  : null;
+
+                          return Text(
+                            FFLocalizations.of(context).getText(
+                              '2yxij0b1' /* No tienes cuenta?  */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  fontSize: txtNoCuentaSettingsRecord?.title
+                                      .toDouble(),
+                                  letterSpacing: 0.0,
+                                ),
+                          );
+                        },
+                      ),
+                      StreamBuilder<List<SettingsRecord>>(
+                        stream: querySettingsRecord(
+                          queryBuilder: (settingsRecord) =>
+                              settingsRecord.where(
+                            'name',
+                            isEqualTo: 'Textos',
+                          ),
+                          singleRecord: true,
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          List<SettingsRecord> registroNuevoSettingsRecordList =
+                              snapshot.data!;
+                          // Return an empty Container when the item does not exist.
+                          if (snapshot.data!.isEmpty) {
+                            return Container();
+                          }
+                          final registroNuevoSettingsRecord =
+                              registroNuevoSettingsRecordList.isNotEmpty
+                                  ? registroNuevoSettingsRecordList.first
+                                  : null;
+
+                          return InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('RegistroUsuarios');
+                            },
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'cyghwrhk' /* Registrese aquí */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    fontSize: registroNuevoSettingsRecord?.title
+                                        .toDouble(),
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),

@@ -224,12 +224,12 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
                                                 min: 10.0,
-                                                max: 50.0,
+                                                max: 15.0,
                                                 value: _model.sliderValue ??=
-                                                    12.0,
+                                                    10.0,
                                                 label: _model.sliderValue
                                                     ?.toStringAsFixed(0),
-                                                divisions: 40,
+                                                divisions: 5,
                                                 onChanged: (newValue) async {
                                                   newValue = double.parse(
                                                       newValue
@@ -259,23 +259,70 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'zx6sftws' /* Letras */,
+                                          StreamBuilder<List<SettingsRecord>>(
+                                            stream: querySettingsRecord(
+                                              queryBuilder: (settingsRecord) =>
+                                                  settingsRecord.where(
+                                                'name',
+                                                isEqualTo: 'Textos',
+                                              ),
+                                              singleRecord: true,
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  fontSize:
-                                                      preferenciasSettingsRecord
-                                                          ?.title
-                                                          .toDouble(),
-                                                  letterSpacing: 0.0,
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      valueColor:
+                                                          AlwaysStoppedAnimation<
+                                                              Color>(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                              List<SettingsRecord>
+                                                  txtMuestraSettingsRecordList =
+                                                  snapshot.data!;
+                                              // Return an empty Container when the item does not exist.
+                                              if (snapshot.data!.isEmpty) {
+                                                return Container();
+                                              }
+                                              final txtMuestraSettingsRecord =
+                                                  txtMuestraSettingsRecordList
+                                                          .isNotEmpty
+                                                      ? txtMuestraSettingsRecordList
+                                                          .first
+                                                      : null;
+
+                                              return Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'zx6sftws' /* Letras */,
                                                 ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          fontSize:
+                                                              preferenciasSettingsRecord
+                                                                  ?.title
+                                                                  .toDouble(),
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              );
+                                            },
                                           ),
                                         ],
                                       ),
@@ -313,16 +360,62 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'kfdvmxyf' /* Seleccionar idioma */,
+                                  StreamBuilder<List<SettingsRecord>>(
+                                    stream: querySettingsRecord(
+                                      queryBuilder: (settingsRecord) =>
+                                          settingsRecord.where(
+                                        'name',
+                                        isEqualTo: 'Textos',
+                                      ),
+                                      singleRecord: true,
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<SettingsRecord>
+                                          txtSelecIdiomaSettingsRecordList =
+                                          snapshot.data!;
+                                      // Return an empty Container when the item does not exist.
+                                      if (snapshot.data!.isEmpty) {
+                                        return Container();
+                                      }
+                                      final txtSelecIdiomaSettingsRecord =
+                                          txtSelecIdiomaSettingsRecordList
+                                                  .isNotEmpty
+                                              ? txtSelecIdiomaSettingsRecordList
+                                                  .first
+                                              : null;
+
+                                      return Text(
+                                        FFLocalizations.of(context).getText(
+                                          'kfdvmxyf' /* Seleccionar idioma */,
                                         ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              fontSize:
+                                                  txtSelecIdiomaSettingsRecord
+                                                      ?.title
+                                                      .toDouble(),
+                                              letterSpacing: 0.0,
+                                            ),
+                                      );
+                                    },
                                   ),
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -379,16 +472,62 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'fappjbor' /* Su opinión es importante para ... */,
+                                  StreamBuilder<List<SettingsRecord>>(
+                                    stream: querySettingsRecord(
+                                      queryBuilder: (settingsRecord) =>
+                                          settingsRecord.where(
+                                        'name',
+                                        isEqualTo: 'Textos',
+                                      ),
+                                      singleRecord: true,
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<SettingsRecord>
+                                          txtOpinionUserSettingsRecordList =
+                                          snapshot.data!;
+                                      // Return an empty Container when the item does not exist.
+                                      if (snapshot.data!.isEmpty) {
+                                        return Container();
+                                      }
+                                      final txtOpinionUserSettingsRecord =
+                                          txtOpinionUserSettingsRecordList
+                                                  .isNotEmpty
+                                              ? txtOpinionUserSettingsRecordList
+                                                  .first
+                                              : null;
+
+                                      return Text(
+                                        FFLocalizations.of(context).getText(
+                                          'fappjbor' /* Su opinión es importante para ... */,
                                         ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              fontSize:
+                                                  txtOpinionUserSettingsRecord
+                                                      ?.title
+                                                      .toDouble(),
+                                              letterSpacing: 0.0,
+                                            ),
+                                      );
+                                    },
                                   ),
                                   Expanded(
                                     child: Align(
