@@ -606,6 +606,142 @@ class _PreferenciasWidgetState extends State<PreferenciasWidget> {
                               ),
                             ),
                           ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 1.0, 0.0, 0.0),
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 0.9,
+                              height: 100.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                borderRadius: BorderRadius.circular(24.0),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  StreamBuilder<List<SettingsRecord>>(
+                                    stream: querySettingsRecord(
+                                      queryBuilder: (settingsRecord) =>
+                                          settingsRecord.where(
+                                        'name',
+                                        isEqualTo: 'Textos',
+                                      ),
+                                      singleRecord: true,
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<SettingsRecord>
+                                          txtOpinionUserSettingsRecordList =
+                                          snapshot.data!;
+                                      // Return an empty Container when the item does not exist.
+                                      if (snapshot.data!.isEmpty) {
+                                        return Container();
+                                      }
+                                      final txtOpinionUserSettingsRecord =
+                                          txtOpinionUserSettingsRecordList
+                                                  .isNotEmpty
+                                              ? txtOpinionUserSettingsRecordList
+                                                  .first
+                                              : null;
+
+                                      return Text(
+                                        FFLocalizations.of(context).getText(
+                                          '4rroa17o' /* Calcular Masa  */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              fontSize:
+                                                  txtOpinionUserSettingsRecord
+                                                      ?.title
+                                                      .toDouble(),
+                                              letterSpacing: 0.0,
+                                            ),
+                                      );
+                                    },
+                                  ),
+                                  Expanded(
+                                    child: Align(
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.4,
+                                        height: 40.0,
+                                        decoration: BoxDecoration(
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              FlutterFlowTheme.of(context)
+                                                  .tertiary,
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary
+                                            ],
+                                            stops: const [0.1, 1.0],
+                                            begin:
+                                                const AlignmentDirectional(1.0, -1.0),
+                                            end:
+                                                const AlignmentDirectional(-1.0, 1.0),
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(24.0),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Icon(
+                                                Icons.star,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 24.0,
+                                              ),
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'bftya030' /* Calculadora */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ]
+                                    .divide(const SizedBox(height: 10.0))
+                                    .around(const SizedBox(height: 10.0)),
+                              ),
+                            ),
+                          ),
                         ]
                             .divide(const SizedBox(height: 20.0))
                             .around(const SizedBox(height: 20.0)),

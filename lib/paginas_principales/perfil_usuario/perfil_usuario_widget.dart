@@ -543,6 +543,7 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(
                       child: Align(
@@ -590,6 +591,63 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                   Text(
                                     FFLocalizations.of(context).getText(
                                       '25f7l60p' /* Cerrar Sesión */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('Nutricion');
+                          },
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 0.4,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  FlutterFlowTheme.of(context).tertiary,
+                                  FlutterFlowTheme.of(context).secondary
+                                ],
+                                stops: const [0.1, 1.0],
+                                begin: const AlignmentDirectional(1.0, -1.0),
+                                end: const AlignmentDirectional(-1.0, 1.0),
+                              ),
+                              borderRadius: BorderRadius.circular(24.0),
+                            ),
+                            child: Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Icon(
+                                    Icons.health_and_safety_outlined,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 24.0,
+                                  ),
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'lqfmgtd6' /* Nutrición */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium

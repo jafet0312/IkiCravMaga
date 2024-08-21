@@ -185,9 +185,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const ReproductorHistoriaKravWidget(),
         ),
         FFRoute(
-          name: 'FotoPerfil',
-          path: '/fotoPerfil',
-          builder: (context, params) => const FotoPerfilWidget(),
+          name: 'Nutricion',
+          path: '/nutricion',
+          builder: (context, params) => const NutricionWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

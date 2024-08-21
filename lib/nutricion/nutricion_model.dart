@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'foto_perfil_widget.dart' show FotoPerfilWidget;
+import 'nutricion_widget.dart' show NutricionWidget;
 import 'package:flutter/material.dart';
 
-class FotoPerfilModel extends FlutterFlowModel<FotoPerfilWidget> {
+class NutricionModel extends FlutterFlowModel<NutricionWidget> {
   @override
   void initState(BuildContext context) {}
 

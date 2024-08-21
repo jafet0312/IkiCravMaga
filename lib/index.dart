@@ -29,4 +29,4 @@ export '/admin/admin_cursos_copy/admin_cursos_copy_widget.dart'
     show AdminCursosCopyWidget;
 export '/reproductor_historia_krav/reproductor_historia_krav_widget.dart'
     show ReproductorHistoriaKravWidget;
-export '/foto_perfil/foto_perfil_widget.dart' show FotoPerfilWidget;
+export '/nutricion/nutricion_widget.dart' show NutricionWidget;

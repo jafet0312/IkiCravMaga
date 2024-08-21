@@ -341,6 +341,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Cerrar Sesión',
       'en': 'Sign Out',
     },
+    'lqfmgtd6': {
+      'es': 'Nutrición',
+      'en': '',
+    },
     'fkun5m14': {
       'es': 'Perfil de Usuario',
       'en': 'User profile',
@@ -528,6 +532,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Sugerencias',
       'en': 'Suggestions',
     },
+    '4rroa17o': {
+      'es': 'Calcular Masa ',
+      'en': '',
+    },
+    'bftya030': {
+      'es': 'Calculadora',
+      'en': '',
+    },
     'pleyjlv5': {
       'es': 'Preferencias',
       'en': 'Preferences',
@@ -676,15 +688,163 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Home',
     },
   },
-  // FotoPerfil
+  // Nutricion
   {
-    'fhpyz3rl': {
-      'es': 'Page Title',
-      'en': 'Title Page',
+    'n4vg7q01': {
+      'es': 'Ensalada de Quinoa',
+      'en': 'Quinoa Salad',
     },
-    'ddkxxipw': {
-      'es': 'Home',
-      'en': 'Home',
+    '55eclui6': {
+      'es': 'Quinoa, tomates, pepino, cebolla',
+      'en': 'Quinoa, tomatoes, cucumber, onion',
+    },
+    'y50aro6z': {
+      'es': 'Batido de Proteínas',
+      'en': 'Protein Shake',
+    },
+    't1up3g65': {
+      'es': 'Proteína en polvo, leche de almendras',
+      'en': 'Protein powder, almond milk',
+    },
+    '8qamsjju': {
+      'es': 'Sopa de Verduras',
+      'en': 'Vegetable Soup',
+    },
+    'll4692he': {
+      'es': 'Zanahorias, apio, cebolla, calabacín',
+      'en': 'Carrots, celery, onion, zucchini',
+    },
+    'yyjx5eoq': {
+      'es': 'Avena con Frutas',
+      'en': 'Oatmeal with Fruit',
+    },
+    '5510ndxa': {
+      'es': 'Avena, fresas, arándanos, miel',
+      'en': 'Oats, strawberries, blueberries, honey',
+    },
+    'zj3wmcxz': {
+      'es': 'Pollo a la Plancha',
+      'en': 'Grilled Chicken',
+    },
+    'u0nq118s': {
+      'es': 'Pechuga de pollo, especias, aceite',
+      'en': 'Chicken breast, spices, oil',
+    },
+    'n4v5ntid': {
+      'es': 'Smoothie Verde',
+      'en': 'Green Smoothie',
+    },
+    '9yvziws8': {
+      'es': 'Espinacas, manzana, pepino, jengibre',
+      'en': 'Spinach, apple, cucumber, ginger',
+    },
+    'o7yf6jse': {
+      'es': 'Ensalada de Frutas',
+      'en': 'Fruit Salad',
+    },
+    'b2e5rjmx': {
+      'es': 'Manzana, plátano, uvas, naranja',
+      'en': 'Apple, banana, grapes, orange',
+    },
+    'j7ns52sn': {
+      'es': 'Pasta Integral',
+      'en': 'Whole wheat pasta',
+    },
+    'z02jd495': {
+      'es': 'Pasta integral, salsa de tomate',
+      'en': 'Whole wheat pasta, tomato sauce',
+    },
+    'gn3y2d0r': {
+      'es': 'Tostada de Aguacate',
+      'en': 'Avocado Toast',
+    },
+    '3za9b3z9': {
+      'es': 'Pan integral, aguacate, sal, pimienta',
+      'en': 'Whole wheat bread, avocado, salt, pepper',
+    },
+    '8sqr0fz0': {
+      'es': 'Yogur con Granola',
+      'en': 'Yogurt with Granola',
+    },
+    'bos9poqm': {
+      'es': 'Yogur natural, granola, miel',
+      'en': 'Natural yogurt, granola, honey',
+    },
+    'ikiteg7h': {
+      'es': 'Té Verde con Limón',
+      'en': 'Green Tea with Lemon',
+    },
+    'f1ldqvmf': {
+      'es': 'Té verde, limón, miel',
+      'en': 'Green tea, lemon, honey',
+    },
+    '1qyeewqx': {
+      'es': 'Ensalada de Garbanzos',
+      'en': 'Chickpea Salad',
+    },
+    '8a8rtfqf': {
+      'es': 'Garbanzos, tomate, pepino, cebolla',
+      'en': 'Chickpeas, tomato, cucumber, onion',
+    },
+    'iktza158': {
+      'es': 'Sándwich de Pavo',
+      'en': 'Turkey Sandwich',
+    },
+    '222rdsmc': {
+      'es': 'Pan integral, pavo, lechuga, tomate',
+      'en': 'Whole wheat bread, turkey, lettuce, tomato',
+    },
+    '93yl8xy7': {
+      'es': 'Ensalada de Espinacas',
+      'en': 'Spinach Salad',
+    },
+    'q4tz4h42': {
+      'es': 'Espinacas, fresas, nueces, queso',
+      'en': 'Spinach, strawberries, walnuts, cheese',
+    },
+    'eidkcha9': {
+      'es': 'Tacos de Pescado',
+      'en': 'Fish Tacos',
+    },
+    'hn2jhksx': {
+      'es': 'Tortillas, pescado, col, salsa de yogur',
+      'en': 'Tortillas, fish, cabbage, yogurt sauce',
+    },
+    'nsva0xej': {
+      'es': 'Sopa de Lentejas',
+      'en': 'Lentil Soup',
+    },
+    'w80o96mp': {
+      'es': 'Lentejas, zanahorias, apio, cebolla',
+      'en': 'Lentils, carrots, celery, onion',
+    },
+    'r2e1xybb': {
+      'es': 'Batido de Frutas',
+      'en': 'Fruit Smoothie',
+    },
+    't9v93s3s': {
+      'es': 'Fresas, plátano, yogur, miel',
+      'en': 'Strawberries, banana, yogurt, honey',
+    },
+    'ggl5abib': {
+      'es': 'Ensalada de Pollo',
+      'en': 'Chicken Salad',
+    },
+    'm4v99qot': {
+      'es': 'Pollo, lechuga, tomate, pepino, aderezo',
+      'en': 'Chicken, lettuce, tomato, cucumber, dressing',
+    },
+    'iocvd316': {
+      'es': 'Smoothie de Mango',
+      'en': 'Mango Smoothie',
+    },
+    'v6jw6cbq': {
+      'es': 'Mango, yogur, leche de coco',
+      'en': 'Mango, yogurt, coconut milk',
+    },
+    'w44qrt51': {
+      'es': 'Nutrición',
+      'en': 'Title Page',
     },
   },
   // bs_inicioSesionFallido
