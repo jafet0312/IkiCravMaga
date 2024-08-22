@@ -1,10 +1,11 @@
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'registrar_cursos_model.dart';
 export 'registrar_cursos_model.dart';
 
@@ -25,8 +26,7 @@ class _RegistrarCursosWidgetState extends State<RegistrarCursosWidget> {
     super.initState();
     _model = createModel(context, () => RegistrarCursosModel());
 
-    _model.txtfFechaTextController ??=
-        TextEditingController(text: FFAppState().fechaSeleccionada?.toString());
+    _model.txtfFechaTextController ??= TextEditingController();
     _model.txtfFechaFocusNode ??= FocusNode();
 
     _model.txtFNombreTextController ??= TextEditingController();
@@ -48,8 +48,6 @@ class _RegistrarCursosWidgetState extends State<RegistrarCursosWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -306,9 +304,6 @@ class _RegistrarCursosWidgetState extends State<RegistrarCursosWidget> {
                                               );
                                             });
                                           }
-                                          FFAppState().fechaSeleccionada =
-                                              _model.datePicked;
-                                          setState(() {});
                                           setState(() {
                                             _model.txtfFechaTextController
                                                     ?.text =
@@ -362,10 +357,18 @@ class _RegistrarCursosWidgetState extends State<RegistrarCursosWidget> {
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                           child: Image.network(
-                                            FFAppState().URLImagen,
+                                            _model.urlImagen,
                                             width: 150.0,
                                             height: 115.0,
                                             fit: BoxFit.cover,
+                                            errorBuilder:
+                                                (context, error, stackTrace) =>
+                                                    Image.asset(
+                                              'assets/images/error_image.png',
+                                              width: 150.0,
+                                              height: 115.0,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -381,12 +384,100 @@ class _RegistrarCursosWidgetState extends State<RegistrarCursosWidget> {
                                                       .tertiary,
                                               shape: BoxShape.circle,
                                             ),
-                                            child: Icon(
-                                              Icons.edit,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              size: 30.0,
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                final selectedMedia =
+                                                    await selectMedia(
+                                                  mediaSource:
+                                                      MediaSource.photoGallery,
+                                                  multiImage: false,
+                                                );
+                                                if (selectedMedia != null &&
+                                                    selectedMedia.every((m) =>
+                                                        validateFileFormat(
+                                                            m.storagePath,
+                                                            context))) {
+                                                  setState(() => _model
+                                                      .isDataUploading = true);
+                                                  var selectedUploadedFiles =
+                                                      <FFUploadedFile>[];
+
+                                                  var downloadUrls = <String>[];
+                                                  try {
+                                                    selectedUploadedFiles =
+                                                        selectedMedia
+                                                            .map((m) =>
+                                                                FFUploadedFile(
+                                                                  name: m
+                                                                      .storagePath
+                                                                      .split(
+                                                                          '/')
+                                                                      .last,
+                                                                  bytes:
+                                                                      m.bytes,
+                                                                  height: m
+                                                                      .dimensions
+                                                                      ?.height,
+                                                                  width: m
+                                                                      .dimensions
+                                                                      ?.width,
+                                                                  blurHash: m
+                                                                      .blurHash,
+                                                                ))
+                                                            .toList();
+
+                                                    downloadUrls = (await Future
+                                                            .wait(
+                                                      selectedMedia.map(
+                                                        (m) async =>
+                                                            await uploadData(
+                                                                m.storagePath,
+                                                                m.bytes),
+                                                      ),
+                                                    ))
+                                                        .where((u) => u != null)
+                                                        .map((u) => u!)
+                                                        .toList();
+                                                  } finally {
+                                                    _model.isDataUploading =
+                                                        false;
+                                                  }
+                                                  if (selectedUploadedFiles
+                                                              .length ==
+                                                          selectedMedia
+                                                              .length &&
+                                                      downloadUrls.length ==
+                                                          selectedMedia
+                                                              .length) {
+                                                    setState(() {
+                                                      _model.uploadedLocalFile =
+                                                          selectedUploadedFiles
+                                                              .first;
+                                                      _model.uploadedFileUrl =
+                                                          downloadUrls.first;
+                                                    });
+                                                  } else {
+                                                    setState(() {});
+                                                    return;
+                                                  }
+                                                }
+
+                                                _model.urlImagen =
+                                                    _model.uploadedFileUrl;
+                                                setState(() {});
+                                              },
+                                              child: Icon(
+                                                Icons.edit,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                size: 30.0,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -784,11 +875,11 @@ class _RegistrarCursosWidgetState extends State<RegistrarCursosWidget> {
                                                   .txtFDescripcionTextController
                                                   .text,
                                               date: _model.datePicked,
-                                              imageURL: FFAppState().URLImagen,
+                                              imageURL: _model.urlImagen,
                                             ));
                                         context.safePop();
-                                        FFAppState().URLImagen = '';
-                                        FFAppState().fechaSeleccionada = null;
+                                        _model.urlImagen =
+                                            'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png';
                                         setState(() {});
 
                                         setState(() {});
@@ -880,9 +971,8 @@ class _RegistrarCursosWidgetState extends State<RegistrarCursosWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            FFAppState().fechaSeleccionada =
-                                                null;
-                                            FFAppState().URLImagen = '';
+                                            _model.urlImagen =
+                                                'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png';
                                             setState(() {});
                                             context.safePop();
                                           },
@@ -928,210 +1018,243 @@ class _RegistrarCursosWidgetState extends State<RegistrarCursosWidget> {
                     ].divide(const SizedBox(height: 8.0)),
                   ),
                 ),
-                Column(
+                Row(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                          width: MediaQuery.sizeOf(context).width * 0.4,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                FlutterFlowTheme.of(context).tertiary,
-                                FlutterFlowTheme.of(context).secondary
-                              ],
-                              stops: const [0.1, 1.0],
-                              begin: const AlignmentDirectional(1.0, -1.0),
-                              end: const AlignmentDirectional(-1.0, 1.0),
-                            ),
-                            borderRadius: BorderRadius.circular(24.0),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Icon(
-                                Icons.save_alt,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
-                              ),
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  'hugrrtip' /* Guardar plantilla */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    StreamBuilder<List<CoursesTemplateRecord>>(
-                      stream: queryCoursesTemplateRecord(),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  FlutterFlowTheme.of(context).primary,
-                                ),
-                              ),
-                            ),
-                          );
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        if (_model.formKey.currentState == null ||
+                            !_model.formKey.currentState!.validate()) {
+                          return;
                         }
-                        List<CoursesTemplateRecord>
-                            listViewCoursesTemplateRecordList = snapshot.data!;
+                        if (_model.datePicked == null) {
+                          return;
+                        }
 
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: listViewCoursesTemplateRecordList.length,
-                          itemBuilder: (context, listViewIndex) {
-                            final listViewCoursesTemplateRecord =
-                                listViewCoursesTemplateRecordList[
-                                    listViewIndex];
-                            return Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Divider(
-                                  thickness: 1.0,
-                                  color: FlutterFlowTheme.of(context).accent4,
-                                ),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    await Future.wait([
-                                      Future(() async {
-                                        // Set Nombre
-                                        setState(() {
-                                          _model.txtFNombreTextController
-                                                  ?.text =
-                                              listViewCoursesTemplateRecord
-                                                  .name;
-                                          _model.txtFNombreTextController
-                                                  ?.selection =
-                                              TextSelection.collapsed(
-                                                  offset: _model
-                                                      .txtFNombreTextController!
-                                                      .text
-                                                      .length);
-                                        });
-                                      }),
-                                      Future(() async {
-                                        // Set Precio
-                                        setState(() {
-                                          _model.txtFPrecioTextController
-                                                  ?.text =
-                                              listViewCoursesTemplateRecord
-                                                  .price
-                                                  .toString();
-                                          _model.txtFPrecioTextController
-                                                  ?.selection =
-                                              TextSelection.collapsed(
-                                                  offset: _model
-                                                      .txtFPrecioTextController!
-                                                      .text
-                                                      .length);
-                                        });
-                                      }),
-                                      Future(() async {
-                                        // Set Descripcion
-                                        setState(() {
-                                          _model.txtFDescripcionTextController
-                                                  ?.text =
-                                              listViewCoursesTemplateRecord
-                                                  .description;
-                                          _model.txtFDescripcionTextController
-                                                  ?.selection =
-                                              TextSelection.collapsed(
-                                                  offset: _model
-                                                      .txtFDescripcionTextController!
-                                                      .text
-                                                      .length);
-                                        });
-                                      }),
-                                      Future(() async {
-                                        // Set Capacidad
-                                        setState(() {
-                                          _model.countControllerValue =
-                                              listViewCoursesTemplateRecord
-                                                  .maxCapacity;
-                                        });
-                                      }),
-                                      Future(() async {
-                                        FFAppState().URLImagen =
-                                            listViewCoursesTemplateRecord.image;
-                                        setState(() {});
-                                      }),
-                                    ]);
-                                  },
-                                  child: Container(
-                                    decoration: const BoxDecoration(),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 5.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              listViewCoursesTemplateRecord
-                                                  .image,
-                                              width: 125.0,
-                                              height: 100.0,
-                                              fit: BoxFit.fill,
-                                            ),
+                        await CoursesTemplateRecord.collection
+                            .doc()
+                            .set(createCoursesTemplateRecordData(
+                              name: _model.txtFNombreTextController.text,
+                              price: int.tryParse(
+                                  _model.txtFPrecioTextController.text),
+                              maxCapacity: _model.countControllerValue,
+                              description:
+                                  _model.txtFDescripcionTextController.text,
+                              image: _model.urlImagen,
+                            ));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Plantilla creada con éxito',
+                              style: TextStyle(
+                                color: FlutterFlowTheme.of(context).primaryText,
+                              ),
+                            ),
+                            duration: const Duration(milliseconds: 4000),
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).tertiary,
+                          ),
+                        );
+                      },
+                      child: Container(
+                        width: MediaQuery.sizeOf(context).width * 0.4,
+                        height: 40.0,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              FlutterFlowTheme.of(context).tertiary,
+                              FlutterFlowTheme.of(context).secondary
+                            ],
+                            stops: const [0.1, 1.0],
+                            begin: const AlignmentDirectional(1.0, -1.0),
+                            end: const AlignmentDirectional(-1.0, 1.0),
+                          ),
+                          borderRadius: BorderRadius.circular(24.0),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Icon(
+                              Icons.save_alt,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              size: 24.0,
+                            ),
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                'hugrrtip' /* Guardar plantilla */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 300.0,
+                  decoration: const BoxDecoration(),
+                  child: StreamBuilder<List<CoursesTemplateRecord>>(
+                    stream: queryCoursesTemplateRecord(),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                FlutterFlowTheme.of(context).primary,
+                              ),
+                            ),
+                          ),
+                        );
+                      }
+                      List<CoursesTemplateRecord>
+                          listViewCoursesTemplateRecordList = snapshot.data!;
+
+                      return ListView.builder(
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemCount: listViewCoursesTemplateRecordList.length,
+                        itemBuilder: (context, listViewIndex) {
+                          final listViewCoursesTemplateRecord =
+                              listViewCoursesTemplateRecordList[listViewIndex];
+                          return InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await Future.wait([
+                                Future(() async {
+                                  // Set Nombre
+                                  setState(() {
+                                    _model.txtFNombreTextController?.text =
+                                        listViewCoursesTemplateRecord.name;
+                                    _model.txtFNombreTextController?.selection =
+                                        TextSelection.collapsed(
+                                            offset: _model
+                                                .txtFNombreTextController!
+                                                .text
+                                                .length);
+                                  });
+                                }),
+                                Future(() async {
+                                  // Set Precio
+                                  setState(() {
+                                    _model.txtFPrecioTextController?.text =
+                                        listViewCoursesTemplateRecord.price
+                                            .toString();
+                                    _model.txtFPrecioTextController?.selection =
+                                        TextSelection.collapsed(
+                                            offset: _model
+                                                .txtFPrecioTextController!
+                                                .text
+                                                .length);
+                                  });
+                                }),
+                                Future(() async {
+                                  // Set Descripcion
+                                  setState(() {
+                                    _model.txtFDescripcionTextController?.text =
+                                        listViewCoursesTemplateRecord
+                                            .description;
+                                    _model.txtFDescripcionTextController
+                                            ?.selection =
+                                        TextSelection.collapsed(
+                                            offset: _model
+                                                .txtFDescripcionTextController!
+                                                .text
+                                                .length);
+                                  });
+                                }),
+                                Future(() async {
+                                  // Set Capacidad
+                                  setState(() {
+                                    _model.countControllerValue =
+                                        listViewCoursesTemplateRecord
+                                            .maxCapacity;
+                                  });
+                                }),
+                                Future(() async {
+                                  // Set URL Imagen
+                                  _model.urlImagen =
+                                      listViewCoursesTemplateRecord.image;
+                                  setState(() {});
+                                }),
+                              ]);
+                            },
+                            child: Container(
+                              decoration: const BoxDecoration(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Divider(
+                                    thickness: 1.0,
+                                    color: FlutterFlowTheme.of(context).accent4,
+                                  ),
+                                  Text(
+                                    listViewCoursesTemplateRecord.name,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 5.0, 0.0, 5.0),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.network(
+                                            listViewCoursesTemplateRecord.image,
+                                            width: 125.0,
+                                            height: 100.0,
+                                            fit: BoxFit.fill,
                                           ),
                                         ),
-                                        Column(
+                                      ),
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.4,
+                                        decoration: const BoxDecoration(),
+                                        child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              listViewCoursesTemplateRecord
-                                                  .name,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                            ),
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'wgi929d5' /* Precio: ₡ */,
+                                                    'r8ywkf0p' /* Precio: ₡ */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1161,7 +1284,7 @@ class _RegistrarCursosWidgetState extends State<RegistrarCursosWidget> {
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    '02d6xpoe' /* Cupos:  */,
+                                                    'e71yz5m6' /* Cupos:  */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1187,21 +1310,46 @@ class _RegistrarCursosWidgetState extends State<RegistrarCursosWidget> {
                                             ),
                                           ].divide(const SizedBox(height: 10.0)),
                                         ),
-                                      ]
-                                          .divide(const SizedBox(width: 10.0))
-                                          .around(const SizedBox(width: 10.0)),
-                                    ),
+                                      ),
+                                      SizedBox(
+                                        height: 100.0,
+                                        child: VerticalDivider(
+                                          thickness: 1.0,
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent4,
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await listViewCoursesTemplateRecord
+                                              .reference
+                                              .delete();
+                                        },
+                                        child: Icon(
+                                          Icons.delete,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondary,
+                                          size: 30.0,
+                                        ),
+                                      ),
+                                    ]
+                                        .divide(const SizedBox(width: 10.0))
+                                        .around(const SizedBox(width: 10.0)),
                                   ),
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      },
-                    ),
-                  ].divide(const SizedBox(height: 10.0)),
+                                ].divide(const SizedBox(height: 5.0)),
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  ),
                 ),
-              ].divide(const SizedBox(height: 10.0)).around(const SizedBox(height: 10.0)),
+              ].divide(const SizedBox(height: 10.0)),
             ),
           ),
         ),

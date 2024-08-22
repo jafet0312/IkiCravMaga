@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -116,13 +117,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
         ),
         FFRoute(
-          name: 'Matricula',
-          path: '/matricula',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Matricula')
-              : const MatriculaWidget(),
-        ),
-        FFRoute(
           name: 'SugerenciasCliente',
           path: '/sugerenciasCliente',
           builder: (context, params) => const SugerenciasClienteWidget(),
@@ -168,31 +162,49 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const InformacionWidget(),
         ),
         FFRoute(
-          name: 'PruebasWidgets',
-          path: '/pruebasWidgets',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'PruebasWidgets')
-              : const PruebasWidgetsWidget(),
-        ),
-        FFRoute(
-          name: 'AdminCursosCopy',
-          path: '/adminCursosCopy',
-          builder: (context, params) => const AdminCursosCopyWidget(),
-        ),
-        FFRoute(
           name: 'ReproductorHistoriaKrav',
           path: '/reproductorHistoriaKrav',
           builder: (context, params) => const ReproductorHistoriaKravWidget(),
         ),
         FFRoute(
-          name: 'Nutricion',
-          path: '/nutricion',
-          builder: (context, params) => const NutricionWidget(),
-        ),
-        FFRoute(
           name: 'Terminos',
           path: '/terminos',
           builder: (context, params) => const TerminosWidget(),
+        ),
+        FFRoute(
+          name: 'Matricula',
+          path: '/matricula',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Matricula')
+              : const MatriculaWidget(),
+        ),
+        FFRoute(
+          name: 'CursosMatriculados',
+          path: '/cursosMatriculados',
+          builder: (context, params) => const CursosMatriculadosWidget(),
+        ),
+        FFRoute(
+          name: 'Entrenamientos',
+          path: '/entrenamientos',
+          builder: (context, params) => const NavBarPage(
+            initialPage: '',
+            page: EntrenamientosWidget(),
+          ),
+        ),
+        FFRoute(
+          name: 'participantesMatriculados',
+          path: '/participantesMatriculados',
+          asyncParams: {
+            'listaParticipantes':
+                getDocList(['users'], UsersRecord.fromSnapshot),
+          },
+          builder: (context, params) => ParticipantesMatriculadosWidget(
+            listaParticipantes: params.getParam<UsersRecord>(
+              'listaParticipantes',
+              ParamType.Document,
+              isList: true,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -431,7 +443,12 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(
+        hasTransition: true,
+        transitionType: PageTransitionType.scale,
+        alignment: Alignment.bottomCenter,
+        duration: Duration(milliseconds: 300),
+      );
 }
 
 class RootPageContext {

@@ -73,7 +73,17 @@ class _InfoHomeWidgetState extends State<InfoHomeWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.pushNamed('AdminCursos');
+                      context.pushNamed(
+                        'AdminCursos',
+                        extra: <String, dynamic>{
+                          kTransitionInfoKey: const TransitionInfo(
+                            hasTransition: true,
+                            transitionType: PageTransitionType.scale,
+                            alignment: Alignment.bottomCenter,
+                            duration: Duration(milliseconds: 300),
+                          ),
+                        },
+                      );
                     },
                     child: Icon(
                       Icons.admin_panel_settings_sharp,
@@ -462,7 +472,20 @@ class _InfoHomeWidgetState extends State<InfoHomeWidget> {
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                                'ReproductorHistoriaKrav');
+                                              'ReproductorHistoriaKrav',
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    const TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType.scale,
+                                                  alignment:
+                                                      Alignment.bottomCenter,
+                                                  duration: Duration(
+                                                      milliseconds: 300),
+                                                ),
+                                              },
+                                            );
                                           },
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
@@ -578,7 +601,17 @@ class _InfoHomeWidgetState extends State<InfoHomeWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed('NoticiasApp');
+                              context.pushNamed(
+                                'NoticiasApp',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: const TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.scale,
+                                    alignment: Alignment.bottomCenter,
+                                    duration: Duration(milliseconds: 300),
+                                  ),
+                                },
+                              );
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.4,
@@ -635,7 +668,17 @@ class _InfoHomeWidgetState extends State<InfoHomeWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed('Informacion');
+                              context.pushNamed(
+                                'Informacion',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: const TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.scale,
+                                    alignment: Alignment.bottomCenter,
+                                    duration: Duration(milliseconds: 300),
+                                  ),
+                                },
+                              );
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.4,

@@ -136,11 +136,10 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
+      'Matricula': const MatriculaWidget(),
       'InfoHome': const InfoHomeWidget(),
       'PerfilUsuario': const PerfilUsuarioWidget(),
-      'Matricula': const MatriculaWidget(),
       'Preferencias': const PreferenciasWidget(),
-      'PruebasWidgets': const PruebasWidgetsWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -175,7 +174,7 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.info_outline,
+                  Icons.edit_calendar,
                   color: currentIndex == 0
                       ? FlutterFlowTheme.of(context).secondary
                       : FlutterFlowTheme.of(context).secondaryText,
@@ -183,7 +182,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 ),
                 Text(
                   FFLocalizations.of(context).getText(
-                    '0y6kkoe3' /* Información */,
+                    'ktzhqhkh' /* Matricula */,
                   ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -201,7 +200,7 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.person,
+                  Icons.info_outline,
                   color: currentIndex == 1
                       ? FlutterFlowTheme.of(context).secondary
                       : FlutterFlowTheme.of(context).secondaryText,
@@ -209,7 +208,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 ),
                 Text(
                   FFLocalizations.of(context).getText(
-                    'wsrdpx4a' /* Perfil */,
+                    '0y6kkoe3' /* Información */,
                   ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -227,7 +226,7 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.calendar_month,
+                  Icons.person,
                   color: currentIndex == 2
                       ? FlutterFlowTheme.of(context).secondary
                       : FlutterFlowTheme.of(context).secondaryText,
@@ -235,7 +234,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 ),
                 Text(
                   FFLocalizations.of(context).getText(
-                    'hvcyvcbh' /* Matricula */,
+                    'wsrdpx4a' /* Perfil */,
                   ),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -266,32 +265,6 @@ class _NavBarPageState extends State<NavBarPage> {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 3
-                        ? FlutterFlowTheme.of(context).secondary
-                        : FlutterFlowTheme.of(context).secondaryText,
-                    fontSize: 11.0,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          FloatingNavbarItem(
-            customWidget: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.query_stats,
-                  color: currentIndex == 4
-                      ? FlutterFlowTheme.of(context).secondary
-                      : FlutterFlowTheme.of(context).secondaryText,
-                  size: 24.0,
-                ),
-                Text(
-                  FFLocalizations.of(context).getText(
-                    'a2v1dvcu' /* Pruebas */,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: currentIndex == 4
                         ? FlutterFlowTheme.of(context).secondary
                         : FlutterFlowTheme.of(context).secondaryText,
                     fontSize: 11.0,

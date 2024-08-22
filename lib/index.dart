@@ -7,8 +7,6 @@ export '/paginas_secundarias/registro_usuarios/registro_usuarios_widget.dart'
     show RegistroUsuariosWidget;
 export '/paginas_principales/perfil_usuario/perfil_usuario_widget.dart'
     show PerfilUsuarioWidget;
-export '/paginas_principales/matricula/matricula_widget.dart'
-    show MatriculaWidget;
 export '/paginas_secundarias/sugerencias_cliente/sugerencias_cliente_widget.dart'
     show SugerenciasClienteWidget;
 export '/paginas_secundarias/guias_y_t/guias_y_t_widget.dart'
@@ -20,14 +18,17 @@ export '/paginas_secundarias/detalles_curso/detalles_curso_widget.dart'
 export '/admin/admin_cursos/admin_cursos_widget.dart' show AdminCursosWidget;
 export '/paginas_principales/preferencias/preferencias_widget.dart'
     show PreferenciasWidget;
-export '/paginas_principales/registrar_cursos/registrar_cursos_widget.dart'
+export '/admin/registrar_cursos/registrar_cursos_widget.dart'
     show RegistrarCursosWidget;
 export '/paginas_principales/informacion/informacion_widget.dart'
     show InformacionWidget;
-export '/pruebas_widgets/pruebas_widgets_widget.dart' show PruebasWidgetsWidget;
-export '/admin/admin_cursos_copy/admin_cursos_copy_widget.dart'
-    show AdminCursosCopyWidget;
-export '/reproductor_historia_krav/reproductor_historia_krav_widget.dart'
+export '/paginas_secundarias/reproductor_historia_krav/reproductor_historia_krav_widget.dart'
     show ReproductorHistoriaKravWidget;
-export '/nutricion/nutricion_widget.dart' show NutricionWidget;
-export '/terminos/terminos_widget.dart' show TerminosWidget;
+export '/paginas_secundarias/terminos/terminos_widget.dart' show TerminosWidget;
+export '/paginas_principales/matricula/matricula_widget.dart'
+    show MatriculaWidget;
+export '/paginas_secundarias/cursos_matriculados/cursos_matriculados_widget.dart'
+    show CursosMatriculadosWidget;
+export '/entrenamientos/entrenamientos_widget.dart' show EntrenamientosWidget;
+export '/admin/participantes_matriculados/participantes_matriculados_widget.dart'
+    show ParticipantesMatriculadosWidget;

@@ -17,10 +17,10 @@ class FFAppState extends ChangeNotifier {
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
     _safeInit(() {
-      _prueba = prefs.getInt('ff_prueba') ?? _prueba;
+      _tamanioTextos = prefs.getDouble('ff_tamanioTextos') ?? _tamanioTextos;
     });
     _safeInit(() {
-      _tamanioTextos = prefs.getDouble('ff_tamanioTextos') ?? _tamanioTextos;
+      _tamanioTexto = prefs.getInt('ff_tamanioTexto') ?? _tamanioTexto;
     });
   }
 
@@ -30,13 +30,6 @@ class FFAppState extends ChangeNotifier {
   }
 
   late SharedPreferences prefs;
-
-  int _prueba = 12;
-  int get prueba => _prueba;
-  set prueba(int value) {
-    _prueba = value;
-    prefs.setInt('ff_prueba', value);
-  }
 
   double _tamanioTextos = 12.0;
   double get tamanioTextos => _tamanioTextos;
@@ -51,10 +44,11 @@ class FFAppState extends ChangeNotifier {
     _URLImagen = value;
   }
 
-  DateTime? _fechaSeleccionada;
-  DateTime? get fechaSeleccionada => _fechaSeleccionada;
-  set fechaSeleccionada(DateTime? value) {
-    _fechaSeleccionada = value;
+  int _tamanioTexto = 0;
+  int get tamanioTexto => _tamanioTexto;
+  set tamanioTexto(int value) {
+    _tamanioTexto = value;
+    prefs.setInt('ff_tamanioTexto', value);
   }
 }
 

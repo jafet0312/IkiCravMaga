@@ -11,9 +11,8 @@ import 'schema/settings_record.dart';
 import 'schema/suggestions_record.dart';
 import 'schema/news_record.dart';
 import 'schema/invoices_record.dart';
-import 'schema/achievements_record.dart';
 import 'schema/courses_template_record.dart';
-import 'schema/class_schedules_record.dart';
+import 'schema/completed_courses_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -28,9 +27,8 @@ export 'schema/settings_record.dart';
 export 'schema/suggestions_record.dart';
 export 'schema/news_record.dart';
 export 'schema/invoices_record.dart';
-export 'schema/achievements_record.dart';
 export 'schema/courses_template_record.dart';
-export 'schema/class_schedules_record.dart';
+export 'schema/completed_courses_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -254,43 +252,6 @@ Future<List<InvoicesRecord>> queryInvoicesRecordOnce({
       singleRecord: singleRecord,
     );
 
-/// Functions to query AchievementsRecords (as a Stream and as a Future).
-Future<int> queryAchievementsRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      AchievementsRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<AchievementsRecord>> queryAchievementsRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      AchievementsRecord.collection,
-      AchievementsRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<AchievementsRecord>> queryAchievementsRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      AchievementsRecord.collection,
-      AchievementsRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
 /// Functions to query CoursesTemplateRecords (as a Stream and as a Future).
 Future<int> queryCoursesTemplateRecordCount({
   Query Function(Query)? queryBuilder,
@@ -328,38 +289,41 @@ Future<List<CoursesTemplateRecord>> queryCoursesTemplateRecordOnce({
       singleRecord: singleRecord,
     );
 
-/// Functions to query ClassSchedulesRecords (as a Stream and as a Future).
-Future<int> queryClassSchedulesRecordCount({
+/// Functions to query CompletedCoursesRecords (as a Stream and as a Future).
+Future<int> queryCompletedCoursesRecordCount({
+  DocumentReference? parent,
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      ClassSchedulesRecord.collection,
+      CompletedCoursesRecord.collection(parent),
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<ClassSchedulesRecord>> queryClassSchedulesRecord({
+Stream<List<CompletedCoursesRecord>> queryCompletedCoursesRecord({
+  DocumentReference? parent,
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      ClassSchedulesRecord.collection,
-      ClassSchedulesRecord.fromSnapshot,
+      CompletedCoursesRecord.collection(parent),
+      CompletedCoursesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<ClassSchedulesRecord>> queryClassSchedulesRecordOnce({
+Future<List<CompletedCoursesRecord>> queryCompletedCoursesRecordOnce({
+  DocumentReference? parent,
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      ClassSchedulesRecord.collection,
-      ClassSchedulesRecord.fromSnapshot,
+      CompletedCoursesRecord.collection(parent),
+      CompletedCoursesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

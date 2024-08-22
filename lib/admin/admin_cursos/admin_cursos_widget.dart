@@ -193,54 +193,40 @@ class _AdminCursosWidgetState extends State<AdminCursosWidget> {
                                 ),
                             locale: FFLocalizations.of(context).languageCode,
                           ),
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed('RegistrarCursos');
-                            },
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 0.4,
-                              height: 40.0,
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    FlutterFlowTheme.of(context).tertiary,
-                                    FlutterFlowTheme.of(context).secondary
-                                  ],
-                                  stops: const [0.1, 1.0],
-                                  begin: const AlignmentDirectional(1.0, -1.0),
-                                  end: const AlignmentDirectional(-1.0, 1.0),
+                          Stack(
+                            children: [
+                              SizedBox(
+                                width: MediaQuery.sizeOf(context).width * 0.4,
+                                height: 40.0,
+                                child: custom_widgets.Button(
+                                  width: MediaQuery.sizeOf(context).width * 0.4,
+                                  height: 40.0,
+                                  icon: const Icon(
+                                    Icons.add_circle,
+                                  ),
+                                  text: 'Nuevo',
+                                  startColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                  endColor:
+                                      FlutterFlowTheme.of(context).tertiary,
+                                  onPressed: () async {},
                                 ),
-                                borderRadius: BorderRadius.circular(24.0),
                               ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Icon(
-                                    Icons.add_circle_outlined,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 24.0,
-                                  ),
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'u4ug1odu' /* Nuevo */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ],
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('RegistrarCursos');
+                                },
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 0.4,
+                                  height: 40.0,
+                                  decoration: const BoxDecoration(),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
                         ]
                             .divide(const SizedBox(height: 10.0))

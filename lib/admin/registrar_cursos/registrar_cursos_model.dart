@@ -3,6 +3,11 @@ import 'registrar_cursos_widget.dart' show RegistrarCursosWidget;
 import 'package:flutter/material.dart';
 
 class RegistrarCursosModel extends FlutterFlowModel<RegistrarCursosWidget> {
+  ///  Local state fields for this page.
+
+  String urlImagen =
+      'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png';
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -21,6 +26,11 @@ class RegistrarCursosModel extends FlutterFlowModel<RegistrarCursosWidget> {
   }
 
   DateTime? datePicked;
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl = '';
+
   // State field(s) for txtFNombre widget.
   FocusNode? txtFNombreFocusNode;
   TextEditingController? txtFNombreTextController;

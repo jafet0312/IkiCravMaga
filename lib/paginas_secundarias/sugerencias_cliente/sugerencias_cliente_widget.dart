@@ -2,7 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/paginas_principales/bs_sugerencia_enviada/bs_sugerencia_enviada_widget.dart';
+import '/paginas_secundarias/bs_secundarios/bs_sugerencia_enviada/bs_sugerencia_enviada_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -241,9 +241,6 @@ class _SugerenciasClienteWidgetState extends State<SugerenciasClienteWidget> {
                                 description:
                                     _model.txtfResenaTextController.text,
                               ));
-                          setState(() {
-                            _model.txtfResenaTextController?.clear();
-                          });
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,
@@ -266,6 +263,8 @@ class _SugerenciasClienteWidgetState extends State<SugerenciasClienteWidget> {
                               );
                             },
                           ).then((value) => safeSetState(() {}));
+
+                          Navigator.pop(context);
                         },
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.4,

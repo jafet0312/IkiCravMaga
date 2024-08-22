@@ -93,7 +93,7 @@ class _ReproductorHistoriaKravWidgetState
                   child: Image.asset(
                     'assets/images/IKMF-234x300.jpg',
                     width: 300.0,
-                    height: 495.0,
+                    height: 380.0,
                     fit: BoxFit.cover,
                   ),
                 ),

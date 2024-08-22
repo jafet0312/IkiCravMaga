@@ -535,7 +535,16 @@ class _LoginAppWidgetState extends State<LoginAppWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed('RegistroUsuarios');
+                              context.pushNamed(
+                                'RegistroUsuarios',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: const TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.scale,
+                                    alignment: Alignment.bottomCenter,
+                                  ),
+                                },
+                              );
                             },
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -548,6 +557,140 @@ class _LoginAppWidgetState extends State<LoginAppWidget>
                                     color:
                                         FlutterFlowTheme.of(context).secondary,
                                     fontSize: registroNuevoSettingsRecord?.title
+                                        .toDouble(),
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: MediaQuery.sizeOf(context).width * 0.9,
+                  height: 80.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      StreamBuilder<List<SettingsRecord>>(
+                        stream: querySettingsRecord(
+                          queryBuilder: (settingsRecord) =>
+                              settingsRecord.where(
+                            'name',
+                            isEqualTo: 'Textos',
+                          ),
+                          singleRecord: true,
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          List<SettingsRecord> txtTerminosSettingsRecordList =
+                              snapshot.data!;
+                          // Return an empty Container when the item does not exist.
+                          if (snapshot.data!.isEmpty) {
+                            return Container();
+                          }
+                          final txtTerminosSettingsRecord =
+                              txtTerminosSettingsRecordList.isNotEmpty
+                                  ? txtTerminosSettingsRecordList.first
+                                  : null;
+
+                          return Text(
+                            FFLocalizations.of(context).getText(
+                              'gvshka92' /* Términos y condiciones    */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  fontSize: txtTerminosSettingsRecord?.title
+                                      .toDouble(),
+                                  letterSpacing: 0.0,
+                                ),
+                          );
+                        },
+                      ),
+                      StreamBuilder<List<SettingsRecord>>(
+                        stream: querySettingsRecord(
+                          queryBuilder: (settingsRecord) =>
+                              settingsRecord.where(
+                            'name',
+                            isEqualTo: 'Textos',
+                          ),
+                          singleRecord: true,
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          List<SettingsRecord> txtAquiTerSettingsRecordList =
+                              snapshot.data!;
+                          // Return an empty Container when the item does not exist.
+                          if (snapshot.data!.isEmpty) {
+                            return Container();
+                          }
+                          final txtAquiTerSettingsRecord =
+                              txtAquiTerSettingsRecordList.isNotEmpty
+                                  ? txtAquiTerSettingsRecordList.first
+                                  : null;
+
+                          return InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed(
+                                'Terminos',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: const TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.scale,
+                                    alignment: Alignment.bottomCenter,
+                                  ),
+                                },
+                              );
+                            },
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                '1wij18mi' /* Aquí */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    fontSize: txtAquiTerSettingsRecord?.title
                                         .toDouble(),
                                     letterSpacing: 0.0,
                                   ),

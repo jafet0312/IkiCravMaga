@@ -111,40 +111,41 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es':
           'IKI CR Krav Maga fue fundado en el año 2014 por el instructor Erick Araya Hernández, se creó con la intención de preparar y capacitar a cada persona de la mejor manera, tanto la población civil como todas aquellas personas que dedican su vida a proteger y servir.',
       'en':
-          'IKI CR Krav Maga was founded in 2014 by instructor Erick Araya Hernández, it was created with the intention of preparing and training each person in the best way, both the civilian population and all those who dedicate their lives to protecting and serving. .',
+          'IKI CR Krav Maga was founded in 2014 by instructor Erick Araya Hernández. It was created with the intention of preparing and training each person in the best way, both the civilian population and all those people who dedicate their lives to protecting and serving.',
     },
     'h2s3dnnz': {
       'es':
           'Basamos nuestra técnica en la filosofía de IKI (Israelí Krav International), debemos ser rápidos y eficientes al defendernos, con esto disminuimos el riesgo que podamos correr al defendernos, logrando llevar a más personas sanas y salvas a sus hogares.\n',
       'en':
-          'We base our technique on the philosophy of IKI (Israeli Krav International), we must be fast and efficient when defending ourselves, with this we reduce the risk we may run when defending ourselves, managing to bring more people safe and healthy to their homes.',
+          'We base our technique on the philosophy of IKI (Israeli Krav International), we must be fast and efficient when defending ourselves, with this we reduce the risk we may run when defending ourselves, managing to bring more people safe and sound to their homes.',
     },
     'nfbhhqwh': {
       'es':
           'Costa Rica Krav Maga pertenece actualmente a la Federación Mundial de Krav Maga IKI (Israelí Krav International) al igual que cuenta con el respaldo de la Asociación Krav Maga Panamá para todos estos fines, al igual que en nuestro país contamos con el respaldo de la empresa de seguridad K9 G & S.',
       'en':
-          'Costa Rica Krav Maga currently belongs to the World Krav Maga Federation IKI (Israeli Krav International) as well as has the support of the Panama Krav Maga Association for all these purposes, just as in our country we have the support of the company K9 G&S security.',
+          'Costa Rica Krav Maga currently belongs to the World Federation of Krav Maga IKI (Israeli Krav International) and also has the support of the Krav Maga Association Panama for all these purposes, just as in our country we have the support of the security company K9 G & S.',
     },
     '5utu4wsd': {
       'es':
           'Podés escuchar ya mismo la historia del Krav Magá por medio de un interesante Podcast el cual puedes escuchar en cualquier momento!',
-      'en': '',
+      'en':
+          'You can listen to the history of Krav Maga right now through an interesting Podcast which you can listen to at any time!',
     },
     '3yqvenwu': {
       'es': 'Click Aquí!',
-      'en': '',
+      'en': 'Click Here!',
     },
     'wb7830nw': {
       'es': 'Últimas noticias',
-      'en': 'Last News',
+      'en': 'Latest news',
     },
     'pm5uwpec': {
       'es': 'Información',
-      'en': 'Benefits',
+      'en': 'Information',
     },
     'w4jw16rn': {
       'es': 'IKI CR Krav Maga',
-      'en': 'IKI CR Crav Maga',
+      'en': 'IKI CR Krav Maga',
     },
     '0y6kkoe3': {
       'es': 'Información',
@@ -197,6 +198,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Registrese aquí',
       'en': 'Register here',
     },
+    'gvshka92': {
+      'es': 'Términos y condiciones   ',
+      'en': 'Terms and conditions',
+    },
+    '1wij18mi': {
+      'es': 'Aquí',
+      'en': 'Here',
+    },
     'bak7v4r0': {
       'es': 'IKI CR Krav Maga',
       'en': 'IKI CR Krav Maga',
@@ -218,7 +227,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'luhiu5sq': {
       'es': 'Nombre Completo',
-      'en': 'Name',
+      'en': 'Full Name',
     },
     'h84eyf93': {
       'es': 'Teléfono',
@@ -234,19 +243,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     's3wukcow': {
       'es': 'Registrar',
-      'en': 'to register',
+      'en': 'Register',
     },
     'nkjm0di9': {
       'es': 'Ingrese un correo válido',
-      'en': 'Enter a valid email',
+      'en': 'Please enter a valid email',
     },
     'd3lzeimp': {
       'es': 'Ingrese un correo válido',
-      'en': 'Enter a valid email',
+      'en': 'Please enter a valid email',
     },
     'xk7p99qc': {
       'es': 'Por favor elija una opción del menú desplegable',
-      'en': 'Please choose an option from the drop down menu',
+      'en': 'Please choose an option from the drop-down menu',
     },
     'eoui1dlg': {
       'es': 'Ingrese su nombre',
@@ -254,7 +263,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'rj3uchz7': {
       'es': 'Por favor elija una opción del menú desplegable',
-      'en': 'Please choose an option from the drop down menu',
+      'en': 'Please choose an option from the drop-down menu',
     },
     '4cu2uwsd': {
       'es': 'Ingrese su número de teléfono',
@@ -266,11 +275,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'kth5r2z8': {
       'es': 'Por favor elija una opción del menú desplegable',
-      'en': 'Please choose an option from the drop down menu',
+      'en': 'Please choose an option from the drop-down menu',
     },
     'buoz0p8s': {
       'es': 'Ingrese una contraseña',
-      'en': 'Enter a password',
+      'en': 'Please enter a password',
     },
     '41gd9scj': {
       'es': 'Contraseña con mínimo 6 caracteres',
@@ -278,7 +287,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'fxqy0dxb': {
       'es': 'Por favor elija una opción del menú desplegable',
-      'en': 'Please choose an option from the drop down menu',
+      'en': 'Please choose an option from the drop-down menu',
     },
     'r0lsvox2': {
       'es': 'IKI CR Krav Maga',
@@ -293,34 +302,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'bjddtd3u': {
       'es': 'Información Personal',
-      'en': 'Personal information',
+      'en': 'Personal Information',
     },
     'vhltpbr4': {
       'es': 'Nombre: ',
       'en': 'Name:',
     },
-    '9i4mhyzi': {
-      'es': 'Nombre Usuario',
-      'en': 'Username',
-    },
     'tag5s145': {
       'es': 'Correo: ',
       'en': 'Mail:',
     },
-    '1hdiqm51': {
-      'es': 'correo@usuario.com',
-      'en': 'email@user.com',
+    '0dtx17wt': {
+      'es': 'Telefono : ',
+      'en': 'Phone :',
     },
-    'coqm8xrp': {
-      'es': 'Teléfono',
-      'en': 'Phone',
-    },
-    'xz1rh3dn': {
+    't1779z3u': {
       'es': 'Editar',
-      'en': 'Edit',
-    },
-    'f1y65ekt': {
-      'es': 'OK',
       'en': 'Edit',
     },
     'ofrq7u02': {
@@ -339,62 +336,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '25f7l60p': {
       'es': 'Cerrar Sesión',
-      'en': 'Sign Out',
-    },
-    'lqfmgtd6': {
-      'es': 'Nutrición',
-      'en': '',
+      'en': 'Close Session',
     },
     'fkun5m14': {
       'es': 'Perfil de Usuario',
-      'en': 'User profile',
+      'en': 'User Profile',
     },
     'wsrdpx4a': {
       'es': 'Perfil',
       'en': 'Profile',
-    },
-  },
-  // Matricula
-  {
-    'x8vx5mrq': {
-      'es': 'Matricular',
-      'en': 'Enroll',
-    },
-    'f50w72xs': {
-      'es': 'Manejo de cuchillo',
-      'en': 'Knife handling',
-    },
-    'vta1h13c': {
-      'es': 'Horario: 6:00pm',
-      'en': 'Time: 6:00pm',
-    },
-    'w1vwtf3a': {
-      'es': 'Cursos Matriculados',
-      'en': 'Enrolled Courses',
-    },
-    'qz0wh0uh': {
-      'es': 'Eliminar',
-      'en': 'Delete',
-    },
-    '1avc2tkg': {
-      'es': 'Defensa con cuchillo',
-      'en': 'Knife defense',
-    },
-    '7xjxj1uf': {
-      'es': 'Fecha: 27/06/2024 - Horario: 8:00pm',
-      'en': 'Date: 06/27/2024 - Time: 8:00pm',
-    },
-    'ihnbg6im': {
-      'es': 'Guías de Uso',
-      'en': 'Use Guides',
-    },
-    'ha5pfizv': {
-      'es': 'Matrícula de cursos',
-      'en': 'Course registration',
-    },
-    'hvcyvcbh': {
-      'es': 'Matricula',
-      'en': 'Tuition',
     },
   },
   // SugerenciasCliente
@@ -405,7 +355,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'k9cnfi2j': {
       'es': 'Su opinión nos ayuda a mejorar continuamente su experiencia',
-      'en': 'Your opinion helps us to continually improve',
+      'en': 'Your feedback helps us continually improve your experience.',
     },
     'co96979g': {
       'es': 'Escriba su comentario aquí',
@@ -417,7 +367,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'gjngctx0': {
       'es': 'Sugerencias',
-      'en': 'Myths and realities \nof Krav Maga',
+      'en': 'Suggestions',
     },
     'o742p6sh': {
       'es': 'Sugerencias',
@@ -440,7 +390,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'eygujvao': {
       'es': 'Guias de uso',
-      'en': 'Use guides',
+      'en': 'User guides',
     },
     'g2ompirv': {
       'es': 'Inicio',
@@ -480,7 +430,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es':
           'Debemos saber como movernos y poder repeler una amenaza de manera correcta y segura para nosotros y terceras personas.\n\nDiseñados desde el nivel principiante hasta el avanzado donde podrás aprender todo lo relacionado con el manejo de armas.',
       'en':
-          'We must know how to move and be able to repel a threat correctly and safely for ourselves and third parties.\n\nDesigned from beginner to advanced level where you can learn everything related to handling weapons.',
+          'We must know how to move and be able to repel a threat correctly and safely for ourselves and third parties.\n\nDesigned from beginner to advanced level where you can learn everything related to weapon handling.',
     },
     'to7bdpjg': {
       'es': 'Detalle de curso',
@@ -493,10 +443,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // AdminCursos
   {
-    'u4ug1odu': {
-      'es': 'Nuevo',
-      'en': 'New',
-    },
     'flhc46l7': {
       'es': 'Admin Cursos',
       'en': 'Admin Courses',
@@ -508,13 +454,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Preferencias
   {
-    '9jzdfuaq': {
-      'es': 'Preferencias',
-      'en': 'Preferences',
-    },
     'n0vewkcp': {
       'es': 'Ajustar',
-      'en': 'Texts',
+      'en': 'Adjust',
     },
     'zx6sftws': {
       'es': 'Letras',
@@ -532,13 +474,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Sugerencias',
       'en': 'Suggestions',
     },
-    '4rroa17o': {
-      'es': 'Términos y condiciones',
-      'en': '',
+    'q163imnh': {
+      'es': 'Guias de uso',
+      'en': 'User guides',
     },
-    'bftya030': {
-      'es': 'Acá',
-      'en': '',
+    '500x7bpv': {
+      'es': 'Preferencias',
+      'en': 'Preferences',
     },
     'pleyjlv5': {
       'es': 'Preferencias',
@@ -615,11 +557,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Guardar plantilla',
       'en': 'Save template',
     },
-    'wgi929d5': {
+    'r8ywkf0p': {
       'es': 'Precio: ₡',
       'en': 'Price: ₡',
     },
-    '02d6xpoe': {
+    'e71yz5m6': {
       'es': 'Cupos: ',
       'en': 'Quotas:',
     },
@@ -639,212 +581,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Home',
     },
   },
-  // PruebasWidgets
-  {
-    'joc57url': {
-      'es': 'Titulo Página',
-      'en': 'Title Page',
-    },
-    'a2v1dvcu': {
-      'es': 'Pruebas',
-      'en': 'Evidence',
-    },
-  },
-  // AdminCursosCopy
-  {
-    '3a04txqf': {
-      'es': 'Nuevo',
-      'en': 'New',
-    },
-    '0sr1vqug': {
-      'es': 'Precio: ₡',
-      'en': 'Price: ₡',
-    },
-    'fk8ygbqs': {
-      'es': 'Cupos: ',
-      'en': 'Quotas:',
-    },
-    '0cm456hy': {
-      'es': 'Disponibles: ',
-      'en': 'Available:',
-    },
-    'frokyxa4': {
-      'es': 'Admin Cursos',
-      'en': 'Admin Courses',
-    },
-    '7bugmudj': {
-      'es': 'Inicio',
-      'en': 'Home',
-    },
-  },
   // ReproductorHistoriaKrav
   {
     'kezcscjt': {
       'es': 'Historia del Krav Magá',
-      'en': 'IKI Player',
+      'en': 'History of Krav Maga',
     },
     'z6hmrs2y': {
       'es': 'Home',
       'en': 'Home',
-    },
-  },
-  // Nutricion
-  {
-    'n4vg7q01': {
-      'es': 'Ensalada de Quinoa',
-      'en': 'Quinoa Salad',
-    },
-    '55eclui6': {
-      'es': 'Quinoa, tomates, pepino, cebolla',
-      'en': 'Quinoa, tomatoes, cucumber, onion',
-    },
-    'y50aro6z': {
-      'es': 'Batido de Proteínas',
-      'en': 'Protein Shake',
-    },
-    't1up3g65': {
-      'es': 'Proteína en polvo, leche de almendras',
-      'en': 'Protein powder, almond milk',
-    },
-    '8qamsjju': {
-      'es': 'Sopa de Verduras',
-      'en': 'Vegetable Soup',
-    },
-    'll4692he': {
-      'es': 'Zanahorias, apio, cebolla, calabacín',
-      'en': 'Carrots, celery, onion, zucchini',
-    },
-    'yyjx5eoq': {
-      'es': 'Avena con Frutas',
-      'en': 'Oatmeal with Fruit',
-    },
-    '5510ndxa': {
-      'es': 'Avena, fresas, arándanos, miel',
-      'en': 'Oats, strawberries, blueberries, honey',
-    },
-    'zj3wmcxz': {
-      'es': 'Pollo a la Plancha',
-      'en': 'Grilled Chicken',
-    },
-    'u0nq118s': {
-      'es': 'Pechuga de pollo, especias, aceite',
-      'en': 'Chicken breast, spices, oil',
-    },
-    'n4v5ntid': {
-      'es': 'Smoothie Verde',
-      'en': 'Green Smoothie',
-    },
-    '9yvziws8': {
-      'es': 'Espinacas, manzana, pepino, jengibre',
-      'en': 'Spinach, apple, cucumber, ginger',
-    },
-    'o7yf6jse': {
-      'es': 'Ensalada de Frutas',
-      'en': 'Fruit Salad',
-    },
-    'b2e5rjmx': {
-      'es': 'Manzana, plátano, uvas, naranja',
-      'en': 'Apple, banana, grapes, orange',
-    },
-    'j7ns52sn': {
-      'es': 'Pasta Integral',
-      'en': 'Whole wheat pasta',
-    },
-    'z02jd495': {
-      'es': 'Pasta integral, salsa de tomate',
-      'en': 'Whole wheat pasta, tomato sauce',
-    },
-    'gn3y2d0r': {
-      'es': 'Tostada de Aguacate',
-      'en': 'Avocado Toast',
-    },
-    '3za9b3z9': {
-      'es': 'Pan integral, aguacate, sal, pimienta',
-      'en': 'Whole wheat bread, avocado, salt, pepper',
-    },
-    '8sqr0fz0': {
-      'es': 'Yogur con Granola',
-      'en': 'Yogurt with Granola',
-    },
-    'bos9poqm': {
-      'es': 'Yogur natural, granola, miel',
-      'en': 'Natural yogurt, granola, honey',
-    },
-    'ikiteg7h': {
-      'es': 'Té Verde con Limón',
-      'en': 'Green Tea with Lemon',
-    },
-    'f1ldqvmf': {
-      'es': 'Té verde, limón, miel',
-      'en': 'Green tea, lemon, honey',
-    },
-    '1qyeewqx': {
-      'es': 'Ensalada de Garbanzos',
-      'en': 'Chickpea Salad',
-    },
-    '8a8rtfqf': {
-      'es': 'Garbanzos, tomate, pepino, cebolla',
-      'en': 'Chickpeas, tomato, cucumber, onion',
-    },
-    'iktza158': {
-      'es': 'Sándwich de Pavo',
-      'en': 'Turkey Sandwich',
-    },
-    '222rdsmc': {
-      'es': 'Pan integral, pavo, lechuga, tomate',
-      'en': 'Whole wheat bread, turkey, lettuce, tomato',
-    },
-    '93yl8xy7': {
-      'es': 'Ensalada de Espinacas',
-      'en': 'Spinach Salad',
-    },
-    'q4tz4h42': {
-      'es': 'Espinacas, fresas, nueces, queso',
-      'en': 'Spinach, strawberries, walnuts, cheese',
-    },
-    'eidkcha9': {
-      'es': 'Tacos de Pescado',
-      'en': 'Fish Tacos',
-    },
-    'hn2jhksx': {
-      'es': 'Tortillas, pescado, col, salsa de yogur',
-      'en': 'Tortillas, fish, cabbage, yogurt sauce',
-    },
-    'nsva0xej': {
-      'es': 'Sopa de Lentejas',
-      'en': 'Lentil Soup',
-    },
-    'w80o96mp': {
-      'es': 'Lentejas, zanahorias, apio, cebolla',
-      'en': 'Lentils, carrots, celery, onion',
-    },
-    'r2e1xybb': {
-      'es': 'Batido de Frutas',
-      'en': 'Fruit Smoothie',
-    },
-    't9v93s3s': {
-      'es': 'Fresas, plátano, yogur, miel',
-      'en': 'Strawberries, banana, yogurt, honey',
-    },
-    'ggl5abib': {
-      'es': 'Ensalada de Pollo',
-      'en': 'Chicken Salad',
-    },
-    'm4v99qot': {
-      'es': 'Pollo, lechuga, tomate, pepino, aderezo',
-      'en': 'Chicken, lettuce, tomato, cucumber, dressing',
-    },
-    'iocvd316': {
-      'es': 'Smoothie de Mango',
-      'en': 'Mango Smoothie',
-    },
-    'v6jw6cbq': {
-      'es': 'Mango, yogur, leche de coco',
-      'en': 'Mango, yogurt, coconut milk',
-    },
-    'w44qrt51': {
-      'es': 'Nutrición',
-      'en': 'Title Page',
     },
   },
   // Terminos
@@ -888,15 +633,151 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Home',
     },
   },
+  // Matricula
+  {
+    'ylvrkpk4': {
+      'es': 'Matriculados',
+      'en': 'Enrolled',
+    },
+    'k03wal3e': {
+      'es': 'Matricula',
+      'en': 'Tuition',
+    },
+    'ktzhqhkh': {
+      'es': 'Matricula',
+      'en': 'Tuition',
+    },
+  },
+  // CursosMatriculados
+  {
+    'rgebz8yb': {
+      'es': 'Cursos Matriculados',
+      'en': 'Courses Enrolled',
+    },
+    'h2hs92kj': {
+      'es': 'Home',
+      'en': 'Home',
+    },
+  },
+  // Entrenamientos
+  {
+    '19r939cb': {
+      'es': 'Ataques Básicos',
+      'en': 'Basic Attacks',
+    },
+    'rwgp6bvo': {
+      'es': 'Defensa de Puñetazo',
+      'en': 'Punch Defense',
+    },
+    '3xpxtafb': {
+      'es': 'Defensa Estrangulación',
+      'en': 'Strangulation Defense',
+    },
+    '8bpcv67x': {
+      'es': 'Defensa con Bolígrafo',
+      'en': 'Pen Defense',
+    },
+    'zlu3y0ne': {
+      'es': 'Defensa Agarre de Pelo',
+      'en': 'Hair Grab Defense',
+    },
+    'litg6u0i': {
+      'es': 'Amenaza de Pistola',
+      'en': 'Gun Threat',
+    },
+    'u6nicmfo': {
+      'es': 'Defensa de suelo',
+      'en': 'Ground defense',
+    },
+    'mll1ltru': {
+      'es': 'Amenaza Cuchillo Rodillas',
+      'en': 'Knife Threat Knees',
+    },
+    'txutpgmz': {
+      'es': 'Abrazo del Oso',
+      'en': 'Bear Hug',
+    },
+    '59pnrs5d': {
+      'es': 'Defensa para Niños',
+      'en': 'Defense for Children',
+    },
+    'e5zt51r2': {
+      'es': 'Ataque a Media Distancia',
+      'en': 'Mid-Distance Attack',
+    },
+    'kdd70scw': {
+      'es': 'Ataque de Machete',
+      'en': 'Machete Attack',
+    },
+    'ejmxe2l5': {
+      'es': 'Agarre de Manos',
+      'en': 'Handholding',
+    },
+    'olyzmvfi': {
+      'es': 'Ante Secuestro',
+      'en': 'Before Kidnapping',
+    },
+    'ba7vgyub': {
+      'es': 'Anter Robo',
+      'en': 'Previous Robbery',
+    },
+    '4dxhe6ew': {
+      'es': 'Desarmar Atacante',
+      'en': 'Disarm Attacker',
+    },
+    '1kmq9kvq': {
+      'es': 'Cuchillo contra Paraguas',
+      'en': 'Knife vs Umbrella',
+    },
+    'dijeycs7': {
+      'es': 'Krav Magá 1-1',
+      'en': 'Krav Maga 1-1',
+    },
+    '0llq9mrb': {
+      'es': 'Krav Magá 1-2',
+      'en': 'Krav Maga 1-2',
+    },
+    '5ca1gc2p': {
+      'es': 'Krav Magá 1-3',
+      'en': 'Krav Maga 1-3',
+    },
+    'oyd393ma': {
+      'es': 'Entrenamientos',
+      'en': 'Trainings',
+    },
+    'zahzcqq2': {
+      'es': 'Inicio',
+      'en': 'Start',
+    },
+  },
+  // participantesMatriculados
+  {
+    'swhdknfw': {
+      'es': 'Title',
+      'en': '',
+    },
+    'e15he6iq': {
+      'es': 'Subtitle goes here...',
+      'en': '',
+    },
+    'joc57url': {
+      'es': 'Page Title',
+      'en': 'Nutrition',
+    },
+    '80xv863x': {
+      'es': 'Home',
+      'en': 'Home',
+    },
+  },
   // bs_inicioSesionFallido
   {
     '0g0uoysz': {
       'es': 'Inicio de sesión fallido',
-      'en': 'Email is already registered',
+      'en': 'Login failed',
     },
     'u8lyc0cp': {
       'es': 'Ok',
-      'en': 'to register',
+      'en': 'Ok',
     },
   },
   // bs_SugerenciaEnviada
@@ -907,11 +788,92 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5eae1kag': {
       'es': 'Ok',
-      'en': 'Okay',
+      'en': 'Ok',
+    },
+  },
+  // bs_editarUsuario
+  {
+    '8e2xlkjd': {
+      'es': 'Editar Usuario',
+      'en': 'Edit User',
+    },
+    'd8tb0vmo': {
+      'es': 'Nombre',
+      'en': 'Name',
+    },
+    '5cuqzpwe': {
+      'es': 'Ingrese su nombre',
+      'en': 'Enter your name',
+    },
+    'a29ccuwt': {
+      'es': 'Teléfono',
+      'en': 'Phone',
+    },
+    '61egp9y2': {
+      'es': 'Ingrese su nombre',
+      'en': 'Enter your name',
+    },
+    '3qozbqyd': {
+      'es': 'Campo requerido',
+      'en': 'Required field',
+    },
+    'o8835pko': {
+      'es': 'Please choose an option from the dropdown',
+      'en': 'Please choose an option from the dropdown',
+    },
+    'jxp98tdi': {
+      'es': 'Campo requerido',
+      'en': 'Required field',
+    },
+    'o4l2fzb6': {
+      'es': 'Please choose an option from the dropdown',
+      'en': 'Please choose an option from the dropdown',
+    },
+    '2yvm4dhf': {
+      'es': 'Guardar',
+      'en': 'Keep',
+    },
+    'vrx9isb0': {
+      'es': 'Atrás',
+      'en': 'Back',
+    },
+  },
+  // bs_sinCupos
+  {
+    'cfmhr5pw': {
+      'es': 'Ya no hay campos disponibles',
+      'en': 'There are no more fields available',
+    },
+    '2zq51973': {
+      'es': 'Ok',
+      'en': 'Ok',
+    },
+  },
+  // bs_detalleCurso
+  {
+    '6jcfiksm': {
+      'es': 'Horario: ',
+      'en': 'Schedule:',
+    },
+    'ytvzqyn2': {
+      'es': 'Descripción',
+      'en': 'Description',
+    },
+    '9aivilef': {
+      'es': 'Atras',
+      'en': 'Back',
     },
   },
   // Miscellaneous
   {
+    '9oyumbqv': {
+      'es': '',
+      'en': '',
+    },
+    'a1jjn6v2': {
+      'es': '',
+      'en': '',
+    },
     'm13hkndm': {
       'es': '',
       'en': '',

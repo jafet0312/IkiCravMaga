@@ -2,10 +2,9 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:easy_debounce/easy_debounce.dart';
+import '/paginas_principales/bs_main/bs_editar_usuario/bs_editar_usuario_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'perfil_usuario_model.dart';
 export 'perfil_usuario_model.dart';
 
@@ -30,9 +29,6 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PerfilUsuarioModel());
-
-    _model.txtNumeroTTextController ??= TextEditingController();
-    _model.txtNumeroTFocusNode ??= FocusNode();
   }
 
   @override
@@ -44,8 +40,6 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -94,7 +88,7 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
                           FFLocalizations.of(context).getText(
@@ -167,16 +161,16 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                   );
                                 },
                               ),
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  '9i4mhyzi' /* Nombre Usuario */,
+                              AuthUserStreamWidget(
+                                builder: (context) => Text(
+                                  currentUserDisplayName,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      letterSpacing: 0.0,
-                                    ),
                               ),
                             ],
                           ),
@@ -243,214 +237,170 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                 },
                               ),
                               Text(
-                                FFLocalizations.of(context).getText(
-                                  '1hdiqm51' /* correo@usuario.com */,
-                                ),
+                                currentUserEmail,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
-                                      fontSize: FFAppState().prueba.toDouble(),
                                       letterSpacing: 0.0,
                                     ),
                               ),
                             ],
                           ),
                         ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: MediaQuery.sizeOf(context).width * 0.5,
-                              decoration: const BoxDecoration(),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 8.0, 0.0),
-                                child: SizedBox(
-                                  width: MediaQuery.sizeOf(context).width * 0.8,
-                                  child: TextFormField(
-                                    controller: _model.txtNumeroTTextController,
-                                    focusNode: _model.txtNumeroTFocusNode,
-                                    onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.txtNumeroTTextController',
-                                      const Duration(milliseconds: 200),
-                                      () => setState(() {}),
-                                    ),
-                                    autofocus: true,
-                                    readOnly: !widget.edit,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      labelText:
-                                          FFLocalizations.of(context).getText(
-                                        'coqm8xrp' /* Teléfono */,
-                                      ),
-                                      labelStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              StreamBuilder<List<SettingsRecord>>(
+                                stream: querySettingsRecord(
+                                  queryBuilder: (settingsRecord) =>
+                                      settingsRecord.where(
+                                    'name',
+                                    isEqualTo: 'Textos',
+                                  ),
+                                  singleRecord: true,
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
                                           ),
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          width: 2.0,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
                                       ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .error,
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .error,
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      suffixIcon: _model
-                                              .txtNumeroTTextController!
-                                              .text
-                                              .isNotEmpty
-                                          ? InkWell(
-                                              onTap: () async {
-                                                _model.txtNumeroTTextController
-                                                    ?.clear();
-                                                setState(() {});
-                                              },
-                                              child: Icon(
-                                                Icons.clear,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                size: 22,
-                                              ),
-                                            )
-                                          : null,
+                                    );
+                                  }
+                                  List<SettingsRecord>
+                                      labelCorreoSettingsRecordList =
+                                      snapshot.data!;
+                                  // Return an empty Container when the item does not exist.
+                                  if (snapshot.data!.isEmpty) {
+                                    return Container();
+                                  }
+                                  final labelCorreoSettingsRecord =
+                                      labelCorreoSettingsRecordList.isNotEmpty
+                                          ? labelCorreoSettingsRecordList.first
+                                          : null;
+
+                                  return Text(
+                                    FFLocalizations.of(context).getText(
+                                      '0dtx17wt' /* Telefono :  */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
+                                          fontSize: labelCorreoSettingsRecord
+                                              ?.title
+                                              .toDouble(),
                                           letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                    keyboardType: TextInputType.emailAddress,
-                                    validator: _model
-                                        .txtNumeroTTextControllerValidator
-                                        .asValidator(context),
+                                  );
+                                },
+                              ),
+                              AuthUserStreamWidget(
+                                builder: (context) => Text(
+                                  currentPhoneNumber,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return WebViewAware(
+                                      child: GestureDetector(
+                                        onTap: () =>
+                                            FocusScope.of(context).unfocus(),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: const BsEditarUsuarioWidget(),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
+                              },
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 0.4,
+                                height: 40.0,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      FlutterFlowTheme.of(context).tertiary,
+                                      FlutterFlowTheme.of(context).secondary
+                                    ],
+                                    stops: const [0.1, 1.0],
+                                    begin: const AlignmentDirectional(1.0, -1.0),
+                                    end: const AlignmentDirectional(-1.0, 1.0),
+                                  ),
+                                  borderRadius: BorderRadius.circular(24.0),
+                                ),
+                                child: Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Icon(
+                                        Icons.edit,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        size: 24.0,
+                                      ),
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          't1779z3u' /* Editar */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
                             ),
-                            Builder(
-                              builder: (context) {
-                                if (!widget.edit) {
-                                  return FFButtonWidget(
-                                    onPressed: () {
-                                      print('btnEditar pressed ...');
-                                    },
-                                    text: FFLocalizations.of(context).getText(
-                                      'xz1rh3dn' /* Editar */,
-                                    ),
-                                    icon: const Icon(
-                                      Icons.edit,
-                                      size: 15.0,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: 110.0,
-                                      height: 40.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 24.0, 0.0),
-                                      iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).tertiary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                          ),
-                                      elevation: 3.0,
-                                      borderSide: const BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                  );
-                                } else {
-                                  return FFButtonWidget(
-                                    onPressed: () {
-                                      print('btnConfirmarEdicion pressed ...');
-                                    },
-                                    text: FFLocalizations.of(context).getText(
-                                      'f1y65ekt' /* OK */,
-                                    ),
-                                    icon: const Icon(
-                                      Icons.check_circle,
-                                      size: 15.0,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: 110.0,
-                                      height: 40.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 24.0, 0.0),
-                                      iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).tertiary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                          ),
-                                      elevation: 3.0,
-                                      borderSide: const BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                  );
-                                }
-                              },
-                            ),
-                          ],
+                          ),
                         ),
                       ]
-                          .divide(const SizedBox(height: 20.0))
-                          .around(const SizedBox(height: 20.0)),
+                          .divide(const SizedBox(height: 15.0))
+                          .around(const SizedBox(height: 15.0)),
                     ),
                   ),
                 ),
@@ -473,68 +423,43 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                               letterSpacing: 0.0,
                             ),
                       ),
-                      StreamBuilder<List<CoursesRecord>>(
-                        stream: queryCoursesRecord(),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).primary,
-                                  ),
-                                ),
+                      ListView(
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        children: [
+                          ListTile(
+                            title: Text(
+                              FFLocalizations.of(context).getText(
+                                'fe56h84b' /* Manejo de cuchillo */,
                               ),
-                            );
-                          }
-                          List<CoursesRecord> listViewCoursesRecordList =
-                              snapshot.data!;
-
-                          return ListView.builder(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: listViewCoursesRecordList.length,
-                            itemBuilder: (context, listViewIndex) {
-                              final listViewCoursesRecord =
-                                  listViewCoursesRecordList[listViewIndex];
-                              return ListTile(
-                                title: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'fe56h84b' /* Manejo de cuchillo */,
+                              style: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                subtitle: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'etsqrazx' /* Felicitaciones, has completado... */,
+                            ),
+                            subtitle: Text(
+                              FFLocalizations.of(context).getText(
+                                'etsqrazx' /* Felicitaciones, has completado... */,
+                              ),
+                              textAlign: TextAlign.justify,
+                              style: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
                                   ),
-                                  textAlign: TextAlign.justify,
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                dense: false,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(24.0),
-                                ),
-                              );
-                            },
-                          );
-                        },
+                            ),
+                            tileColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            dense: false,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(24.0),
+                            ),
+                          ),
+                        ],
                       ),
                     ]
                         .divide(const SizedBox(height: 20.0))
@@ -591,63 +516,6 @@ class _PerfilUsuarioWidgetState extends State<PerfilUsuarioWidget> {
                                   Text(
                                     FFLocalizations.of(context).getText(
                                       '25f7l60p' /* Cerrar Sesión */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.pushNamed('Nutricion');
-                          },
-                          child: Container(
-                            width: MediaQuery.sizeOf(context).width * 0.4,
-                            height: 40.0,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  FlutterFlowTheme.of(context).tertiary,
-                                  FlutterFlowTheme.of(context).secondary
-                                ],
-                                stops: const [0.1, 1.0],
-                                begin: const AlignmentDirectional(1.0, -1.0),
-                                end: const AlignmentDirectional(-1.0, 1.0),
-                              ),
-                              borderRadius: BorderRadius.circular(24.0),
-                            ),
-                            child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Icon(
-                                    Icons.health_and_safety_outlined,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 24.0,
-                                  ),
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'lqfmgtd6' /* Nutrición */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium

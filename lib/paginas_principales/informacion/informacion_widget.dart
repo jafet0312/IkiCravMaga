@@ -70,18 +70,42 @@ class _InformacionWidgetState extends State<InformacionWidget> {
           centerTitle: true,
           elevation: 2.0,
         ),
-        body: const SafeArea(
+        body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
+          child: Stack(
             children: [
-              Expanded(
-                child: SizedBox(
-                  width: double.infinity,
-                  height: double.infinity,
-                  child: custom_widgets.SlidingUpPanelExample(
-                    width: double.infinity,
-                    height: double.infinity,
+              const Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Stack(
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            width: double.infinity,
+                            height: double.infinity,
+                            child: custom_widgets.SlidingUpPanelExample(
+                              width: double.infinity,
+                              height: double.infinity,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(0.02, -0.23),
+                child: Container(
+                  width: 150.0,
+                  height: 70.0,
+                  decoration: BoxDecoration(
+                    color: const Color(0x00121214),
+                    border: Border.all(
+                      color: Colors.transparent,
+                    ),
                   ),
                 ),
               ),

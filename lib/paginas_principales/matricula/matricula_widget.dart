@@ -1,11 +1,16 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart'
-    as smooth_page_indicator;
+import '/paginas_principales/bs_main/bs_detalle_curso/bs_detalle_curso_widget.dart';
+import '/paginas_principales/bs_main/bs_sin_cupos/bs_sin_cupos_widget.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'matricula_model.dart';
 export 'matricula_model.dart';
 
@@ -25,6 +30,13 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MatriculaModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.startDate = functions.startDate(getCurrentTimestamp);
+      _model.endDate = functions.endDate(getCurrentTimestamp);
+      setState(() {});
+    });
   }
 
   @override
@@ -36,474 +48,624 @@ class _MatriculaWidgetState extends State<MatriculaWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          title: Text(
-            FFLocalizations.of(context).getText(
-              'ha5pfizv' /* Matrícula de cursos */,
+    return StreamBuilder<List<CoursesRecord>>(
+      stream: queryCoursesRecord(
+        queryBuilder: (coursesRecord) => coursesRecord
+            .where(
+              'date',
+              isGreaterThanOrEqualTo: getCurrentTimestamp,
+            )
+            .where(
+              'date',
+              isLessThanOrEqualTo: _model.endDate,
+            )
+            .orderBy('date'),
+      ),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
+                  ),
+                ),
+              ),
             ),
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-              fontFamily: 'Sora',
-              color: Colors.white,
-              fontSize: 22.0,
-              letterSpacing: 0.0,
-              shadows: [
-                Shadow(
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  offset: const Offset(2.0, 2.0),
-                  blurRadius: 2.0,
-                )
+          );
+        }
+        List<CoursesRecord> matriculaCoursesRecordList = snapshot.data!;
+
+        return GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            appBar: AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).primary,
+              automaticallyImplyLeading: false,
+              title: Text(
+                FFLocalizations.of(context).getText(
+                  'k03wal3e' /* Matricula */,
+                ),
+                style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Sora',
+                  color: Colors.white,
+                  fontSize: 22.0,
+                  letterSpacing: 0.0,
+                  shadows: [
+                    Shadow(
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      offset: const Offset(2.0, 2.0),
+                      blurRadius: 2.0,
+                    )
+                  ],
+                ),
+              ),
+              actions: [
+                Visibility(
+                  visible:
+                      valueOrDefault(currentUserDocument?.role, '') == 'admin',
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                    child: AuthUserStreamWidget(
+                      builder: (context) => InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                            'AdminCursos',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: const TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.scale,
+                                alignment: Alignment.bottomCenter,
+                                duration: Duration(milliseconds: 300),
+                              ),
+                            },
+                          );
+                        },
+                        child: Icon(
+                          Icons.admin_panel_settings_sharp,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          size: 35.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ],
+              centerTitle: true,
+              elevation: 2.0,
             ),
-          ),
-          actions: const [],
-          centerTitle: true,
-          elevation: 2.0,
-        ),
-        body: SafeArea(
-          top: true,
-          child: Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
-                  height: 579.0,
-                  decoration: const BoxDecoration(),
-                  child: SizedBox(
-                    width: double.infinity,
-                    height: 200.0,
-                    child: Stack(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 40.0),
-                          child: PageView(
-                            controller: _model.pageViewController ??=
-                                PageController(initialPage: 0),
-                            scrollDirection: Axis.horizontal,
-                            children: [
-                              Column(
+            body: SafeArea(
+              top: true,
+              child: Align(
+                alignment: const AlignmentDirectional(0.0, -1.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: MediaQuery.sizeOf(context).width * 0.9,
+                      height: MediaQuery.sizeOf(context).height * 0.24,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(24.0),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          FlutterFlowCalendar(
+                            color: FlutterFlowTheme.of(context).primary,
+                            iconColor:
+                                FlutterFlowTheme.of(context).secondaryText,
+                            weekFormat: true,
+                            weekStartsMonday: true,
+                            initialDate: _model.startDate,
+                            rowHeight: 35.0,
+                            onChange: (DateTimeRange? newSelectedDate) async {
+                              if (_model.calendarioSelectedDay ==
+                                  newSelectedDate) {
+                                return;
+                              }
+                              _model.calendarioSelectedDay = newSelectedDate;
+                              _model.startDate =
+                                  _model.calendarioSelectedDay?.start;
+                              _model.endDate =
+                                  _model.calendarioSelectedDay?.end;
+                              setState(() {});
+                              setState(() {});
+                            },
+                            titleStyle: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
+                                  fontFamily: 'Sora',
+                                  letterSpacing: 0.0,
+                                ),
+                            dayOfWeekStyle: FlutterFlowTheme.of(context)
+                                .labelLarge
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
+                            dateStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
+                            selectedDateStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
+                            inactiveDateStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
+                            locale: FFLocalizations.of(context).languageCode,
+                          ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('CursosMatriculados');
+                            },
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 0.4,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    FlutterFlowTheme.of(context).tertiary,
+                                    FlutterFlowTheme.of(context).secondary
+                                  ],
+                                  stops: const [0.1, 1.0],
+                                  begin: const AlignmentDirectional(1.0, -1.0),
+                                  end: const AlignmentDirectional(-1.0, 1.0),
+                                ),
+                                borderRadius: BorderRadius.circular(24.0),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Icon(
+                                    Icons.calendar_month,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 24.0,
+                                  ),
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'ylvrkpk4' /* Matriculados */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ]
+                            .divide(const SizedBox(height: 10.0))
+                            .around(const SizedBox(height: 10.0)),
+                      ),
+                    ),
+                    Expanded(
+                      child: Builder(
+                        builder: (context) {
+                          final cursos = matriculaCoursesRecordList.toList();
+
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            primary: false,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: cursos.length,
+                            itemBuilder: (context, cursosIndex) {
+                              final cursosItem = cursos[cursosIndex];
+                              return Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.9,
-                                    height:
-                                        MediaQuery.sizeOf(context).height * 0.2,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                    child: FlutterFlowCalendar(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      iconColor: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      weekFormat: true,
-                                      weekStartsMonday: true,
-                                      rowHeight: 64.0,
-                                      onChange:
-                                          (DateTimeRange? newSelectedDate) {
-                                        setState(() =>
-                                            _model.contCalendarioSelectedDay =
-                                                newSelectedDate);
-                                      },
-                                      titleStyle: FlutterFlowTheme.of(context)
-                                          .headlineSmall
-                                          .override(
-                                            fontFamily: 'Sora',
-                                            letterSpacing: 0.0,
-                                          ),
-                                      dayOfWeekStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .labelLarge
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                letterSpacing: 0.0,
-                                              ),
-                                      dateStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
-                                      selectedDateStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .titleSmall
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                letterSpacing: 0.0,
-                                              ),
-                                      inactiveDateStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .labelMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                letterSpacing: 0.0,
-                                              ),
-                                      locale: FFLocalizations.of(context)
-                                          .languageCode,
-                                    ),
+                                  Divider(
+                                    thickness: 1.0,
+                                    color: FlutterFlowTheme.of(context).accent4,
+                                  ),
+                                  AutoSizeText(
+                                    cursosItem.name,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                   ),
                                   Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.9,
-                                    height:
-                                        MediaQuery.sizeOf(context).height * 0.4,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                    child: StreamBuilder<List<CoursesRecord>>(
-                                      stream: queryCoursesRecord(),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: CircularProgressIndicator(
-                                                valueColor:
-                                                    AlwaysStoppedAnimation<
-                                                        Color>(
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
+                                    decoration: const BoxDecoration(),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Container(
+                                          width: 300.0,
+                                          decoration: const BoxDecoration(),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              SizedBox(
+                                                width: 300.0,
+                                                child: Divider(
+                                                  height: 20.0,
+                                                  thickness: 1.0,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent4,
                                                 ),
                                               ),
-                                            ),
-                                          );
-                                        }
-                                        List<CoursesRecord>
-                                            listViewCoursesRecordList =
-                                            snapshot.data!;
-
-                                        return ListView.builder(
-                                          padding: EdgeInsets.zero,
-                                          scrollDirection: Axis.vertical,
-                                          itemCount:
-                                              listViewCoursesRecordList.length,
-                                          itemBuilder:
-                                              (context, listViewIndex) {
-                                            final listViewCoursesRecord =
-                                                listViewCoursesRecordList[
-                                                    listViewIndex];
-                                            return Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 10.0, 0.0),
-                                              child: InkWell(
+                                              InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
                                                 hoverColor: Colors.transparent,
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  context.pushNamed(
-                                                      'DetallesCurso');
-                                                },
-                                                child: Slidable(
-                                                  endActionPane: ActionPane(
-                                                    motion:
-                                                        const ScrollMotion(),
-                                                    extentRatio: 0.25,
-                                                    children: [
-                                                      SlidableAction(
-                                                        label:
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                          'x8vx5mrq' /* Matricular */,
+                                                  await showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    enableDrag: false,
+                                                    context: context,
+                                                    builder: (context) {
+                                                      return WebViewAware(
+                                                        child: GestureDetector(
+                                                          onTap: () =>
+                                                              FocusScope.of(
+                                                                      context)
+                                                                  .unfocus(),
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child:
+                                                                BsDetalleCursoWidget(
+                                                              horario:
+                                                                  cursosItem
+                                                                      .date!,
+                                                              descripcion:
+                                                                  cursosItem
+                                                                      .description,
+                                                              nombre: cursosItem
+                                                                  .name,
+                                                              imagenUrl:
+                                                                  cursosItem
+                                                                      .imageURL,
+                                                            ),
+                                                          ),
                                                         ),
-                                                        backgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent2,
-                                                        icon: Icons
-                                                            .add_circle_outline,
-                                                        onPressed: (_) {
-                                                          print(
-                                                              'SlidableActionWidget pressed ...');
-                                                        },
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  child: ListTile(
-                                                    title: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'f50w72xs' /* Manejo de cuchillo */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .titleLarge
-                                                          .override(
-                                                            fontFamily: 'Sora',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                    subtitle: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'vta1h13c' /* Horario: 6:00pm */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .labelMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                    trailing: Icon(
-                                                      Icons.arrow_forward_ios,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      size: 20.0,
-                                                    ),
-                                                    dense: false,
-                                                    contentPadding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              24.0),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            );
-                                          },
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                ].divide(const SizedBox(height: 20.0)),
-                              ),
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.9,
-                                    height: MediaQuery.sizeOf(context).height *
-                                        0.63,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            'w1vwtf3a' /* Cursos Matriculados */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .titleMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                        ListView(
-                                          padding: EdgeInsets.zero,
-                                          shrinkWrap: true,
-                                          scrollDirection: Axis.vertical,
-                                          children: [
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                context
-                                                    .pushNamed('DetallesCurso');
-                                              },
-                                              child: Slidable(
-                                                endActionPane: ActionPane(
-                                                  motion: const ScrollMotion(),
-                                                  extentRatio: 0.25,
+                                                      );
+                                                    },
+                                                  ).then((value) =>
+                                                      safeSetState(() {}));
+                                                },
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
                                                   children: [
-                                                    SlidableAction(
-                                                      label: FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'qz0wh0uh' /* Eliminar */,
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0,
+                                                                  5.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          cursosItem.imageURL,
+                                                          width: 125.0,
+                                                          height: 100.0,
+                                                          fit: BoxFit.fill,
+                                                        ),
                                                       ),
-                                                      backgroundColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
-                                                      icon: Icons.delete,
-                                                      onPressed: (_) {
-                                                        print(
-                                                            'SlidableActionWidget pressed ...');
-                                                      },
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Container(
+                                                            width: 165.0,
+                                                            decoration:
+                                                                const BoxDecoration(),
+                                                          ),
+                                                          SizedBox(
+                                                            width: 140.0,
+                                                            height: 20.0,
+                                                            child: custom_widgets
+                                                                .ConcatenatedText(
+                                                              width: 140.0,
+                                                              height: 20.0,
+                                                              firstText:
+                                                                  'Precio: ₡',
+                                                              secondText:
+                                                                  cursosItem
+                                                                      .price
+                                                                      .toString(),
+                                                              fontSize: 14.0,
+                                                              textColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                              fontFamily:
+                                                                  'Secondary Family',
+                                                            ),
+                                                          ),
+                                                          SizedBox(
+                                                            width: 140.0,
+                                                            height: 20.0,
+                                                            child: custom_widgets
+                                                                .ConcatenatedText(
+                                                              width: 140.0,
+                                                              height: 20.0,
+                                                              firstText:
+                                                                  'Cupos: ',
+                                                              secondText: cursosItem
+                                                                  .maxCapacity
+                                                                  .toString(),
+                                                              fontSize: 14.0,
+                                                              textColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                            ),
+                                                          ),
+                                                          SizedBox(
+                                                            width: 140.0,
+                                                            height: 20.0,
+                                                            child: custom_widgets
+                                                                .ConcatenatedText(
+                                                              width: 140.0,
+                                                              height: 20.0,
+                                                              firstText:
+                                                                  'Disponibles: ',
+                                                              secondText: functions
+                                                                  .calculoCupos(
+                                                                      cursosItem
+                                                                          .maxCapacity,
+                                                                      cursosItem
+                                                                          .participants
+                                                                          .length)
+                                                                  .toString(),
+                                                              fontSize: 14.0,
+                                                              textColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                            ),
+                                                          ),
+                                                          SizedBox(
+                                                            width: 140.0,
+                                                            height: 20.0,
+                                                            child: custom_widgets
+                                                                .ConcatenatedText(
+                                                              width: 140.0,
+                                                              height: 20.0,
+                                                              firstText:
+                                                                  'Hora: ',
+                                                              secondText:
+                                                                  dateTimeFormat(
+                                                                "jm",
+                                                                cursosItem
+                                                                    .date!,
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              ),
+                                                              fontSize: 14.0,
+                                                              textColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                            ),
+                                                          ),
+                                                        ].divide(const SizedBox(
+                                                            height: 5.0)),
+                                                      ),
                                                     ),
                                                   ],
                                                 ),
-                                                child: ListTile(
-                                                  title: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '1avc2tkg' /* Defensa con cuchillo */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily: 'Sora',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                  subtitle: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '7xjxj1uf' /* Fecha: 27/06/2024 - Horario: 8... */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                  trailing: Icon(
-                                                    Icons.arrow_forward_ios,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    size: 20.0,
-                                                  ),
-                                                  dense: false,
-                                                  contentPadding:
-                                                      const EdgeInsetsDirectional
-                                                          .fromSTEB(10.0, 0.0,
-                                                              10.0, 0.0),
-                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                      ]
-                                          .divide(const SizedBox(height: 20.0))
-                                          .around(const SizedBox(height: 20.0)),
+                                        SizedBox(
+                                          height: 100.0,
+                                          child: VerticalDivider(
+                                            thickness: 1.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .accent4,
+                                          ),
+                                        ),
+                                        Builder(
+                                          builder: (context) {
+                                            if (!cursosItem.participants
+                                                .contains(
+                                                    currentUserReference)) {
+                                              return Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      if (functions
+                                                                  .calculoCupos(
+                                                                      cursosItem
+                                                                          .maxCapacity,
+                                                                      cursosItem
+                                                                          .participants
+                                                                          .length)
+                                                                  .toString() ==
+                                                              '0'
+                                                          ? true
+                                                          : false) {
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () =>
+                                                                    FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      SizedBox(
+                                                                    height: MediaQuery.sizeOf(context)
+                                                                            .height *
+                                                                        0.25,
+                                                                    child:
+                                                                        const BsSinCuposWidget(),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+                                                      } else {
+                                                        await cursosItem
+                                                            .reference
+                                                            .update({
+                                                          ...mapToFirestore(
+                                                            {
+                                                              'participants':
+                                                                  FieldValue
+                                                                      .arrayUnion([
+                                                                currentUserReference
+                                                              ]),
+                                                            },
+                                                          ),
+                                                        });
+                                                      }
+                                                    },
+                                                    child: Icon(
+                                                      Icons.upload_sharp,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .accent4,
+                                                      size: 30.0,
+                                                    ),
+                                                  ),
+                                                ],
+                                              );
+                                            } else {
+                                              return InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  await cursosItem.reference
+                                                      .update({
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'participants':
+                                                            FieldValue
+                                                                .arrayRemove([
+                                                          currentUserReference
+                                                        ]),
+                                                      },
+                                                    ),
+                                                  });
+                                                },
+                                                child: Icon(
+                                                  Icons.cancel,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary,
+                                                  size: 30.0,
+                                                ),
+                                              );
+                                            }
+                                          },
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        Align(
-                          alignment: const AlignmentDirectional(-1.0, 1.0),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 0.0, 16.0),
-                            child: smooth_page_indicator.SmoothPageIndicator(
-                              controller: _model.pageViewController ??=
-                                  PageController(initialPage: 0),
-                              count: 2,
-                              axisDirection: Axis.horizontal,
-                              onDotClicked: (i) async {
-                                await _model.pageViewController!.animateToPage(
-                                  i,
-                                  duration: const Duration(milliseconds: 500),
-                                  curve: Curves.ease,
-                                );
-                                setState(() {});
-                              },
-                              effect: smooth_page_indicator.ExpandingDotsEffect(
-                                expansionFactor: 3.0,
-                                spacing: 8.0,
-                                radius: 16.0,
-                                dotWidth: 16.0,
-                                dotHeight: 8.0,
-                                dotColor: FlutterFlowTheme.of(context).accent1,
-                                activeDotColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                paintStyle: PaintingStyle.fill,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    context.pushNamed('GuiasYT');
-                  },
-                  child: Container(
-                    width: MediaQuery.sizeOf(context).width * 0.4,
-                    height: 40.0,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          FlutterFlowTheme.of(context).tertiary,
-                          FlutterFlowTheme.of(context).secondary
-                        ],
-                        stops: const [0.1, 1.0],
-                        begin: const AlignmentDirectional(1.0, -1.0),
-                        end: const AlignmentDirectional(-1.0, 1.0),
+                              );
+                            },
+                          );
+                        },
                       ),
-                      borderRadius: BorderRadius.circular(24.0),
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Icon(
-                          Icons.library_books_sharp,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 24.0,
-                        ),
-                        Text(
-                          FFLocalizations.of(context).getText(
-                            'ihnbg6im' /* Guías de Uso */,
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  ]
+                      .divide(const SizedBox(height: 20.0))
+                      .around(const SizedBox(height: 20.0)),
                 ),
-              ]
-                  .divide(const SizedBox(height: 0.0))
-                  .addToStart(const SizedBox(height: 20.0)),
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

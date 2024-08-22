@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'nutricion_widget.dart' show NutricionWidget;
+import 'cursos_matriculados_widget.dart' show CursosMatriculadosWidget;
 import 'package:flutter/material.dart';
 
-class NutricionModel extends FlutterFlowModel<NutricionWidget> {
+class CursosMatriculadosModel
+    extends FlutterFlowModel<CursosMatriculadosWidget> {
   @override
   void initState(BuildContext context) {}
 

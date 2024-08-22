@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'perfil_usuario_widget.dart' show PerfilUsuarioWidget;
+import 'bs_sin_cupos_widget.dart' show BsSinCuposWidget;
 import 'package:flutter/material.dart';
 
-class PerfilUsuarioModel extends FlutterFlowModel<PerfilUsuarioWidget> {
+class BsSinCuposModel extends FlutterFlowModel<BsSinCuposWidget> {
   @override
   void initState(BuildContext context) {}
 

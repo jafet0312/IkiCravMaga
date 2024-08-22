@@ -103,10 +103,10 @@ class _TerminosWidgetState extends State<TerminosWidget> {
                     height: 135.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
+                      shape: BoxShape.rectangle,
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                      padding: const EdgeInsets.all(2.0),
                       child: StreamBuilder<List<SettingsRecord>>(
                         stream: querySettingsRecord(
                           queryBuilder: (settingsRecord) =>
@@ -131,15 +131,15 @@ class _TerminosWidgetState extends State<TerminosWidget> {
                               ),
                             );
                           }
-                          List<SettingsRecord> textSettingsRecordList =
+                          List<SettingsRecord> txtTerminosSettingsRecordList =
                               snapshot.data!;
                           // Return an empty Container when the item does not exist.
                           if (snapshot.data!.isEmpty) {
                             return Container();
                           }
-                          final textSettingsRecord =
-                              textSettingsRecordList.isNotEmpty
-                                  ? textSettingsRecordList.first
+                          final txtTerminosSettingsRecord =
+                              txtTerminosSettingsRecordList.isNotEmpty
+                                  ? txtTerminosSettingsRecordList.first
                                   : null;
 
                           return Text(
@@ -151,8 +151,8 @@ class _TerminosWidgetState extends State<TerminosWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Inter',
-                                  fontSize:
-                                      textSettingsRecord?.title.toDouble(),
+                                  fontSize: txtTerminosSettingsRecord?.title
+                                      .toDouble(),
                                   letterSpacing: 0.0,
                                 ),
                           );
@@ -201,8 +201,7 @@ class _TerminosWidgetState extends State<TerminosWidget> {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        padding: const EdgeInsets.all(2.0),
                         child: StreamBuilder<List<SettingsRecord>>(
                           stream: querySettingsRecord(
                             queryBuilder: (settingsRecord) =>
@@ -227,15 +226,16 @@ class _TerminosWidgetState extends State<TerminosWidget> {
                                 ),
                               );
                             }
-                            List<SettingsRecord> textSettingsRecordList =
+                            List<SettingsRecord>
+                                txtInfoLicenciaSettingsRecordList =
                                 snapshot.data!;
                             // Return an empty Container when the item does not exist.
                             if (snapshot.data!.isEmpty) {
                               return Container();
                             }
-                            final textSettingsRecord =
-                                textSettingsRecordList.isNotEmpty
-                                    ? textSettingsRecordList.first
+                            final txtInfoLicenciaSettingsRecord =
+                                txtInfoLicenciaSettingsRecordList.isNotEmpty
+                                    ? txtInfoLicenciaSettingsRecordList.first
                                     : null;
 
                             return Text(
@@ -247,8 +247,9 @@ class _TerminosWidgetState extends State<TerminosWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    fontSize:
-                                        textSettingsRecord?.title.toDouble(),
+                                    fontSize: txtInfoLicenciaSettingsRecord
+                                        ?.title
+                                        .toDouble(),
                                     letterSpacing: 0.0,
                                   ),
                             );
@@ -297,8 +298,7 @@ class _TerminosWidgetState extends State<TerminosWidget> {
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        padding: const EdgeInsets.all(2.0),
                         child: StreamBuilder<List<SettingsRecord>>(
                           stream: querySettingsRecord(
                             queryBuilder: (settingsRecord) =>
@@ -323,15 +323,18 @@ class _TerminosWidgetState extends State<TerminosWidget> {
                                 ),
                               );
                             }
-                            List<SettingsRecord> textSettingsRecordList =
+                            List<SettingsRecord>
+                                txtInfoRestriccionesSettingsRecordList =
                                 snapshot.data!;
                             // Return an empty Container when the item does not exist.
                             if (snapshot.data!.isEmpty) {
                               return Container();
                             }
-                            final textSettingsRecord =
-                                textSettingsRecordList.isNotEmpty
-                                    ? textSettingsRecordList.first
+                            final txtInfoRestriccionesSettingsRecord =
+                                txtInfoRestriccionesSettingsRecordList
+                                        .isNotEmpty
+                                    ? txtInfoRestriccionesSettingsRecordList
+                                        .first
                                     : null;
 
                             return Text(
@@ -343,8 +346,9 @@ class _TerminosWidgetState extends State<TerminosWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    fontSize:
-                                        textSettingsRecord?.title.toDouble(),
+                                    fontSize: txtInfoRestriccionesSettingsRecord
+                                        ?.title
+                                        .toDouble(),
                                     letterSpacing: 0.0,
                                   ),
                             );
